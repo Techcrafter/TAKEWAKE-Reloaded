@@ -12,13 +12,20 @@ If you just want to run it without rebuilding it, just run 'run-only.sh'.
 
 ### What it already have:
 -Basics (Display support, ...)
+
 -Keyboard support
+
 -Mouse support (just not used yet)
+
 -Multiple languages with different keyboard layouts (English (USA), Englisch (UK) and German (DE))
+
 -Read date and time from CMOS
+
 -A few little programs (Calculator, Tic Tac Toe, ...)
+
 -Friendly interface with arrow key navigation which is really easy to program
-...and a lot more
+
+_...and a lot more_
 
 ### How can I help?
 You can help with nearly everything.
