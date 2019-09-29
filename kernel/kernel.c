@@ -22,6 +22,7 @@
 //Including the modules
 #include "../modules/display.h"
 #include "../modules/input.h"
+#include "../modules/sound.h"
 #include "../modules/string.h"
 #include "../modules/system.h"
 #include "../modules/types.h"
@@ -31,7 +32,7 @@
 #include "../system/languages.h"
 #include "../system/shell.h"
 
-string version = "0.0.1";  //Version
+string version = "0.0.2";  //Version
 string versionYear = "2019";  //Year of the current version
 
 void kmain()  //Kernelmainfunktion (at start)
@@ -170,6 +171,7 @@ void kfatal()  //Fatal error
   setCursorY(0);
   printColored(versionYear, 15, 0);
   printColored(" | The TAKEWAKE Community", 15, 0);
+  beep();
   pause();
   kreboot();
 }

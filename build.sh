@@ -23,9 +23,7 @@
 echo Compiling kernel/kernel.c to objects/kc.o...
 gcc -m32 -c kernel/kernel.c -o objects/kc.o -ffreestanding
 echo Done
-echo Compiling system/shell.c to objects/shell.o...
-gcc -m32 -c system/shell.c -o objects/shell.o -ffreestanding
-echo Done
+
 echo Compiling modules/display.c to objects/display.o...
 gcc -m32 -c modules/display.c -o objects/display.o -ffreestanding
 echo Done
@@ -37,6 +35,12 @@ gcc -m32 -c modules/interface.c -o objects/interface.o -ffreestanding
 echo Done
 echo Compiling system/languages.c to objects/languages.o...
 gcc -m32 -c system/languages.c -o objects/languages.o -ffreestanding
+echo Done
+echo Compiling system/shell.c to objects/shell.o...
+gcc -m32 -c system/shell.c -o objects/shell.o -ffreestanding
+echo Done
+echo Compiling modules/sound.c to objects/sound.o...
+gcc -m32 -c modules/sound.c -o objects/sound.o -ffreestanding
 echo Done
 echo Compiling modules/string.c to objects/string.o...
 gcc -m32 -c modules/string.c -o objects/string.o -ffreestanding
@@ -54,7 +58,7 @@ echo Compiling modules/utilities.c to objects/utilities.o...
 gcc -m32 -c modules/utilities.c -o objects/utilities.o -ffreestanding
 echo Done
 echo Linking all files to kernel.bin...
-ld -m elf_i386 -T link.ld -o TAKEWAKE-Reloaded/boot/kernel.bin objects/kasm.o objects/kc.o objects/display.o objects/input.o objects/interface.o objects/languages.o objects/shell.o objects/string.o objects/system.o objects/terminal.o objects/time.o objects/utilities.o
+ld -m elf_i386 -T link.ld -o TAKEWAKE-Reloaded/boot/kernel.bin objects/kasm.o objects/kc.o objects/display.o objects/input.o objects/interface.o objects/languages.o objects/shell.o objects/sound.o objects/string.o objects/system.o objects/terminal.o objects/time.o objects/utilities.o
 echo Done
 echo Building .iso file...
 grub-mkrescue -o OUTPUT/TAKEWAKE-Reloaded.iso TAKEWAKE-Reloaded/
@@ -65,7 +69,7 @@ echo BUILDING DONE
 
 #Start QEMU to test
 echo Running QEMU...
-qemu-system-i386 -cdrom OUTPUT/TAKEWAKE-Reloaded.iso
+qemu-system-i386 -cdrom OUTPUT/TAKEWAKE-Reloaded.iso -soundhw pcspk
 echo Done
 
 echo Waiting...

@@ -25,6 +25,7 @@
 //Including the modules
 #include "../modules/display.h"
 #include "../modules/input.h"
+#include "../modules/sound.h"
 #include "../modules/string.h"
 #include "../modules/system.h"
 #include "../modules/types.h"
@@ -48,5 +49,9 @@ void terminalSetLanguage(); //Sets the systemlanguage to an int
 void terminalGetTime();  //Prints the current time from CMOS in HH/MM/SS format
 
 void terminalGetDate();  //Prints the current date from CMOS in DD/MM/YY format
+
+void terminalPlayTone();  //Plays a tone with a specified frequence for 3 seconds
+
+void terminalMouse();  //Demonstration of mouse functionality
 
 #endif

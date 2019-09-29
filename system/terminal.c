@@ -72,6 +72,10 @@ void terminalMain()  //Terminal-mainfunction
     {
       terminalTestInfobox();
     }
+    else if(strEquals(input, "mouse"))
+    {
+      terminalMouse();
+    }
     else if(strEquals(input, "quit"))
     {
       return;
@@ -91,6 +95,10 @@ void terminalMain()  //Terminal-mainfunction
     else if(strEquals(input, "time"))
     {
       terminalGetTime();
+    }
+    else if(strEquals(input, "tone"))
+    {
+      terminalPlayTone();
     }
     else
     {
@@ -127,6 +135,9 @@ void terminalHelp()  //Terminal-help
   print("\n infobox             ");
   printch((char)186);
   print(" Displays a test infobox.");
+  print("\n mouse               ");
+  printch((char)186);
+  print(" Demonstration of mouse functionality.");
   print("\n quit                ");
   printch((char)186);
   print(" Quit the terminal.");
@@ -142,6 +153,9 @@ void terminalHelp()  //Terminal-help
   print("\n time                ");
   printch((char)186);
   print(" Displays the current time.");
+  print("\n tone                ");
+  printch((char)186);
+  print(" Plays a tone with a specified frequence and time.");
   print("\n                     ");
   printch((char)186);
   print("\n\n  Press [Enter] to return to terminal...");
@@ -232,6 +246,44 @@ void terminalGetDate()  //Prints the current date from CMOS in DD/MM/YY format
   print(int_to_str(getCmosDay()));
   print(".");
   print(int_to_str(getCmosYear()));
+  
+  return;
+}
+
+void terminalPlayTone()  //Plays a tone with a specified frequence and time
+{
+  print("\nFrequence (Hz): ");
+  input = readStr();
+  if(strEquals(input, "quit"))
+  {
+    printColored("Aborted!", 4, 0);
+    return;
+  }
+  int freq = str_to_int(input);
+  print("\nTime (s): ");
+  input = readStr();
+  if(strEquals(input, "quit"))
+  {
+    printColored("Aborted!", 4, 0);
+    return;
+  }
+  printColored("\nPlaying...", 10, 0);
+  playToneForSec(freq, str_to_int(input));
+  
+  return;
+}
+
+void terminalMouse()  //Demonstration of mouse functionality
+{
+  clear();
+  cursorMouse();
+  int tempX = getCursorX();
+  int tempY = getCursorY();
+  clear();
+  print("X: ");
+  print(int_to_str(tempX));
+  print("\nY: ");
+  print(int_to_str(tempY));
   
   return;
 }

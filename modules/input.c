@@ -708,7 +708,7 @@ void cursorMouse()  //Shows cursor that can be moved by the mouse (mouse)
       else if(value == 56)  //Left (3)
       {
         n3++;
-        if(n3 == 2)
+        if(n3 == 3)
         {
           n3 = 0;
           n4 = 0;
@@ -719,7 +719,7 @@ void cursorMouse()  //Shows cursor that can be moved by the mouse (mouse)
       else if(value == 8)  //Right (4)
       {
         n4++;
-        if(n4 == 2)
+        if(n4 == 3)
         {
           n3 = 0;
           n4 = 0;

@@ -15,11 +15,13 @@ If you just want to run it without rebuilding it, just run 'run-only.sh'.
 
 -Keyboard support
 
--Mouse support (just not used yet)
+-Mouse support (can be tested out in terminal with 'mouse' command)
+
+-Sound support for built in speaker (can be tested out in terminal with 'tone' command)
 
 -Multiple languages with different keyboard layouts (English (USA), Englisch (UK) and German (DE))
 
--Read date and time from CMOS
+-Read date and time from CMOS (can be tested out in terminal with 'date'/'time' command)
 
 -A few little programs (Calculator, Tic Tac Toe, ...)
 
