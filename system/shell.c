@@ -81,7 +81,7 @@ void shellMainMenu()  //Shell-main menu
   }
 }
 
-void shellCalculator()  //Shell-calculator | DOESN'T WORK RIGHT -> NEED TO FIX
+void shellCalculator()  //Shell-calculator
 {
   shellCalculator:
   
