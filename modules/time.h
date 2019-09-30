@@ -25,6 +25,8 @@
 #include "system.h"
 #include "types.h"
 
+int getRawCmosSecond();  //Gets actual raw second from CMOS
+
 int getCmosSecond();  //Gets actual second from CMOS
 
 int getCmosMinute();  //Gets actual minute from CMOS

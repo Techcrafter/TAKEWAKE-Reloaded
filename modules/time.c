@@ -21,6 +21,13 @@
 
 #include "time.h"
 
+int getRawCmosSecond()  //Gets actual raw second from CMOS
+{
+  outportb(0x70, 0x00);  //Orders actual second from CMOS
+  int second = inportb(0x71);  //Gets actual second from CMOS
+  return second;
+}
+
 int getCmosSecond()  //Gets actual second from CMOS
 {
   outportb(0x70, 0x00);  //Orders actual second from CMOS
@@ -70,10 +77,13 @@ void wait(int secondsToWait)  //Waits a specific time in seconds (maximum is 59)
     kerror();
   }
   
-  int goal = getCmosSecond() + secondsToWait;
+  int secondStarted = getRawCmosSecond();  //Saves actual second to variable
+  while(secondStarted == getRawCmosSecond()) {}  //Waits for next second to start waiting (waiting min. full second even if second is nearly over)
+  
+  int goal = getRawCmosSecond() + secondsToWait * 1.5;
   
   int i = -1;
-  while(goal > 59)
+  while(goal > 89)
   {
     goal--;
     i++;
@@ -84,7 +94,7 @@ void wait(int secondsToWait)  //Waits a specific time in seconds (maximum is 59)
     goal = i;
   }
   
-  while(getCmosSecond() < goal) {}
+  while(getRawCmosSecond() < goal) {}
   
   return;
 }
