@@ -55,7 +55,6 @@ void playToneForSec(int frequence, int seconds)  //plays a tone using built in s
 
 void beep()  //Plays a simple beep using built in speaker
 {
-  playTone(1200);
-  wait(3);
+  playToneForSec(1200, 1);
   stopTone();
 }

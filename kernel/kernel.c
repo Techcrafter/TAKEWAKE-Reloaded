@@ -25,6 +25,7 @@
 #include "../modules/sound.h"
 #include "../modules/string.h"
 #include "../modules/system.h"
+#include "../modules/time.h"
 #include "../modules/types.h"
 #include "../modules/utilities.h"
 
@@ -32,7 +33,7 @@
 #include "../system/languages.h"
 #include "../system/shell.h"
 
-string version = "0.0.2";  //Version
+string version = "0.0.3";  //Version
 string versionYear = "2019";  //Year of the current version
 
 void kmain()  //Kernelmainfunktion (at start)
@@ -104,16 +105,15 @@ void kmain()  //Kernelmainfunktion (at start)
   printColored("TAKEWAKE Reloaded ver.", 15, 0);
   printColored(version, 15, 0);
   print("\n\n                   Designed to make the world a better place.");
-  print("\n\n\n\n\n");
-  print("                     ");
-  print(languagesGetString(0));
+  print("\n\n\n\n\n                                  ");
+  print(languagesGetString(6));
   setCursorX(51);
   setCursorY(0);
   print(versionYear);
   print(" | The TAKEWAKE Community");
   setCursorY(18);
   setColor(15, 15);
-  pause();
+  wait(3);  //Wait 3 seconds before continue
   shellMainMenu();
 }
 
@@ -149,11 +149,12 @@ void kerror()  //Error
   setCursorY(18);
   setColor(15, 15);
   pause();
-  shellMainMenu();
+  shellMainMenu();  //Reload shellMainMenu-function
 }
 
 void kfatal()  //Fatal error
 {
+  beep();  //Play a beep
   setColor(15, 4);
   clear();
   print("\n\n\n\n\n\n\n");
@@ -171,9 +172,8 @@ void kfatal()  //Fatal error
   setCursorY(0);
   printColored(versionYear, 15, 0);
   printColored(" | The TAKEWAKE Community", 15, 0);
-  beep();
   pause();
-  kreboot();
+  kreboot();  //Reboot computer
 }
 
 void kreboot()  //Kernelrebootfunction
