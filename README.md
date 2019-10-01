@@ -37,4 +37,9 @@ You can even help us by translating programs or the OS itself into different lan
 ### Do you have any questions?
 Feel free to ask, we won't bite. ;)
 
-## Screenshots can be found in 'SCREENSHOTS' folder.
+### Screenshots:
+![screenshot1](https://raw.githubusercontent.com/Techcrafter/TAKEWAKE-Reloaded/master/SCREENSHOTS/screenshot1.png)
+![screenshot2](https://raw.githubusercontent.com/Techcrafter/TAKEWAKE-Reloaded/master/SCREENSHOTS/screenshot2.png)
+![screenshot3](https://raw.githubusercontent.com/Techcrafter/TAKEWAKE-Reloaded/master/SCREENSHOTS/screenshot3.png)
+![screenshot4](https://raw.githubusercontent.com/Techcrafter/TAKEWAKE-Reloaded/master/SCREENSHOTS/screenshot4.png)
+![screenshot5](https://raw.githubusercontent.com/Techcrafter/TAKEWAKE-Reloaded/master/SCREENSHOTS/screenshot5.png)
