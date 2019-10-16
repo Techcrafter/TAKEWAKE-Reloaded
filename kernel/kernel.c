@@ -33,7 +33,7 @@
 #include "../system/languages.h"
 #include "../system/shell.h"
 
-string version = "0.0.3";  //Version
+string version = "0.0.4";  //Version
 string versionYear = "2019";  //Year of the current version
 
 void kmain()  //Kernelmainfunktion (at start)
@@ -68,9 +68,9 @@ void kmain()  //Kernelmainfunktion (at start)
   setColor(15, 15);
   print(" ");
   setColor(10, 10);
-  print("                                   ");
+  print("                               ");
   hideCursor();
-  print("                                  ");
+  print("                              ");
   //End of bootprocess
   
   //Begin of license part

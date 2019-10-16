@@ -194,6 +194,11 @@ void setColorcode(int colorcode)  //Sets colorvariable by colorcode
   color = colorcode;
 }
 
+int getColor()  //Gets color variable
+{
+  return color;
+}
+
 void setWhiteBgSupport(int newWhiteBgSupport)  //Sets white Background support state (some graphic card's/adapters didn't support this feature)
 {
   whiteBgSupport = newWhiteBgSupport;
@@ -255,136 +260,4 @@ void minusCursorY()  //Sets cursorY minus one position
     cursorY--;
   }
   updateCursor();
-}
-
-int displayInfobox(string title, string text, uint16 type, uint16 preselected)  //Displays an infobox and returns the selection (type1 = ok | type2 = yes,no)
-{
-  int currentColor = color;
-  
-  setColor(15, 0);
-  setCursorY(17);
-  setCursorX(10);
-  printch((char)218);
-  printMultipleCh((char)196, 58);
-  printch((char)191);
-  setCursorX(12);
-  print(title);
-  
-  print("\n          ");
-  printch((char)179);
-  print("                                                          ");
-  printch((char)179);
-  print("\n          ");
-  printch((char)179);
-  print("                                                          ");
-  setCursorX(14);
-  print(text);
-  setCursorX(69);
-  printch((char)179);
-  print("\n          ");
-  printch((char)179);
-  print("                                                          ");
-  printch((char)179);
-  print("\n          ");
-  printch((char)179);
-  print("                                                          ");
-  printch((char)179);
-  print("\n          ");
-  printch((char)179);
-  print("                                                          ");
-  printch((char)179);
-  print("\n          ");
-  
-  printch((char)192);
-  printMultipleCh((char)196, 58);
-  printch((char)217);
-  
-  uint16 selection = preselected;
-  
-  while(1)
-  {
-    if(type == 1)  //ok
-    {
-      if(selection != 1)
-      {
-        kerror();
-      }
-      
-      setCursorY(21);
-      setCursorX(38);
-      printColored(languagesGetString(39), 9, 0);
-      pause();
-      
-      setColorcode(currentColor);
-      clearLine(17, 23);
-      return 1;
-    }
-    else if(type == 2)  //yes,no
-    {
-      if(selection != 1 && selection != 2)
-      {
-        kerror();
-      }
-      
-      setCursorY(21);
-      setCursorX(32);
-      if(selection == 1)
-      {
-        printColored(languagesGetString(31), 10, 0);
-      }
-      else
-      {
-        print(languagesGetString(31));
-      }
-      print("          ");
-      if(selection == 2)
-      {
-        printColored(languagesGetString(32), 4, 0);
-      }
-      else
-      {
-        print(languagesGetString(32));
-      }
-      
-      string input = getNavigation();
-      
-      if(strEquals(input, "left") && selection != 1)
-      {
-        selection--;
-      }
-      else if(strEquals(input, "right") && selection != 2)
-      {
-        selection++;
-      }
-      else if(strEquals(input, "enter"))
-      {
-        if(selection == 1)  //Yes
-        {
-          setColorcode(currentColor);
-          clearLine(17, 23);
-          return selection;
-        }
-        else if(selection == 2)  //No
-        {
-          setColorcode(currentColor);
-          clearLine(17, 23);
-          return selection;
-        }
-        else  //In case of an error
-        {
-          kerror();
-        }
-      }
-      else if(strEquals(input, "quit"))  //Quit
-      {
-        setColorcode(currentColor);
-        clearLine(17, 23);
-        return preselected;
-      }
-    }
-    else
-    {
-      kerror();
-    }
-  }
 }

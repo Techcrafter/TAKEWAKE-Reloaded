@@ -199,7 +199,7 @@ void terminalTestInfobox()  //Displays an infobox with customized type and prese
   }
   int preselected = str_to_int(input);
   print("\nShowing...");
-  int result = displayInfobox("Infobox", "This is an infobox.", type, preselected);
+  int result = showInfobox("Infobox", "This is an infobox.", type, preselected);
   
   if(type != 1)
   {

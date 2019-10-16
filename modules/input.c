@@ -670,7 +670,8 @@ void cursorMouse()  //Shows cursor that can be moved by the mouse (mouse)
   int n2 = 0;
   int n3 = 0;
   int n4 = 0;
-  int n5 = 0;
+  int n5a = 0;
+  int n5b = 0;
   
   activateMouse();
   
@@ -692,7 +693,7 @@ void cursorMouse()  //Shows cursor that can be moved by the mouse (mouse)
           n2 = 0;
           minusCursorY();
         }
-        n5 = 0;
+        n5a = 0;
       }
       else if(value == 40)  //Down (2)
       {
@@ -703,7 +704,7 @@ void cursorMouse()  //Shows cursor that can be moved by the mouse (mouse)
           n2 = 0;
           plusCursorY();
         }
-        n5 = 0;
+        n5a = 0;
       }
       else if(value == 56)  //Left (3)
       {
@@ -714,9 +715,9 @@ void cursorMouse()  //Shows cursor that can be moved by the mouse (mouse)
           n4 = 0;
           minusCursorX();
         }
-        n5 = 0;
+        n5a = 0;
       }
-      else if(value == 8)  //Right (4)
+      else if(value == 8 && n5a != 3)  //Right (4)
       {
         n4++;
         if(n4 == 3)
@@ -725,16 +726,46 @@ void cursorMouse()  //Shows cursor that can be moved by the mouse (mouse)
           n4 = 0;
           plusCursorX();
         }
+        n5a = 0;
       }
-      else if(value == 9)  //Leftclick (5)
+      else if(value == 9 && n5a == 0)  //Leftclick 1 (5)
       {
-        n5++;
-        if(n5 == 2)
+        n5a++;
+      }
+      else if(value == 0 && n5a == 1)  //Leftclick 2 (5)
+      {
+        n5a++;
+      }
+      else if(value == 0 && n5a == 2)  //Leftclick 3 (5)
+      {
+        n5a++;
+      }
+      else if(value == 8 && n5a == 3)  //Leftclick 4 (5)
+      {
+        n5a++;
+      }
+      else if(value == 0 && n5a == 4)  //Leftclick 5 (5)
+      {
+        n5a++;
+      }
+      else if(value == 0 && n5a == 5)  //Leftclick 6 (5)
+      {
+        if(n5b == 1)
         {
           deactivateMouse();
           hideCursor();
           return;
         }
+        else
+        {
+          n5a = 0;
+          n5b++;
+        }
+      }
+      else  //Reset
+      {
+        n5a = 0;
+        n5b = 0;
       }
     }
   }

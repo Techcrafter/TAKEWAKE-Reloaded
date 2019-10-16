@@ -56,6 +56,8 @@ void setColor(int textColor, int bgColor);  //Sets text and background color
 
 void setColorcode(int colorcode);  //Sets colorvariable by colorcode
 
+int getColor();  //Gets color variable
+
 void setWhiteBgSupport(int newWhiteBgSupport);  //Sets white Background support state (some graphic card's/adapters didn't support this feature)
 
 int getCursorX();  //Returns cursorX
@@ -73,7 +75,5 @@ void minusCursorX();  //Sets cursorX minus one position
 void plusCursorY();  //Sets cursorY plus one position
 
 void minusCursorY();  //Sets cursorY minus one position
-
-int displayInfobox(string title, string text, uint16 type, uint16 preselected);  //Displays an infobox and returns the selection
 
 #endif

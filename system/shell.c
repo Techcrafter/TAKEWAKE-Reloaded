@@ -1204,7 +1204,7 @@ void shellSettings()  //Shell-settings
 
 void shellQuitConformationDialog()  //Quit session (Conformation dialog)
 {
-  selection = displayInfobox(languagesGetString(12), languagesGetString(30), 2, 1);
+  selection = showInfobox(languagesGetString(12), languagesGetString(30), 2, 1);
   
   if(selection == 1)
   {
@@ -1222,7 +1222,7 @@ void shellQuitConformationDialog()  //Quit session (Conformation dialog)
 
 void shellRebootSystemConformationDialog()  //Reboot system (Conformation dialog)
 {
-  selection = displayInfobox(languagesGetString(13), languagesGetString(33), 2, 1);
+  selection = showInfobox(languagesGetString(13), languagesGetString(33), 2, 1);
   
   if(selection == 1)
   {
@@ -1323,7 +1323,7 @@ void shellWhiteBgSupportSettings()  //Settings for white background support
   clear();
   
   printColored(languagesGetString(40), 0, 15);
-  selection = displayInfobox(languagesGetString(37), languagesGetString(38), 2, 2);
+  selection = showInfobox(languagesGetString(37), languagesGetString(38), 2, 2);
   
   if(selection == 1)
   {
