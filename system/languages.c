@@ -108,7 +108,15 @@ string language_en_us[] = {  //English (United States)
   "White background support",
   "Please follow the instructions at the top left.",
   "OK",
-  "Select 'No' if this text is blinking, else 'Yes'."  //40
+  "Select 'No' if this text is blinking, else 'Yes'.",  //40
+  "Mouse settings",
+  "Do you want to enable mouse support?",
+  "Information",
+  "The old interface will be used.",
+  "Set the pointer speed of your mouse below.",  //45
+  "Error!",
+  "Mouse support is disabled.",
+  "Need doubleclick"
 };
 
 string language_en_uk[] = {  //English (United Kingdom)
@@ -152,7 +160,15 @@ string language_en_uk[] = {  //English (United Kingdom)
   "White background support",
   "Please follow the instructions at the top left.",
   "OK",
-  "Select 'No' if this text is blinking, else 'Yes'."  //40
+  "Select 'No' if this text is blinking, else 'Yes'.",  //40
+  "Mouse settings",
+  "Do you want to enable mouse support?",
+  "Information",
+  "The old interface will be used.",
+  "Set the pointer speed of your mouse below.",  //45
+  "Error!",
+  "Mouse support is disabled.",
+  "Need doubleclick"
 };
 
 string language_de_de[] = {  //German/Deutsch (Deutschland)
@@ -196,5 +212,13 @@ string language_de_de[] = {  //German/Deutsch (Deutschland)
   "Unterstuetzung von weissem Hintergrund",
   "Bitte die Anweisungen oben links befolgen.",
   "OK",
-  "'Nein' waehlen falls dieser Text blinkt, sonst 'Ja'."  //40
+  "'Nein' waehlen falls dieser Text blinkt, sonst 'Ja'.",  //40
+  "Mauseinstellungen",
+  "Moechten sie die Maus aktivieren?",
+  "Hinweis",
+  "Das alte Interface wird verwendet.",
+  "Stellen sie unten die Zeigergeschwindigkeit ihrer Maus ein.",  //45
+  "Fehler!",
+  "Die Maus ist deaktiviert.",
+  "Doppelklick benoetigt"
 };

@@ -23,8 +23,13 @@
 #define INPUT_H
 
 #include "display.h"
+#include "interface.h"
 #include "system.h"
 #include "types.h"
+
+int mouseSupport;
+int mouseDelay;
+int mouseDoubleclick;
 
 string readStr();  //Input of strings (keyboard)
 
@@ -37,5 +42,15 @@ void activateMouse();  //Activates the mouse to send data (mouse)
 void deactivateMouse();  //Deactivates the mouse to stop sending data (mouse)
 
 void cursorMouse();  //Shows cursor that can be moved by the mouse (mouse)
+
+void setMouseSupport(int state);  //Sets mouse support
+
+int getMouseDelay();  //Gets mouse delay
+
+void setMouseDelay(int value);  //Sets mouse delay
+
+int getMouseDoubleclick();  //Gets if doubleclick is needed for mouse
+
+void setMouseDoubleclick(int state);  //Set if doubleclick is needed for mouse
 
 #endif

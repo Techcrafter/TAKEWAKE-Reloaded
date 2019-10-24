@@ -23,12 +23,7 @@
 #define LANGUAGES_H
 
 //Including the modules
-#include "../modules/display.h"
-#include "../modules/input.h"
-#include "../modules/string.h"
-#include "../modules/system.h"
 #include "../modules/types.h"
-#include "../modules/utilities.h"
 
 int language;
 

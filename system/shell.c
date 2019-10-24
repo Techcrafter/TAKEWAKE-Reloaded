@@ -1175,6 +1175,7 @@ void shellSettings()  //Shell-settings
   addButton(1, 2, 6, strlength(languagesGetString(36)), 1, languagesGetString(36));  //LanguageSelector
   addButton(2, 2, 7, strlength(languagesGetString(37)), 1, languagesGetString(37));  //Systeminformation
   addButton(3, 2, 8, strlength(languagesGetString(23)), 1, languagesGetString(23));  //White background support
+  addButton(4, 2, 9, strlength(languagesGetString(41)), 1, languagesGetString(41));  //Mouse settings
   selection = runInterface(1, 1);
   
   if(selection == 0)  //Quit
@@ -1191,9 +1192,14 @@ void shellSettings()  //Shell-settings
     shellWhiteBgSupportSettings();
     goto shellSettings;
   }
-  else if(selection == 3)  //Systeminformation
+  else if(selection == 3)  //White background support
   {
     shellSysteminformation();
+    goto shellSettings;
+  }
+  else if(selection == 4)  //Mouse settings
+  {
+    shellMouseSettings();
     goto shellSettings;
   }
   else  //In case of an error
@@ -1340,7 +1346,7 @@ void shellWhiteBgSupportSettings()  //Settings for white background support
   }
 }
 
-void shellSysteminformation()  //Shell-systeminformation (via Shell-settings)
+void shellSysteminformation()  //Shell-systeminformation
 {
   setColor(15, 0);
   clear();
@@ -1378,6 +1384,113 @@ void shellSysteminformation()  //Shell-systeminformation (via Shell-settings)
     if(strEquals(input, "quit"))
     {
       return;
+    }
+  }
+}
+
+void shellMouseSettings()  //Mouse settings
+{
+  setColor(15, 0);
+  clear();
+  selection = showInfobox(languagesGetString(41), languagesGetString(42), 2, 1);
+  if(selection == 1)  //Yes
+  {
+    setMouseSupport(1);
+  }
+  else if(selection == 2)  //No
+  {
+    setMouseSupport(0);
+    showInfobox(languagesGetString(43), languagesGetString(44), 1, 1);
+    return;
+  }
+  else
+  {
+    kfatal();
+  }
+  clear();
+  printColored("                                                                                ", 15, 15);
+  plusCursorX();
+  minusCursorY();
+  printColored(languagesGetString(41), 0, 15);
+  print("\n\n\n   ");
+  print(languagesGetString(45));
+  print("\n\n   <--   ===   -->");
+  setCursorX(3);
+  setCursorY(6);
+  print("[-------------]");
+  int selection2 = getMouseDelay();
+  int selection3 = getMouseDoubleclick();
+  while(1)
+  {
+    newInterface(15, 0, 15, 0);
+    if(selection2 == 1)
+    {
+      addButton(1, 3, 6, 3, 1, "[X-");
+    }
+    else
+    {
+      addButton(1, 3, 6, 3, 1, "[I-");
+    }
+    if(selection2 == 2)
+    {
+      addButton(2, 9, 6, 3, 1, "-X-");
+    }
+    else
+    {
+      addButton(2, 9, 6, 3, 1, "-I-");
+    }
+    if(selection2 == 3)
+    {
+      addButton(3, 15, 6, 3, 1, "-X]");
+    }
+    else
+    {
+      addButton(3, 15, 6, 3, 1, "-I]");
+    }
+    setCursorX(7);
+    setCursorY(9);
+    print(languagesGetString(48));
+    if(selection3 == 1)
+    {
+      addButton(4, 3, 9, 3, 1, "[X]");
+    }
+    else
+    {
+      addButton(4, 3, 9, 3, 1, "[ ]");
+    }
+    addButton(5, 3, 12, languagesGetString(39), 1, languagesGetString(39));
+    selection = runInterface(4, 1);
+    if(selection == 0 || selection == 5)
+    {
+      return;
+    }
+    else if(selection == 4)
+    {
+      if(selection3 == 1)
+      {
+        selection3 = 0;
+      }
+      else
+      {
+        selection3 = 1;
+      }
+      setMouseDoubleclick(selection3);
+    }
+    else
+    {
+      selection2 = selection;
+      if(selection2 == 1)
+      {
+        setMouseDelay(3);
+      }
+      else if(selection2 == 2)
+      {
+        setMouseDelay(2);
+      }
+      else if(selection2 == 3)
+      {
+        setMouseDelay(1);
+      }
     }
   }
 }

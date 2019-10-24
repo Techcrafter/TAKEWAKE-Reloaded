@@ -21,6 +21,10 @@
 
 #include "input.h"
 
+int mouseSupport = 0;
+int mouseDelay = 2;
+int mouseDoubleclick = 0;
+
 string readStr()  //Input of strings (keyboard)
 {
   char buff;
@@ -652,6 +656,11 @@ string pause()  //Pause until Escapekey or Enter is pressed (keyboard)
 
 void activateMouse()  //Activates the mouse to send data (mouse)
 {
+  if(mouseSupport == 0)
+  {
+    showInfobox(languagesGetString(46), languagesGetString(47), 1, 1);
+    kerror();
+  }
   outportb(0x64, 0xA8);  //Activate input by mouse
   outportb(0x64, 0x20);  //Prepare command byte
   outportb(0x64, 0xD4);  //Tells the keyboard controller to send information to the mouse
@@ -687,10 +696,9 @@ void cursorMouse()  //Shows cursor that can be moved by the mouse (mouse)
       if(value == 24)  //Up (1)
       {
         n1++;
-        if(n1 == 3)
+        if(n1 == mouseDelay)
         {
           n1 = 0;
-          n2 = 0;
           minusCursorY();
         }
         n5a = 0;
@@ -698,9 +706,8 @@ void cursorMouse()  //Shows cursor that can be moved by the mouse (mouse)
       else if(value == 40)  //Down (2)
       {
         n2++;
-        if(n2 == 3)
+        if(n2 == mouseDelay)
         {
-          n1 = 0;
           n2 = 0;
           plusCursorY();
         }
@@ -709,10 +716,9 @@ void cursorMouse()  //Shows cursor that can be moved by the mouse (mouse)
       else if(value == 56)  //Left (3)
       {
         n3++;
-        if(n3 == 3)
+        if(n3 == mouseDelay)
         {
           n3 = 0;
-          n4 = 0;
           minusCursorX();
         }
         n5a = 0;
@@ -720,9 +726,8 @@ void cursorMouse()  //Shows cursor that can be moved by the mouse (mouse)
       else if(value == 8 && n5a != 3)  //Right (4)
       {
         n4++;
-        if(n4 == 3)
+        if(n4 == mouseDelay)
         {
-          n3 = 0;
           n4 = 0;
           plusCursorX();
         }
@@ -750,7 +755,7 @@ void cursorMouse()  //Shows cursor that can be moved by the mouse (mouse)
       }
       else if(value == 0 && n5a == 5)  //Leftclick 6 (5)
       {
-        if(n5b == 1)
+        if(n5b == mouseDoubleclick)
         {
           deactivateMouse();
           hideCursor();
@@ -769,4 +774,29 @@ void cursorMouse()  //Shows cursor that can be moved by the mouse (mouse)
       }
     }
   }
+}
+
+void setMouseSupport(int value)  //Sets mouse support
+{
+  mouseSupport = value;
+}
+
+int getMouseDelay()  //Gets mouse delay
+{
+  return mouseDelay;
+}
+
+void setMouseDelay(int value)  //Sets mouse delay
+{
+  mouseDelay = value;
+}
+
+int getMouseDoubleclick()  //Gets if doubleclick is needed for mouse
+{
+  return mouseDoubleclick;
+}
+
+void setMouseDoubleclick(int value)  //Set if doubleclick is needed for mouse
+{
+  mouseDoubleclick = value;
 }

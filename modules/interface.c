@@ -388,7 +388,7 @@ void addButton(int id, int posX, int posY, int sizeX, int sizeY, string text)  /
   }
 }
 
-int runInterface(int navType, int ableToQuit)  //Runs the interface with the specified navigation type (1 = up and down (keyboard) | 2 = left and right (keyboard) | 3 = up, down, left and right (keyboard) | 3 = mouse)
+int runInterface(int navType, int ableToQuit)  //Runs the interface with the specified navigation type (1 = up and down (keyboard) | 2 = left and right (keyboard) | 3 = up, down, left and right (keyboard) | 4 = mouse)
 {
   if(navType == 1 || navType == 2 || navType == 3)  //Selection for keyboard navigation only
   {

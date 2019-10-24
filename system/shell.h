@@ -54,4 +54,6 @@ void shellWhiteBgSupportSettings();  //Settings for white background support
 
 void shellSysteminformation();  //Shell-systeminformation
 
+void shellMouseSettings();  //Mouse settings
+
 #endif
