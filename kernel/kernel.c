@@ -33,8 +33,8 @@
 #include "../system/languages.h"
 #include "../system/shell.h"
 
-string version = "0.0.5";  //Version
-string versionYear = "2019";  //Year of the current version
+const string version = "0.0.5";  //Version
+const string versionYear = "2019";  //Year of the current version
 
 void kmain()  //Kernelmainfunktion (at start)
 {
@@ -97,6 +97,7 @@ void kmain()  //Kernelmainfunktion (at start)
   
   shellWhiteBgSupportSettings();  //Open white background support settings
   
+  clear();
   shellMouseSettings();  //Open mouse settings
   
   //Welcome screen

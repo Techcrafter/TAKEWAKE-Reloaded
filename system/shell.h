@@ -56,4 +56,6 @@ void shellSysteminformation();  //Shell-systeminformation
 
 void shellMouseSettings();  //Mouse settings
 
+void oldShellMainMenu();  //Old version of the shell main menu for disabled mouse support
+
 #endif

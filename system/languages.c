@@ -115,8 +115,9 @@ string language_en_us[] = {  //English (United States)
   "The old interface will be used.",
   "Set the pointer speed of your mouse below.",  //45
   "Error!",
-  "Mouse support is disabled.",
-  "Need doubleclick"
+  "Mouse support needs to be enabled for this action.",
+  "Need doubleclick",
+  "Do you want to configure the mouse now?"
 };
 
 string language_en_uk[] = {  //English (United Kingdom)
@@ -167,8 +168,9 @@ string language_en_uk[] = {  //English (United Kingdom)
   "The old interface will be used.",
   "Set the pointer speed of your mouse below.",  //45
   "Error!",
-  "Mouse support is disabled.",
-  "Need doubleclick"
+  "Mouse support needs to be enabled for this action.",
+  "Need doubleclick",
+  "Do you want to configure the mouse now?"
 };
 
 string language_de_de[] = {  //German/Deutsch (Deutschland)
@@ -219,6 +221,7 @@ string language_de_de[] = {  //German/Deutsch (Deutschland)
   "Das alte Interface wird verwendet.",
   "Stellen sie unten die Zeigergeschwindigkeit ihrer Maus ein.",  //45
   "Fehler!",
-  "Die Maus ist deaktiviert.",
-  "Doppelklick benoetigt"
+  "Fuer diese Aktion muss die Maus aktiviert sein.",
+  "Doppelklick benoetigt",
+  "Moechten sie die Maus jetzt konfigurieren?"
 };

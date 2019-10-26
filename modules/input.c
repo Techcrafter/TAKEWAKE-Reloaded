@@ -22,8 +22,10 @@
 #include "input.h"
 
 int mouseSupport = 0;
-int mouseDelay = 2;
+int mouseDelay = 3;
 int mouseDoubleclick = 0;
+int mouseCursorX = 36;
+int mouseCursorY = 11;
 
 string readStr()  //Input of strings (keyboard)
 {
@@ -659,7 +661,7 @@ void activateMouse()  //Activates the mouse to send data (mouse)
   if(mouseSupport == 0)
   {
     showInfobox(languagesGetString(46), languagesGetString(47), 1, 1);
-    kerror();
+    shellMainMenu();
   }
   outportb(0x64, 0xA8);  //Activate input by mouse
   outportb(0x64, 0x20);  //Prepare command byte
@@ -684,6 +686,8 @@ void cursorMouse()  //Shows cursor that can be moved by the mouse (mouse)
   
   activateMouse();
   
+  setCursorX(mouseCursorX);
+  setCursorY(mouseCursorY);
   showCursor();
   
   while(1)
@@ -702,6 +706,7 @@ void cursorMouse()  //Shows cursor that can be moved by the mouse (mouse)
           minusCursorY();
         }
         n5a = 0;
+        n5b = 0;
       }
       else if(value == 40)  //Down (2)
       {
@@ -712,6 +717,7 @@ void cursorMouse()  //Shows cursor that can be moved by the mouse (mouse)
           plusCursorY();
         }
         n5a = 0;
+        n5b = 0;
       }
       else if(value == 56)  //Left (3)
       {
@@ -722,6 +728,7 @@ void cursorMouse()  //Shows cursor that can be moved by the mouse (mouse)
           minusCursorX();
         }
         n5a = 0;
+        n5b = 0;
       }
       else if(value == 8 && n5a != 3)  //Right (4)
       {
@@ -732,6 +739,7 @@ void cursorMouse()  //Shows cursor that can be moved by the mouse (mouse)
           plusCursorX();
         }
         n5a = 0;
+        n5b = 0;
       }
       else if(value == 9 && n5a == 0)  //Leftclick 1 (5)
       {
@@ -759,6 +767,8 @@ void cursorMouse()  //Shows cursor that can be moved by the mouse (mouse)
         {
           deactivateMouse();
           hideCursor();
+          mouseCursorX = getCursorX();
+          mouseCursorY = getCursorY();
           return;
         }
         else
@@ -774,6 +784,11 @@ void cursorMouse()  //Shows cursor that can be moved by the mouse (mouse)
       }
     }
   }
+}
+
+int getMouseSupport()  //Gets mouse support
+{
+  return mouseSupport;
 }
 
 void setMouseSupport(int value)  //Sets mouse support

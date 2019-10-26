@@ -30,6 +30,8 @@
 int mouseSupport;
 int mouseDelay;
 int mouseDoubleclick;
+int mouseCursorX;
+int mouseCursorY;
 
 string readStr();  //Input of strings (keyboard)
 
@@ -42,6 +44,8 @@ void activateMouse();  //Activates the mouse to send data (mouse)
 void deactivateMouse();  //Deactivates the mouse to stop sending data (mouse)
 
 void cursorMouse();  //Shows cursor that can be moved by the mouse (mouse)
+
+int getMouseSupport();  //Gets mouse support
 
 void setMouseSupport(int state);  //Sets mouse support
 
