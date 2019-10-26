@@ -1374,10 +1374,19 @@ void shellMouseSettings()  //Mouse settings
   printColored(languagesGetString(41), 0, 15);
   print("\n\n\n   ");
   print(languagesGetString(45));
-  print("\n\n    <---<===>--->");
+  print("\n\n   ");
+  printch((char)218);
+  printMultipleCh((char)196, 13);
+  printch((char)191);
   setCursorX(3);
   setCursorY(6);
-  print("[-------------]");
+  printch((char)179);
+  print("-------------");
+  printch((char)179);
+  print("\n   ");
+  printch((char)192);
+  printMultipleCh((char)196, 13);
+  printch((char)217);
   int selection2 = getMouseDelay();
   if(selection2 == 1)
   {
@@ -1393,27 +1402,27 @@ void shellMouseSettings()  //Mouse settings
     newInterface(15, 0, 15, 0);
     if(selection2 == 1)
     {
-      addButton(1, 3, 6, 4, 1, "[-X-");
+      addButton(1, 4, 6, 3, 1, "-X-");
     }
     else
     {
-      addButton(1, 3, 6, 4, 1, "[-I-");
+      addButton(1, 4, 6, 3, 1, "-I-");
     }
     if(selection2 == 2)
     {
-      addButton(2, 8, 6, 5, 1, "--X--");
+      addButton(2, 9, 6, 3, 1, "-X-");
     }
     else
     {
-      addButton(2, 8, 6, 5, 1, "--I--");
+      addButton(2, 9, 6, 3, 1, "-I-");
     }
     if(selection2 == 3)
     {
-      addButton(3, 14, 6, 4, 1, "-X-]");
+      addButton(3, 14, 6, 3, 1, "-X-");
     }
     else
     {
-      addButton(3, 14, 6, 4, 1, "-I-]");
+      addButton(3, 14, 6, 3, 1, "-I-");
     }
     setCursorX(7);
     setCursorY(9);
@@ -1426,7 +1435,8 @@ void shellMouseSettings()  //Mouse settings
     {
       addButton(4, 3, 9, 3, 1, "[ ]");
     }
-    addButton(5, 3, 12, strlength(languagesGetString(39)), 1, languagesGetString(39));
+    drawBox(3, 11, 4, 3, 1);
+    addButton(5, 4, 12, strlength(languagesGetString(39)), 1, languagesGetString(39));
     selection = runInterface(4, 1);
     if(selection == 0 || selection == 5)
     {

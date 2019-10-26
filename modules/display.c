@@ -261,3 +261,91 @@ void minusCursorY()  //Sets cursorY minus one position
   }
   updateCursor();
 }
+
+void drawBox(int xPos, int yPos, int xSize, int ySize, int style)  //Draws a box for a button or something else
+{
+  ySize -= 2;
+  
+  setCursorX(xPos);
+  setCursorY(yPos);
+  
+  if(style == 1)
+  {
+    printch((char)218);
+  }
+  else if(style == 2)
+  {
+    printch((char)201);
+  }
+  
+  if(style == 1)
+  {
+    printMultipleCh((char)196, xSize-2);
+  }
+  else if(style == 2)
+  {
+    printMultipleCh((char)205, xSize-2);
+  }
+  
+  if(style == 1)
+  {
+    printch((char)191);
+  }
+  else if(style == 2)
+  {
+    printch((char)187);
+  }
+  
+  while(ySize != 0)
+  {
+    print("\n");
+    setCursorX(xPos);
+    if(style == 1)
+    {
+      printch((char)179);
+    }
+    else if(style == 2)
+    {
+      printch((char)186);
+    }
+    printMultipleCh((char)32, xSize-2);
+    if(style == 1)
+    {
+      printch((char)179);
+    }
+    else if(style == 2)
+    {
+      printch((char)186);
+    }
+    ySize--;
+  }
+  
+  print("\n");
+  setCursorX(xPos);
+  if(style == 1)
+  {
+    printch((char)192);
+  }
+  else if(style == 2)
+  {
+    printch((char)200);
+  }
+  
+  if(style == 1)
+  {
+    printMultipleCh((char)196, xSize-2);
+  }
+  else if(style == 2)
+  {
+    printMultipleCh((char)205, xSize-2);
+  }
+  
+  if(style == 1)
+  {
+    printch((char)217);
+  }
+  else if(style == 2)
+  {
+    printch((char)188);
+  }
+}
