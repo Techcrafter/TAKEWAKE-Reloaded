@@ -1032,7 +1032,7 @@ int runInterface(int navType, int ableToQuit)  //Runs the interface with the spe
       {
         return selection;
       }
-      else if(strEquals(input, "quit") && ableToQuit == 1)
+      else if(strEquals(input, (char)27) && ableToQuit == 1)
       {
         return 0;
       }
@@ -1290,7 +1290,7 @@ int showInfobox(string title, string text, uint16 type, uint16 preselected)  //S
           kerror();
         }
       }
-      else if(strEquals(input, "quit"))  //Quit
+      else if(strEquals(input, (char)27))  //Quit
       {
         setColorcode(currentColor);
         clearLine(17, 23);

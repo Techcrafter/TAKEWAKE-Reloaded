@@ -46,8 +46,8 @@ string readStr()  //Input of strings (keyboard)
       switch(inportb(0x60))
       {
         case 1:
-          hideCursor();  //Escapekey (returns 'quit')
-          return "quit";
+          hideCursor();  //Escapekey (returns char 27 (ESC))
+          return (char)27;
           break;
         case 2:
           printch('1');
@@ -564,7 +564,7 @@ string readStr()  //Input of strings (keyboard)
       switch(inportb(0x60))
       {
         case 1:
-          return "quit";  //Escapekey (returns 'quit')
+          return (char)27;  //Escapekey (returns char 27 (ESC))
           break;
         case 14:
           if(i!=0)  //Back space
@@ -615,7 +615,7 @@ string getNavigation()  //Get Arrow-Key Navigation (keyboard)
       switch(inportb(0x60))
       {
         case 1:
-          return "quit";  //Escapekey (returns 'quit')
+          return (char)27;  //Escapekey (returns char 27 (ESC))
           break;
         case 28:
           return "enter";  //Enter (returns 'enter')
@@ -646,7 +646,7 @@ string pause()  //Pause until Escapekey or Enter is pressed (keyboard)
       switch(inportb(0x60))
       {
         case 1:
-          return "quit";  //Escapekey (returns 'quit')
+          return (char)27;  //Escapekey (returns char 27 (ESC))
           break;
         case 28:
           return "enter";  //Enter (returns 'enter')

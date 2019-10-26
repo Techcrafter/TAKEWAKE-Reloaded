@@ -45,7 +45,7 @@ void terminalMain()  //Terminal-mainfunction
   print("\n\n");
   printColored("                                    Welcome!", 10, 0);
   print("\n");
-  print("\nPress [ESC] or enter 'quit' to quit.");
+  print("\nPress [ESC] to quit.");
   print("\nEnter 'help' for help.\n");
   while(1)
   {
@@ -76,7 +76,7 @@ void terminalMain()  //Terminal-mainfunction
     {
       terminalMouse();
     }
-    else if(strEquals(input, "quit"))
+    else if(strEquals(input, (char)27))
     {
       return;
     }
@@ -168,7 +168,7 @@ void terminalAscii()  //Displays a specified ascii symbol
 {
   print("\nDEC: ");
   input = readStr();
-  if(strEquals(input, "quit"))
+  if(strEquals(input, (char)27))
   {
     printColored("Aborted!", 4, 0);
     return;
@@ -184,7 +184,7 @@ void terminalTestInfobox()  //Displays an infobox with customized type and prese
 {
   print("\nType: ");
   input = readStr();
-  if(strEquals(input, "quit"))
+  if(strEquals(input, (char)27))
   {
     printColored("Aborted!", 4, 0);
     return;
@@ -192,7 +192,7 @@ void terminalTestInfobox()  //Displays an infobox with customized type and prese
   int type = str_to_int(input);
   print("\nPreselected: ");
   input = readStr();
-  if(strEquals(input, "quit"))
+  if(strEquals(input, (char)27))
   {
     printColored("Aborted!", 4, 0);
     return;
@@ -214,7 +214,7 @@ void terminalSetLanguage()  //Sets the systemlanguage to an int
 {
   print("\nDEC: ");
   input = readStr();
-  if(strEquals(input, "quit"))
+  if(strEquals(input, (char)27))
   {
     printColored("Aborted!", 4, 0);
     return;
@@ -254,7 +254,7 @@ void terminalPlayTone()  //Plays a tone with a specified frequence and time
 {
   print("\nFrequence (Hz): ");
   input = readStr();
-  if(strEquals(input, "quit"))
+  if(strEquals(input, (char)27))
   {
     printColored("Aborted!", 4, 0);
     return;
@@ -262,7 +262,7 @@ void terminalPlayTone()  //Plays a tone with a specified frequence and time
   int freq = str_to_int(input);
   print("\nTime (s): ");
   input = readStr();
-  if(strEquals(input, "quit"))
+  if(strEquals(input, (char)27))
   {
     printColored("Aborted!", 4, 0);
     return;

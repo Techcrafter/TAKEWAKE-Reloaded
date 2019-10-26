@@ -17,7 +17,7 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-//OS-shell (with shell.c)
+//Shell and programs (not terminal) (with shell.c)
 
 #ifndef SHELL_H
 #define SHELL_H
@@ -38,7 +38,7 @@
 string input;
 int selection;
 
-void shellMainMenu();  //Shell-main menu
+void shellMainMenu();  //Shell main menu
 
 void shellCalculator();  //Shell-calculator
 

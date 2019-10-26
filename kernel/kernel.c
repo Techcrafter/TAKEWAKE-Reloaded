@@ -85,7 +85,7 @@ void kmain()  //Kernelmainfunktion (at start)
   setCursorX(4);
   setCursorY(21);
   print("Press [Enter] to accept and to continue.\n    Press [ESC] to refuse and to quit session.");
-  if(strEquals(pause(), "quit"))
+  if(strEquals(pause(), (char)27))
   {
     clear();
     print("You can turn off the computer now.");

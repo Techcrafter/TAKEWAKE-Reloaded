@@ -17,7 +17,7 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-//OS-shell (with shell.h)
+//Shell and programs (not terminal) (with shell.h)
 
 #include "shell.h"
 
@@ -117,7 +117,7 @@ void shellCalculator()  //Shell-calculator
   setCursorX(6);
   setCursorY(7);
   string str1 = readStr();
-  if(strEquals(str1, "quit"))  //Quit
+  if(strEquals(str1, (char)27))  //Quit
   {
     return;
   }
@@ -143,7 +143,7 @@ void shellCalculator()  //Shell-calculator
   setCursorX(6);
   setCursorY(14);
   string str2 = readStr();
-  if(strEquals(str2, "quit"))  //Quit
+  if(strEquals(str2, (char)27))  //Quit
   {
     return;
   }
@@ -184,7 +184,7 @@ void shellCalculator()  //Shell-calculator
   setColor(0, 0);
   setCursorY(23);
   input = pause();
-  if(strEquals(input, "quit"))  //Quit
+  if(strEquals(input, (char)27))  //Quit
   {
     return;
   }
@@ -290,7 +290,7 @@ void shellTicTacToe()  //Shell-Tic Tac Toe
     {
       symbol = selection;  //1 = X | 2 = O
     }
-    else if(strEquals(input, "quit"))  //Quit
+    else if(strEquals(input, (char)27))  //Quit
     {
       return;
     }
@@ -588,7 +588,7 @@ void shellTicTacToe()  //Shell-Tic Tac Toe
           selection = 3;
         }
       }
-      else if(strEquals(input, "quit"))  //Quit
+      else if(strEquals(input, (char)27))  //Quit
       {
         return;
       }
@@ -810,7 +810,7 @@ void shellTicTacToe()  //Shell-Tic Tac Toe
     setCursorX(0);
     setColor(0, 0);
     pause();
-    if(strEquals(input, "quit"))  //Quit
+    if(strEquals(input, (char)27))  //Quit
     {
       return;
     }
@@ -1033,7 +1033,7 @@ void shellTicTacToe()  //Shell-Tic Tac Toe
     setCursorX(0);
     setColor(0, 0);
     input = pause();
-    if(strEquals(input, "quit"))  //Quit
+    if(strEquals(input, (char)27))  //Quit
     {
       return;
     }
@@ -1055,7 +1055,7 @@ void shellTicTacToe()  //Shell-Tic Tac Toe
     setCursorX(0);
     setColor(0, 0);
     input = pause();
-    if(strEquals(input, "quit"))  //Quit
+    if(strEquals(input, (char)27))  //Quit
     {
       return;
     }
@@ -1071,7 +1071,7 @@ void shellTicTacToe()  //Shell-Tic Tac Toe
     setCursorX(0);
     setColor(0, 0);
     input = pause();
-    if(strEquals(input, "quit"))  //Quit
+    if(strEquals(input, (char)27))  //Quit
     {
       return;
     }
@@ -1091,7 +1091,7 @@ void shellTicTacToe()  //Shell-Tic Tac Toe
     setCursorX(0);
     setColor(0, 0);
     input = pause();
-    if(strEquals(input, "quit"))  //Quit
+    if(strEquals(input, (char)27))  //Quit
     {
       return;
     }
@@ -1107,7 +1107,7 @@ void shellTicTacToe()  //Shell-Tic Tac Toe
     setCursorX(0);
     setColor(0, 0);
     input = pause();
-    if(strEquals(input, "quit"))  //Quit
+    if(strEquals(input, (char)27))  //Quit
     {
       return;
     }
@@ -1268,7 +1268,7 @@ void shellLanguageSelector()  //Languageselector
     {
       selection++;
     }
-    else if(strEquals(input, "quit"))
+    else if(strEquals(input, (char)27))
     {
       return;
     }
@@ -1339,7 +1339,7 @@ void shellSysteminformation()  //Shell-systeminformation
   while(1)
   {
     input = pause();
-    if(strEquals(input, "quit"))
+    if(strEquals(input, (char)27))
     {
       return;
     }
