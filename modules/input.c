@@ -24,8 +24,8 @@
 int mouseSupport = 0;
 int mouseDelay = 3;
 int mouseDoubleclick = 0;
-int mouseCursorX = 36;
-int mouseCursorY = 11;
+int mouseCursorX = 39;
+int mouseCursorY = 12;
 
 string readStr()  //Input of strings (keyboard)
 {
