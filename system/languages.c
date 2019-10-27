@@ -74,7 +74,7 @@ string language_en_us[] = {  //English (United States)
   "          Sorry, a fatal error has occurred.",
   "Press [Enter] to restart the computer...",
   "   You can turn off the computer now.",  //5
-  " Welcome!",
+  "Welcome!",
   "Please select a Menuentry:",
   "Calculator",
   "Terminal",
@@ -129,7 +129,7 @@ string language_en_uk[] = {  //English (United Kingdom)
   "          Sorry, a fatal error has occurred.",
   "Press [Enter] to restart the computer...",
   "   You can turn off the computer now.",  //5
-  " Welcome!",
+  "Welcome!",
   "Please select a Menuentry:",
   "Calculator",
   "Terminal",
