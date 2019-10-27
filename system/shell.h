@@ -28,6 +28,7 @@
 #include "../modules/interface.h"
 #include "../modules/string.h"
 #include "../modules/system.h"
+#include "../modules/time.h"
 #include "../modules/types.h"
 #include "../modules/utilities.h"
 
@@ -55,6 +56,8 @@ void shellWhiteBgSupportSettings();  //Settings for white background support
 void shellSysteminformation();  //Shell-systeminformation
 
 void shellMouseSettings();  //Mouse settings
+
+void shellSessionMenu();  //Menu for session options
 
 void oldShellMainMenu();  //Old version of the shell main menu for disabled mouse support
 

@@ -60,7 +60,7 @@ int getCmosMonth()  //Gets actual month from CMOS
 {
   outportb(0x70, 0x08);  //Orders actual month from CMOS
   int month = inportb(0x71);  //Gets actual month from CMOS
-  return month;
+  return month / 1.5;
 }
 
 int getCmosYear()  //Gets actual year from CMOS

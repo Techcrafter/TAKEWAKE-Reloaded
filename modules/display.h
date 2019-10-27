@@ -78,4 +78,6 @@ void minusCursorY();  //Sets cursorY minus one position
 
 void drawBox(int x, int y, int xSize, int ySize, int style);  //Draws a box for a button or something else
 
+void setAutoScroll(int value);  //Enables/Disables auto scroll
+
 #endif

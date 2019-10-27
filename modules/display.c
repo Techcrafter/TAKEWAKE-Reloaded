@@ -23,6 +23,7 @@
 
 int cursorX = 0, cursorY = 0;  //Cursor X and Y position
 const uint8 sw = 80, sh = 25, sd = 2;  //Defining screen width, high and depth
+int autoScroll = 0;  //Auto scroll activated/deactivated
 int color = 0x0F;  //Actual color
 
 int whiteBgSupport = 0;
@@ -101,7 +102,7 @@ void ScrollUp(uint8 lineNumber)  //Scrolls up the screen
 
 void newLineCheck()  //Checks if new line is needed
 {
-  if(cursorY >=sh-1)
+  if(cursorY >= sh-1 && autoScroll == 1)
   {
     ScrollUp(1);
   }
@@ -348,4 +349,9 @@ void drawBox(int xPos, int yPos, int xSize, int ySize, int style)  //Draws a box
   {
     printch((char)188);
   }
+}
+
+void setAutoScroll(int value)  //Enables/Disables auto scroll
+{
+  autoScroll = value;
 }

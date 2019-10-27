@@ -33,7 +33,7 @@
 #include "../system/languages.h"
 #include "../system/shell.h"
 
-const string version = "0.0.5";  //Version
+const string version = "0.0.6";  //Version
 const string versionYear = "2019";  //Year of the current version
 
 void kmain()  //Kernelmainfunktion (at start)

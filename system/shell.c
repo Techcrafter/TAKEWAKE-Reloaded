@@ -28,17 +28,116 @@ void shellMainMenu()  //Shell main menu
 {
   shellMainMenu:
   
-  if(getMouseSupport() == 0)
+  if(getMouseSupport() == 0)  //Start old shell main menu if mouse support is disabled
   {
-    oldShellMainMenu();  //Start old shell main menu if mouse support is disabled
+    oldShellMainMenu();
   }
   
   setColor(15, 0);
   clear();
   
-  print("Placeholder for new shell.\nPress [Enter] to start old shell.");
-  pause();
-  oldShellMainMenu();
+  newInterface(15, 0, 0, 15);
+  
+  drawBox(25, 7, 29, 3, 1);
+  setCursorX(26);
+  setCursorY(8);
+  print("TAKEWAKE Reloaded ver.");
+  print(getVersion());
+  
+  setCursorY(22);
+  print("\n");
+  printMultipleCh((char)196, 5);
+  printch((char)194);
+  printMultipleCh((char)196, 74);
+  addButton(1, 0, 24, 5, 1, "Start");
+  print("     ");
+  printch((char)179);
+  setCursorX(72);
+  if(languagesGetLanguage() == 0 || languagesGetLanguage() == 1)
+  {
+    print(int_to_str(getCmosMonth()));
+    print("/");
+    print(int_to_str(getCmosDay()));
+    print("/");
+    print(int_to_str(getCmosYear()));
+  }
+  else if(languagesGetLanguage() == 2)
+  {
+    print(int_to_str(getCmosDay()));
+    print(".");
+    print(int_to_str(getCmosMonth()));
+    print(".");
+    print(int_to_str(getCmosYear()));
+  }
+  
+  selection = runInterface(4, 0);
+  if(selection == 1)  //Start
+  {
+    setCursorY(8);
+    print("\n");
+    printMultipleCh((char)205, 19);
+    printch((char)187);
+    print("\n                   ");
+    printch((char)186);
+    print("\n                   ");
+    printch((char)185);
+    int i = 11;
+    while(i != 0)
+    {
+      print("\n                   ");
+      printch((char)186);
+      i--;
+    }
+    setCursorY(9);
+    print("\n");
+    printColored(languagesGetString(6), 10, 0);
+    print("\n");
+    printMultipleCh((char)205, 19);
+    
+    addButton(1, 0, 24, 5, 1, "Start");
+    
+    addButton(2, 0, 12, 19, 1, languagesGetString(8));
+    addButton(3, 0, 13, 19, 1, languagesGetString(10));
+    addButton(4, 0, 14, 19, 1, languagesGetString(9));
+    
+    setCursorY(19);
+    print("\n");
+    printMultipleCh((char)196, 19);
+    addButton(5, 0, 21, 10, 1, languagesGetString(35));
+    addButton(6, 0, 22, 19, 1, languagesGetString(50));
+    
+    selection = runInterface(4, 1);
+    if(selection == 0 || selection == 1)
+    {
+      //Nothing, just continue
+    }
+    else if(selection == 2)
+    {
+      shellCalculator();
+    }
+    else if(selection == 3)
+    {
+      shellTicTacToe();
+    }
+    else if(selection == 4)
+    {
+      terminalMain();
+    }
+    else if(selection == 5)
+    {
+      shellSettings();
+    }
+    else if(selection == 6)
+    {
+      clearLine(9, 22);
+      shellSessionMenu();
+    }
+    else
+    {
+      kerror();
+    }
+    goto shellMainMenu;
+  }
 }
 
 void shellCalculator()  //Shell-calculator
@@ -1473,9 +1572,42 @@ void shellMouseSettings()  //Mouse settings
   }
 }
 
+void shellSessionMenu()  //Menu for session options
+{
+  setColor(15, 0);
+  newInterface(15, 0, 0, 15);
+  drawBox(22, 6, 35, 6, 2);
+  addButton(1, 23, 7, 33, 1, languagesGetString(12));
+  addButton(2, 23, 8, 33, 1, languagesGetString(13));
+  addButton(3, 23, 10, 33, 1, languagesGetString(51));
+  
+  selection = runInterface(4, 1);
+  if(selection == 0 || selection == 3)
+  {
+    //Nothing, just continue
+  }
+  else if(selection == 1)
+  {
+    kend();
+  }
+  else if(selection == 2)
+  {
+    kreboot();
+  }
+  else
+  {
+    kerror();
+  }
+}
+
 void oldShellMainMenu()  //Old version of the shell main menu for disabled mouse support
 {
   oldShellMainMenu:
+  
+  if(getMouseSupport() == 1)  //Start old shell main menu if mouse support is disabled
+  {
+    shellMainMenu();
+  }
   
   setColor(15, 0);
   clear();
@@ -1497,35 +1629,30 @@ void oldShellMainMenu()  //Old version of the shell main menu for disabled mouse
   if(selection == 1)  //Calculator
   {
     shellCalculator();
-    goto oldShellMainMenu;
   }
   else if(selection == 2)  //Terminal
   {
     terminalMain();
-    goto oldShellMainMenu;
   }
   else if(selection == 3)  //Tic Tac Toe
   {
     shellTicTacToe();
-    goto oldShellMainMenu;
   }
   else if(selection == 4)  //Settings
   {
     shellSettings();
-    goto oldShellMainMenu;
   }
   else if(selection == 5)  //Quit session (Conformation dialog)
   {
     shellQuitConformationDialog();
-    goto oldShellMainMenu;
   }
   else if(selection == 6)  //Reboot system (Conformation dialog)
   {
     shellRebootSystemConformationDialog();
-    goto oldShellMainMenu;
   }
   else  //In case of an error
   {
     kerror();
   }
+  goto oldShellMainMenu;
 }

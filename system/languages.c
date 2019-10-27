@@ -117,7 +117,9 @@ string language_en_us[] = {  //English (United States)
   "Error!",
   "Mouse support needs to be enabled for this action.",
   "Need doubleclick",
-  "Do you want to configure the mouse now?"
+  "Do you want to configure the mouse now?",
+  "Session",  //50
+  "Cancel"
 };
 
 string language_en_uk[] = {  //English (United Kingdom)
@@ -170,7 +172,9 @@ string language_en_uk[] = {  //English (United Kingdom)
   "Error!",
   "Mouse support needs to be enabled for this action.",
   "Need doubleclick",
-  "Do you want to configure the mouse now?"
+  "Do you want to configure the mouse now?",
+  "Session",  //50
+  "Cancel"
 };
 
 string language_de_de[] = {  //German/Deutsch (Deutschland)
@@ -223,5 +227,7 @@ string language_de_de[] = {  //German/Deutsch (Deutschland)
   "Fehler!",
   "Fuer diese Aktion muss die Maus aktiviert sein.",
   "Doppelklick benoetigt",
-  "Moechten sie die Maus jetzt konfigurieren?"
+  "Moechten sie die Maus jetzt konfigurieren?",
+  "Sitzung",  //50
+  "Abbrechen"
 };

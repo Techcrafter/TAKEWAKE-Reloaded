@@ -28,20 +28,13 @@ void terminalMain()  //Terminal-mainfunction
   terminalMain:
   
   setColor(15, 0);
+  setAutoScroll(1);
   clear();
-  print("                         ");
-  printch((char)218);
-  printMultipleCh((char)196, 27);
-  printch((char)191);
-  print("\n                         ");
-  printch((char)179);
+  drawBox(25, 0, 29, 3, 1);
+  setCursorX(26);
+  setCursorY(1);
   print("TAKEWAKE Reloaded ver.");
   print(getVersion());
-  printch((char)179);
-  print("\n                         ");
-  printch((char)192);
-  printMultipleCh((char)196, 27);
-  printch((char)217);
   print("\n\n");
   printColored("                                    Welcome!", 10, 0);
   print("\n");
@@ -78,6 +71,7 @@ void terminalMain()  //Terminal-mainfunction
     }
     else if(strEquals(input, (char)27))
     {
+      setAutoScroll(0);
       return;
     }
     else if(strEquals(input, "quit-session"))
