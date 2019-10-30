@@ -108,7 +108,7 @@ void shellMainMenu()  //Shell main menu
     setCursorY(19);
     print("\n");
     printMultipleCh((char)196, 19);
-    addButton(6, 0, 21, 10, 1, languagesGetString(35));
+    addButton(6, 0, 21, 19, 1, languagesGetString(35));
     addButton(7, 0, 22, 19, 1, languagesGetString(50));
     
     selection = runInterface(4, 1);
