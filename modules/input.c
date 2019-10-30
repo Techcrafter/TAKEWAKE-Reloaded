@@ -33,6 +33,7 @@ string readStr()  //Input of strings (keyboard)
   string buffstr;
   uint8 i = 0;
   uint8 reading = 1;
+  uint8 shifted = 0;
   int layout = languagesGetKbLayout();  //0 = en, 1 = de
   
   showCursor();
@@ -50,78 +51,246 @@ string readStr()  //Input of strings (keyboard)
           return (char)27;
           break;
         case 2:
-          printch('1');
-          buffstr[i] = '1';
+          if(shifted == 0)  //1
+          {
+            printch('1');
+            buffstr[i] = '1';
+          }
+          else
+          {
+            printch('!');
+            buffstr[i] = '!';
+          }
           i++;
           break;
         case 3:
-          printch('2');
-          buffstr[i] = '2';
+          if(shifted == 0)  //2
+          {
+            printch('2');
+            buffstr[i] = '2';
+          }
+          else
+          {
+            if(layout == 0)
+            {
+              printch('@');
+              buffstr[i] = '@';
+            }
+            else if(layout == 1)
+            {
+              printch('"');
+              buffstr[i] = '"';
+            }
+          }
           i++;
           break;
         case 4:
-          printch('3');
-          buffstr[i] = '3';
+          if(shifted == 0)  //3
+          {
+            printch('3');
+            buffstr[i] = '3';
+          }
+          else
+          {
+            if(layout == 0)
+            {
+              printch('#');
+              buffstr[i] = '#';
+            }
+            else if(layout == 1)
+            {
+              printch((char)245);
+              buffstr[i] = (char)245;
+            }
+          }
           i++;
           break;
         case 5:
-          printch('4');
-          buffstr[i] = '4';
+          if(shifted == 0)  //4
+          {
+            printch('4');
+            buffstr[i] = '4';
+          }
+          else
+          {
+            printch('$');
+            buffstr[i] = '$';
+          }
           i++;
           break;
         case 6:
-          printch('5');
-          buffstr[i] = '5';
+          if(shifted == 0)  //5
+          {
+            printch('5');
+            buffstr[i] = '5';
+          }
+          else
+          {
+            printch('%');
+            buffstr[i] = '%';
+          }
           i++;
           break;
         case 7:
-          printch('6');
-          buffstr[i] = '6';
+          if(shifted == 0)  //6
+          {
+            printch('6');
+            buffstr[i] = '6';
+          }
+          else
+          {
+            if(layout == 0)
+            {
+              printch('^');
+              buffstr[i] = '^';
+            }
+            else if(layout == 1)
+            {
+              printch('&');
+              buffstr[i] = '&';
+            }
+          }
           i++;
           break;
         case 8:
-          printch('7');
-          buffstr[i] = '7';
+          if(shifted == 0)  //7
+          {
+            printch('7');
+            buffstr[i] = '7';
+          }
+          else
+          {
+            if(layout == 0)
+            {
+              printch('&');
+              buffstr[i] = '&';
+            }
+            else if(layout == 1)
+            {
+              printch('/');
+              buffstr[i] = '/';
+            }
+          }
           i++;
           break;
         case 9:
-          printch('8');
-          buffstr[i] = '8';
+          if(shifted == 0)  //8
+          {
+            printch('8');
+            buffstr[i] = '8';
+          }
+          else
+          {
+            if(layout == 0)
+            {
+              printch('*');
+              buffstr[i] = '*';
+            }
+            else if(layout == 1)
+            {
+              printch('(');
+              buffstr[i] = '(';
+            }
+          }
           i++;
           break;
         case 10:
-          printch('9');
-          buffstr[i] = '9';
+          if(shifted == 0)  //9
+          {
+            printch('9');
+            buffstr[i] = '9';
+          }
+          else
+          {
+            if(layout == 0)
+            {
+              printch('(');
+              buffstr[i] = '(';
+            }
+            else if(layout == 1)
+            {
+              printch(')');
+              buffstr[i] = ')';
+            }
+          }
           i++;
           break;
         case 11:
-          printch('0');
-          buffstr[i] = '0';
+          if(shifted == 0)  //0
+          {
+            printch('0');
+            buffstr[i] = '0';
+          }
+          else
+          {
+            if(layout == 0)
+            {
+              printch(')');
+              buffstr[i] = ')';
+            }
+            else if(layout == 1)
+            {
+              printch('=');
+              buffstr[i] = '=';
+            }
+          }
           i++;
           break;
         case 12:
-          if(layout == 0)
+          if(shifted == 0)  //-
           {
-            printch('-');
-            buffstr[i] = '-';
+            if(layout == 0)
+            {
+              printch('-');
+              buffstr[i] = '-';
+            }
+            else if(layout == 1)
+            {
+              printch((char)225);
+              buffstr[i] = (char)225;
+            }
           }
-          else if(layout == 1)
+          else
           {
-            printch((char)225);
-            buffstr[i] = (char)225;
+            if(layout == 0)
+            {
+              printch('_');
+              buffstr[i] = '_';
+            }
+            else if(layout == 1)
+            {
+              printch('?');
+              buffstr[i] = '?';
+            }
           }
           i++;
           break;
         case 13:
-          if(layout == 0)
+          if(shifted == 0)  //=
           {
-            printch('=');
-            buffstr[i] = '=';
+            if(layout == 0)
+            {
+              printch('=');
+              buffstr[i] = '=';
+            }
+            else if(layout == 1)
+            {
+              printch((char)239);
+              buffstr[i] = (char)239;
+            }
           }
-          else if(layout == 1)
+          else
           {
-            printch((char)96);
-            buffstr[i] = (char)96;
+            if(layout == 0)
+            {
+              printch('+');
+              buffstr[i] = '+';
+            }
+            else if(layout == 1)
+            {
+              printch('`');
+              buffstr[i] = '`';
+            }
           }
           i++;
           break;
@@ -133,92 +302,211 @@ string readStr()  //Input of strings (keyboard)
             buffstr[i] = '\0';
           }
           break;
-      /*case 15:
-          printch('\t');  //Tabulatorkey
-          buffstr[i] = '\t';
-          i++;
-          break;*/
+        case 15:
+          hideCursor();  //Tabulator (returns char 9 (HT))
+          return (char)9;
+          break;
         case 16:
-          printch('q');
-          buffstr[i] = 'q';
+          if(shifted == 0)  //q
+          {
+            printch('q');
+            buffstr[i] = 'q';
+          }
+          else
+          {
+            printch('Q');
+            buffstr[i] = 'Q';
+          }
           i++;
           break;
         case 17:
-          printch('w');
-          buffstr[i] = 'w';
+          if(shifted == 0)  //w
+          {
+            printch('w');
+            buffstr[i] = 'w';
+          }
+          else
+          {
+            printch('W');
+            buffstr[i] = 'W';
+          }
           i++;
           break;
         case 18:
-          printch('e');
-          buffstr[i] = 'e';
+          if(shifted == 0)  //e
+          {
+            printch('e');
+            buffstr[i] = 'e';
+          }
+          else
+          {
+            printch('E');
+            buffstr[i] = 'E';
+          }
           i++;
           break;
         case 19:
-          printch('r');
-          buffstr[i] = 'r';
+          if(shifted == 0)  //r
+          {
+            printch('r');
+            buffstr[i] = 'r';
+          }
+          else
+          {
+            printch('R');
+            buffstr[i] = 'R';
+          }
           i++;
           break;
         case 20:
-          printch('t');
-          buffstr[i] = 't';
+          if(shifted == 0)  //t
+          {
+            printch('t');
+            buffstr[i] = 't';
+          }
+          else
+          {
+            printch('T');
+            buffstr[i] = 'T';
+          }
           i++;
           break;
         case 21:
-          if(layout == 0)
+          if(shifted == 0)  //y
           {
-            printch('y');
-            buffstr[i] = 'y';
+            if(layout == 0)
+            {
+              printch('y');
+              buffstr[i] = 'y';
+            }
+            else if(layout == 1)
+            {
+              printch('z');
+              buffstr[i] = 'z';
+            }
           }
-          else if(layout == 1)
+          else
           {
-            printch('z');
-            buffstr[i] = 'z';
+            if(layout == 0)
+            {
+              printch('Y');
+              buffstr[i] = 'Y';
+            }
+            else if(layout == 1)
+            {
+              printch('Z');
+              buffstr[i] = 'Z';
+            }
           }
           i++;
           break;
         case 22:
-          printch('u');
-          buffstr[i] = 'u';
+          if(shifted == 0)  //u
+          {
+            printch('u');
+            buffstr[i] = 'u';
+          }
+          else
+          {
+            printch('U');
+            buffstr[i] = 'U';
+          }
           i++;
           break;
         case 23:
-          printch('i');
-          buffstr[i] = 'i';
+          if(shifted == 0)  //i
+          {
+            printch('i');
+            buffstr[i] = 'i';
+          }
+          else
+          {
+            printch('I');
+            buffstr[i] = 'I';
+          }
           i++;
           break;
         case 24:
-          printch('o');
-          buffstr[i] = 'o';
+          if(shifted == 0)  //o
+          {
+            printch('o');
+            buffstr[i] = 'o';
+          }
+          else
+          {
+            printch('O');
+            buffstr[i] = 'O';
+          }
           i++;
           break;
         case 25:
-          printch('p');
-          buffstr[i] = 'p';
+          if(shifted == 0)  //p
+          {
+            printch('p');
+            buffstr[i] = 'p';
+          }
+          else
+          {
+            printch('P');
+            buffstr[i] = 'P';
+          }
           i++;
           break;
         case 26:
-          if(layout == 0)
+          if(shifted == 0)  //[
           {
-            printch('[');
-            buffstr[i] = '[';
+            if(layout == 0)
+            {
+              printch('[');
+              buffstr[i] = '[';
+            }
+            else if(layout == 1)
+            {
+              printch((char)129);
+              buffstr[i] = (char)129;
+            }
           }
-          else if(layout == 1)
+          else
           {
-            printch((char)129);
-            buffstr[i] = (char)129;
+            if(layout == 0)
+            {
+              printch('{');
+              buffstr[i] = '{';
+            }
+            else if(layout == 1)
+            {
+              printch((char)154);
+              buffstr[i] = (char)154;
+            }
           }
           i++;
           break;
         case 27:
-          if(layout == 0)
+          if(shifted == 0)  //]
           {
-            printch(']');
-            buffstr[i] = ']';
+            if(layout == 0)
+            {
+              printch(']');
+              buffstr[i] = ']';
+            }
+            else if(layout == 1)
+            {
+              printch('+');
+              buffstr[i] = '+';
+            }
           }
-          else if(layout == 1)
+          else
           {
-            printch('+');
-            buffstr[i] = '+';
+            if(layout == 0)
+            {
+              printch('}');
+              buffstr[i] = '}';
+            }
+            else if(layout == 1)
+            {
+              printch('*');
+              buffstr[i] = '*';
+            }
           }
           i++;
           break;
@@ -240,177 +528,435 @@ string readStr()  //Input of strings (keyboard)
           i++;
           break;*/
         case 30:
-          printch('a');
-          buffstr[i] = 'a';
+          if(shifted == 0)  //a
+          {
+            printch('a');
+            buffstr[i] = 'a';
+          }
+          else
+          {
+            printch('A');
+            buffstr[i] = 'A';
+          }
           i++;
           break;
         case 31:
-          printch('s');
-          buffstr[i] = 's';
+          if(shifted == 0)  //s
+          {
+            printch('s');
+            buffstr[i] = 's';
+          }
+          else
+          {
+            printch('S');
+            buffstr[i] = 'S';
+          }
           i++;
           break;
         case 32:
-          printch('d');
-          buffstr[i] = 'd';
+          if(shifted == 0)  //d
+          {
+            printch('d');
+            buffstr[i] = 'd';
+          }
+          else
+          {
+            printch('D');
+            buffstr[i] = 'D';
+          }
           i++;
           break;
         case 33:
-          printch('f');
-          buffstr[i] = 'f';
+          if(shifted == 0)  //f
+          {
+            printch('f');
+            buffstr[i] = 'f';
+          }
+          else
+          {
+            printch('F');
+            buffstr[i] = 'F';
+          }
           i++;
           break;
         case 34:
-          printch('g');
-          buffstr[i] = 'g';
+          if(shifted == 0)  //g
+          {
+            printch('g');
+            buffstr[i] = 'g';
+          }
+          else
+          {
+            printch('G');
+            buffstr[i] = 'G';
+          }
           i++;
           break;
         case 35:
-          printch('h');
-          buffstr[i] = 'h';
+          if(shifted == 0)  //h
+          {
+            printch('h');
+            buffstr[i] = 'h';
+          }
+          else
+          {
+            printch('H');
+            buffstr[i] = 'H';
+          }
           i++;
           break;
         case 36:
-          printch('j');
-          buffstr[i] = 'j';
+          if(shifted == 0)  //j
+          {
+            printch('j');
+            buffstr[i] = 'j';
+          }
+          else
+          {
+            printch('J');
+            buffstr[i] = 'J';
+          }
           i++;
           break;
         case 37:
-          printch('k');
-          buffstr[i] = 'k';
+          if(shifted == 0)  //k
+          {
+            printch('k');
+            buffstr[i] = 'k';
+          }
+          else
+          {
+            printch('K');
+            buffstr[i] = 'K';
+          }
           i++;
           break;
         case 38:
-          printch('l');
-          buffstr[i] = 'l';
+          if(shifted == 0)  //l
+          {
+            printch('l');
+            buffstr[i] = 'l';
+          }
+          else
+          {
+            printch('L');
+            buffstr[i] = 'L';
+          }
           i++;
           break;
         case 39:
-          if(layout == 0)
+          if(shifted == 0)  //;
           {
-            printch(';');
-            buffstr[i] = ';';
+            if(layout == 0)
+            {
+              printch(';');
+              buffstr[i] = ';';
+            }
+            else if(layout == 1)
+            {
+              printch((char)148);
+              buffstr[i] = (char)148;
+            }
           }
-          else if(layout == 1)
+          else
           {
-            printch((char)148);
-            buffstr[i] = (char)148;
+            if(layout == 0)
+            {
+              printch(':');
+              buffstr[i] = ':';
+            }
+            else if(layout == 1)
+            {
+              printch((char)153);
+              buffstr[i] = (char)153;
+            }
           }
           i++;
           break;
         case 40:
-          if(layout == 0)
+          if(shifted == 0)  //'
           {
-            printch((char)39);
-            buffstr[i] = (char)39;
+            if(layout == 0)
+            {
+              printch((char)39);
+              buffstr[i] = (char)39;
+            }
+            else if(layout == 1)
+            {
+              printch((char)132);
+              buffstr[i] = (char)132;
+            }
           }
-          else if(layout == 1)
+          else
           {
-            printch((char)132);
-            buffstr[i] = (char)132;
+            if(layout == 0)
+            {
+              printch('"');
+              buffstr[i] = '"';
+            }
+            else if(layout == 1)
+            {
+              printch((char)142);
+              buffstr[i] = (char)142;
+            }
           }
           i++;
           break;
         case 41:
-          if(layout == 0)
+          if(shifted == 0)  //`
           {
-            printch('`');
-            buffstr[i] = '`';
+            if(layout == 0)
+            {
+              printch('`');
+              buffstr[i] = '`';
+            }
+            else if(layout == 1)
+            {
+              printch('^');
+              buffstr[i] = '^';
+            }
           }
-          else if(layout == 1)
+          else
           {
-            printch('^');
-            buffstr[i] = '^';
+            if(layout == 0)
+            {
+              printch('~');
+              buffstr[i] = '~';
+            }
+            else if(layout == 1)
+            {
+              printch((char)167);
+              buffstr[i] = (char)167;
+            }
           }
           i++;
           break;
-      /*case 42:
-          printch('X');  //Shift-left
-          buffstr[i] = 'X';
-          i++;
-          break;*/
-        case 43:
-          if(layout == 0)
+        case 42:
+          if(shifted == 0)  //Shift-left
           {
-            printch((char)92);
-            buffstr[i] = (char)92;
+            shifted = 1;
           }
-          else if(layout == 1)
+          else
           {
-            printch('#');
-            buffstr[i] = '#';
+            shifted = 0;
+          }
+          break;
+        case 43:
+          if(shifted == 0)  //[BACKSLASH]
+          {
+            if(layout == 0)
+            {
+              printch((char)92);
+              buffstr[i] = (char)92;
+            }
+            else if(layout == 1)
+            {
+              printch('#');
+              buffstr[i] = '#';
+            }
+          }
+          else
+          {
+            if(layout == 0)
+            {
+              printch('|');
+              buffstr[i] = '|';
+            }
+            else if(layout == 1)
+            {
+              printch((char)39);
+              buffstr[i] = (char)39;
+            }
           }
           i++;
           break;
         case 44:
-          if(layout == 0)
+          if(shifted == 0)  //z
           {
-            printch('z');
-            buffstr[i] = 'z';
+            if(layout == 0)
+            {
+              printch('z');
+              buffstr[i] = 'z';
+            }
+            else if(layout == 1)
+            {
+              printch('y');
+              buffstr[i] = 'y';
+            }
           }
-          else if(layout == 1)
+          else
           {
-            printch('y');
-            buffstr[i] = 'y';
+            if(layout == 0)
+            {
+              printch('Z');
+              buffstr[i] = 'Z';
+            }
+            else if(layout == 1)
+            {
+              printch('Y');
+              buffstr[i] = 'Y';
+            }
           }
           i++;
           break;
         case 45:
-          printch('x');
-          buffstr[i] = 'x';
+          if(shifted == 0)  //x
+          {
+            printch('x');
+            buffstr[i] = 'x';
+          }
+          else
+          {
+            printch('X');
+            buffstr[i] = 'X';
+          }
           i++;
           break;
         case 46:
-          printch('c');
-          buffstr[i] = 'c';
+          if(shifted == 0)  //c
+          {
+            printch('c');
+            buffstr[i] = 'c';
+          }
+          else
+          {
+            printch('C');
+            buffstr[i] = 'C';
+          }
           i++;
           break;
         case 47:
-          printch('v');
-          buffstr[i] = 'v';
+          if(shifted == 0)  //v
+          {
+            printch('v');
+            buffstr[i] = 'v';
+          }
+          else
+          {
+            printch('V');
+            buffstr[i] = 'V';
+          }
           i++;
           break;
         case 48:
-          printch('b');
-          buffstr[i] = 'b';
+          if(shifted == 0)  //b
+          {
+            printch('b');
+            buffstr[i] = 'b';
+          }
+          else
+          {
+            printch('B');
+            buffstr[i] = 'B';
+          }
           i++;
           break;
         case 49:
-          printch('n');
-          buffstr[i] = 'n';
+          if(shifted == 0)  //n
+          {
+            printch('n');
+            buffstr[i] = 'n';
+          }
+          else
+          {
+            printch('N');
+            buffstr[i] = 'N';
+          }
           i++;
           break;
         case 50:
-          printch('m');
-          buffstr[i] = 'm';
+          if(shifted == 0)  //m
+          {
+            printch('m');
+            buffstr[i] = 'm';
+          }
+          else
+          {
+            printch('M');
+            buffstr[i] = 'M';
+          }
           i++;
           break;
         case 51:
-          printch(',');
-          buffstr[i] = ',';
+          if(shifted == 0)  //,
+          {
+            printch(',');
+            buffstr[i] = ',';
+          }
+          else
+          {
+            if(layout == 0)
+            {
+              printch('<');
+              buffstr[i] = '<';
+            }
+            else if(layout == 1)
+            {
+              printch(';');
+              buffstr[i] = ';';
+            }
+          }
           i++;
           break;
         case 52:
-          printch('.');
-          buffstr[i] = '.';
+          if(shifted == 0)  //.
+          {
+            printch('.');
+            buffstr[i] = '.';
+          }
+          else
+          {
+            if(layout == 0)
+            {
+              printch('>');
+              buffstr[i] = '>';
+            }
+            else if(layout == 1)
+            {
+              printch(':');
+              buffstr[i] = ':';
+            }
+          }
           i++;
           break;
         case 53:
-          if(layout == 0)  //also Numblock
+          if(shifted == 0)  //[SLASH]
           {
-            printch('/');
-            buffstr[i] = '/';
+            if(layout == 0)
+            {
+              printch('/');
+              buffstr[i] = '/';
+            }
+            else if(layout == 1)
+            {
+              printch('-');
+              buffstr[i] = '-';
+            }
           }
-          else if(layout == 1)
+          else
           {
-            printch('-');
-            buffstr[i] = '-';
+            if(layout == 0)
+            {
+              printch('?');
+              buffstr[i] = '?';
+            }
+            else if(layout == 1)
+            {
+              printch('_');
+              buffstr[i] = '_';
+            }
           }
           i++;
           break;
         case 54:
-          printch('/');  //Shift-right
-          buffstr[i] = '/';
-          i++;
+          if(shifted == 0)  //Shift-right
+          {
+            shifted = 1;
+          }
+          else
+          {
+            shifted = 0;
+          }
           break;
         case 55:
           printch('*');  //Numblock *
@@ -427,11 +973,16 @@ string readStr()  //Input of strings (keyboard)
           buffstr[i] = ' ';
           i++;
           break;
-      /*case 58:
-          printch('X');  //Capslock
-          buffstr[i] = 'X';
-          i++;
-          break;*/
+        case 58:
+          if(shifted == 0)  //Capslock
+          {
+            shifted = 1;
+          }
+          else
+          {
+            shifted = 0;
+          }
+          break;
       /*case 59:
           printch('F');  //F1
           buffstr[i] = 'F';
@@ -660,7 +1211,8 @@ void activateMouse()  //Activates the mouse to send data (mouse)
 {
   if(mouseSupport == 0)
   {
-    showInfobox(languagesGetString(46), languagesGetString(47), 1, 1);
+    showInfobox(languagesGetString(46), languagesGetString(47), 1, 1, 1);
+    shellMouseSettings();
     shellMainMenu();
   }
   outportb(0x64, 0xA8);  //Activate input by mouse

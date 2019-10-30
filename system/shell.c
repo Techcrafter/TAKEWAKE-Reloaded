@@ -28,9 +28,9 @@ void shellMainMenu()  //Shell main menu
 {
   shellMainMenu:
   
-  if(getMouseSupport() == 0)  //Start old shell main menu if mouse support is disabled
+  if(getMouseSupport() == 0)  //Start terminal if mouse support is disabled
   {
-    oldShellMainMenu();
+    terminalMain();
   }
   
   setColor(15, 0);
@@ -48,11 +48,15 @@ void shellMainMenu()  //Shell main menu
   print("\n");
   printMultipleCh((char)196, 5);
   printch((char)194);
-  printMultipleCh((char)196, 74);
+  printMultipleCh((char)196, 65);
+  printch((char)194);
+  printMultipleCh((char)196, 8);
   addButton(1, 0, 24, 5, 1, "Start");
   print("     ");
   printch((char)179);
-  setCursorX(72);
+  setCursorX(71);
+  printch((char)179);
+  addButton(2, 72, 24, 8, 1, "");
   if(languagesGetLanguage() == 0 || languagesGetLanguage() == 1)
   {
     print(int_to_str(getCmosMonth()));
@@ -95,16 +99,17 @@ void shellMainMenu()  //Shell main menu
     printMultipleCh((char)205, 19);
     
     addButton(1, 0, 24, 5, 1, "Start");
+    addButton(2, 72, 24, 8, 1, "");
     
-    addButton(2, 0, 12, 19, 1, languagesGetString(8));
-    addButton(3, 0, 13, 19, 1, languagesGetString(10));
-    addButton(4, 0, 14, 19, 1, languagesGetString(9));
+    addButton(3, 0, 12, 19, 1, languagesGetString(8));
+    addButton(4, 0, 13, 19, 1, languagesGetString(10));
+    addButton(5, 0, 14, 19, 1, languagesGetString(9));
     
     setCursorY(19);
     print("\n");
     printMultipleCh((char)196, 19);
-    addButton(5, 0, 21, 10, 1, languagesGetString(35));
-    addButton(6, 0, 22, 19, 1, languagesGetString(50));
+    addButton(6, 0, 21, 10, 1, languagesGetString(35));
+    addButton(7, 0, 22, 19, 1, languagesGetString(50));
     
     selection = runInterface(4, 1);
     if(selection == 0 || selection == 1)
@@ -113,29 +118,58 @@ void shellMainMenu()  //Shell main menu
     }
     else if(selection == 2)
     {
-      shellCalculator();
+      clearLine(9, 22);
+      drawBox(25, 7, 29, 3, 1);
+      setCursorX(26);
+      setCursorY(8);
+      print("TAKEWAKE Reloaded ver.");
+      print(getVersion());
+      setCursorX(72);
+      setCursorY(24);
+      print(int_to_str(getCmosSecond()));
+      print(":");
+      print(int_to_str(getCmosMinute()));
+      print(":");
+      print(int_to_str(getCmosHour()));
+      wait(1);
+      goto shellMainMenu;
     }
     else if(selection == 3)
     {
-      shellTicTacToe();
+      shellCalculator();
     }
     else if(selection == 4)
     {
-      terminalMain();
+      shellTicTacToe();
     }
     else if(selection == 5)
     {
-      shellSettings();
+      terminalMain();
     }
     else if(selection == 6)
     {
-      clearLine(9, 22);
+      shellSettings();
+    }
+    else if(selection == 7)
+    {
       shellSessionMenu();
     }
     else
     {
       kerror();
     }
+    goto shellMainMenu;
+  }
+  else if(selection == 2)
+  {
+    setCursorX(72);
+    setCursorY(24);
+    print(int_to_str(getCmosSecond()));
+    print(":");
+    print(int_to_str(getCmosMinute()));
+    print(":");
+    print(int_to_str(getCmosHour()));
+    wait(1);
     goto shellMainMenu;
   }
 }
@@ -1267,42 +1301,6 @@ void shellSettings()  //Shell-settings
   }
 }
 
-void shellQuitConformationDialog()  //Quit session (Conformation dialog)
-{
-  selection = showInfobox(languagesGetString(12), languagesGetString(30), 2, 1);
-  
-  if(selection == 1)
-  {
-    kend();
-  }
-  else if(selection == 2)
-  {
-    return;
-  }
-  else
-  {
-    kerror();
-  }
-}
-
-void shellRebootSystemConformationDialog()  //Reboot system (Conformation dialog)
-{
-  selection = showInfobox(languagesGetString(13), languagesGetString(33), 2, 1);
-  
-  if(selection == 1)
-  {
-    kreboot();
-  }
-  else if(selection == 2)
-  {
-    return;
-  }
-  else
-  {
-    kerror();
-  }
-}
-
 void shellLanguageSelector()  //Languageselector
 {
   setColor(15, 0);
@@ -1386,7 +1384,7 @@ void shellWhiteBgSupportSettings()  //Settings for white background support
   clear();
   
   printColored(languagesGetString(40), 0, 15);
-  selection = showInfobox(languagesGetString(37), languagesGetString(38), 2, 2);
+  selection = showInfobox(languagesGetString(37), languagesGetString(38), 2, 2, getMouseSupport()+1);
   
   if(selection == 1)
   {
@@ -1448,7 +1446,7 @@ void shellSysteminformation()  //Shell-systeminformation
 void shellMouseSettings()  //Mouse settings
 {
   setColor(15, 0);
-  selection = showInfobox(languagesGetString(41), languagesGetString(42), 2, 1);  //Enable mouse support?
+  selection = showInfobox(languagesGetString(41), languagesGetString(42), 2, 1, getMouseSupport()+1);  //Enable mouse support?
   if(selection == 1)  //Yes
   {
     setMouseSupport(1);
@@ -1456,11 +1454,11 @@ void shellMouseSettings()  //Mouse settings
   else if(selection == 2)  //No
   {
     setMouseSupport(0);
-    showInfobox(languagesGetString(43), languagesGetString(44), 1, 1);
+    showInfobox(languagesGetString(43), languagesGetString(44), 1, 1, 1);
     return;
   }
   
-  selection = showInfobox(languagesGetString(41), languagesGetString(49), 2, 2);  //Configure mouse now?
+  selection = showInfobox(languagesGetString(41), languagesGetString(49), 2, 2, 2);  //Configure mouse now?
   if(selection == 2)  //No
   {
     return;
@@ -1574,6 +1572,12 @@ void shellMouseSettings()  //Mouse settings
 
 void shellSessionMenu()  //Menu for session options
 {
+  setColor(0, 7);
+  clearLine(0, 8);
+  wait(0);
+  clearLine(8, 16);
+  wait(0);
+  clearLine(16, 25);
   setColor(15, 0);
   newInterface(15, 0, 0, 15);
   drawBox(22, 6, 35, 6, 2);
@@ -1598,61 +1602,4 @@ void shellSessionMenu()  //Menu for session options
   {
     kerror();
   }
-}
-
-void oldShellMainMenu()  //Old version of the shell main menu for disabled mouse support
-{
-  oldShellMainMenu:
-  
-  if(getMouseSupport() == 1)  //Start old shell main menu if mouse support is disabled
-  {
-    shellMainMenu();
-  }
-  
-  setColor(15, 0);
-  clear();
-  printColored("                               TAKEWAKE  Reloaded                               ", 0, 15);
-  print("\n                                   ");
-  printColored(languagesGetString(6), 10, 0);
-  print("\n\n\n  ");
-  printColored(languagesGetString(7), 0, 7);
-  
-  newInterface(15, 0, 0, 15);
-  addButton(1, 2, 7, strlength(languagesGetString(8)), 1, languagesGetString(8));  //Calculator
-  addButton(2, 2, 8, strlength(languagesGetString(9)), 1, languagesGetString(9));  //Terminal
-  addButton(3, 2, 9, strlength(languagesGetString(10)), 1, languagesGetString(10));  //Tic Tac Toe
-  addButton(4, 2, 10, strlength(languagesGetString(35)), 1, languagesGetString(35));  //Settings
-  addButton(5, 2, 11, strlength(languagesGetString(12)), 1, languagesGetString(12));  //Quit session (Conformation dialog)
-  addButton(6, 2, 12, strlength(languagesGetString(13)), 1, languagesGetString(13));  //Reboot system (Conformation dialog)
-  selection = runInterface(1, 0);
-  
-  if(selection == 1)  //Calculator
-  {
-    shellCalculator();
-  }
-  else if(selection == 2)  //Terminal
-  {
-    terminalMain();
-  }
-  else if(selection == 3)  //Tic Tac Toe
-  {
-    shellTicTacToe();
-  }
-  else if(selection == 4)  //Settings
-  {
-    shellSettings();
-  }
-  else if(selection == 5)  //Quit session (Conformation dialog)
-  {
-    shellQuitConformationDialog();
-  }
-  else if(selection == 6)  //Reboot system (Conformation dialog)
-  {
-    shellRebootSystemConformationDialog();
-  }
-  else  //In case of an error
-  {
-    kerror();
-  }
-  goto oldShellMainMenu;
 }

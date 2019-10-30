@@ -31,9 +31,6 @@
 #include "../modules/types.h"
 #include "../modules/utilities.h"
 
-//Including the systemelements
-#include "terminal.h"
-
 string input;
 
 void terminalMain();  //Terminal-mainfunction

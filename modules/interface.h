@@ -180,6 +180,6 @@ void addButton(int id, int posX, int posY, int sizeX, int sizeY, string text);  
 
 int runInterface(int navType, int ableToQuit);  //Runs the interface with the specified navigation type (1 = up and down | 2 = left and right | 3 = up, down, left and right)
 
-int showInfobox(string title, string text, uint16 type, uint16 preselected);  //Shows an infobox and returns the selection
+int showInfobox(string title, string text, int type, int preselected, int navType);  //Shows an infobox and returns the selection (type1 = ok | type2 = yes,no) (navType1 = keyboard | navType2 = mouse)
 
 #endif

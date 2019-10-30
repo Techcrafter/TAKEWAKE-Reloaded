@@ -33,7 +33,7 @@
 #include "../system/languages.h"
 #include "../system/shell.h"
 
-const string version = "0.0.6";  //Version
+const string version = "0.0.7";  //Version
 const string versionYear = "2019";  //Year of the current version
 
 void kmain()  //Kernelmainfunktion (at start)
@@ -97,7 +97,6 @@ void kmain()  //Kernelmainfunktion (at start)
   
   shellWhiteBgSupportSettings();  //Open white background support settings
   
-  clear();
   shellMouseSettings();  //Open mouse settings
   
   //Welcome screen
@@ -116,7 +115,9 @@ void kmain()  //Kernelmainfunktion (at start)
   print(" | The TAKEWAKE Community");
   setCursorY(18);
   setColor(15, 15);
-  wait(3);  //Wait 3 seconds before continue
+  playToneForSec(200, 0);
+  playToneForSec(300, 0);
+  wait(1);  //Wait 1 seconds before continue
   shellMainMenu();
 }
 
@@ -181,6 +182,8 @@ void kfatal()  //Fatal error
 
 void kreboot()  //Kernelrebootfunction
 {
+  playToneForSec(300, 0);
+  playToneForSec(200, 0);
   setColor(15, 0);
   clear();
   print(languagesGetString(34));
@@ -190,6 +193,8 @@ void kreboot()  //Kernelrebootfunction
 
 void kend()  //Kernelendfunction (at end)
 {
+  playToneForSec(300, 0);
+  playToneForSec(200, 0);
   setColor(0, 15);
   clear();
   print("\n\n\n\n\n\n\n");

@@ -45,10 +45,6 @@ void shellCalculator();  //Shell-calculator
 
 void shellTicTacToe();  //Shell-Tic Tac Toe
 
-void shellQuitConformationDialog();  //Quit session (Conformation dialog)
-
-void shellRebootSystemConformationDialog();  //System reload (Conformation dialog)
-
 void shellLanguageSelector();  //Languageselector
 
 void shellWhiteBgSupportSettings();  //Settings for white background support
@@ -58,7 +54,5 @@ void shellSysteminformation();  //Shell-systeminformation
 void shellMouseSettings();  //Mouse settings
 
 void shellSessionMenu();  //Menu for session options
-
-void oldShellMainMenu();  //Old version of the shell main menu for disabled mouse support
 
 #endif

@@ -20,12 +20,15 @@
 //OS-terminal (with terminal.h)
 
 #include "languages.h"
+#include "terminal.h"
 
 string input;
 
 void terminalMain()  //Terminal-mainfunction
 {
   terminalMain:
+  
+  
   
   setColor(15, 0);
   setAutoScroll(1);
@@ -192,8 +195,16 @@ void terminalTestInfobox()  //Displays an infobox with customized type and prese
     return;
   }
   int preselected = str_to_int(input);
+  print("\nNavigation type: ");
+  input = readStr();
+  if(strEquals(input, (char)27))
+  {
+    printColored("Aborted!", 4, 0);
+    return;
+  }
+  int navType = str_to_int(input);
   print("\nShowing...");
-  int result = showInfobox("Infobox", "This is an infobox.", type, preselected);
+  int result = showInfobox("Infobox", "This is an infobox.", type, preselected, navType);
   
   if(type != 1)
   {

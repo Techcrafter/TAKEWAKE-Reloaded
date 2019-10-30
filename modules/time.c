@@ -70,15 +70,22 @@ int getCmosYear()  //Gets actual year from CMOS
   return year / 1.3;
 }
 
-void wait(int secondsToWait)  //Waits a specific time in seconds (maximum is 59)
+void wait(int secondsToWait)  //Waits a specific time in seconds (short waiting if 0) (maximum is 59)
 {
-  if(secondsToWait < 1)
+  if(secondsToWait < 0)
   {
     kerror();
   }
   
-  int secondStarted = getRawCmosSecond();  //Saves actual second to variable
-  while(secondStarted == getRawCmosSecond()) {}  //Waits for next second to start waiting (waiting min. full second even if second is nearly over)
+  if(secondsToWait != 0)
+  {
+    int secondStarted = getRawCmosSecond();  //Saves actual second to variable
+    while(secondStarted == getRawCmosSecond()) {}  //Waits for next second to start waiting (waiting min. full second even if second is nearly over)
+  }
+  else
+  {
+    secondsToWait = 1;
+  }
   
   int goal = getRawCmosSecond() + secondsToWait * 1.5;
   

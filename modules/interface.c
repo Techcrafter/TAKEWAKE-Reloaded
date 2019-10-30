@@ -1172,7 +1172,7 @@ int runInterface(int navType, int ableToQuit)  //Runs the interface with the spe
   }
 }
 
-int showInfobox(string title, string text, uint16 type, uint16 preselected)  //Shows an infobox and returns the selection (type1 = ok | type2 = yes,no)
+int showInfobox(string title, string text, int type, int preselected, int navType)  //Shows an infobox and returns the selection (type1 = ok | type2 = yes,no) (navType1 = keyboard | navType2 = mouse)
 {
   int currentColor = getColor();
   
@@ -1214,92 +1214,162 @@ int showInfobox(string title, string text, uint16 type, uint16 preselected)  //S
   printMultipleCh((char)196, 58);
   printch((char)217);
   
-  uint16 selection = preselected;
-  
-  while(1)
+  int selection;
+  if(navType == 1)
+  {
+    selection = preselected;
+    
+    while(1)
+    {
+      if(type == 1)  //ok
+      {
+        if(selection != 1)
+        {
+          kerror();
+        }
+        
+        setCursorY(21);
+        setCursorX(38);
+        printColored(languagesGetString(39), 9, 0);
+        pause();
+        
+        setColorcode(currentColor);
+        clear();
+        return 1;
+      }
+      else if(type == 2)  //yes,no
+      {
+        if(selection != 1 && selection != 2)
+        {
+          kerror();
+        }
+        
+        setCursorY(21);
+        setCursorX(32);
+        if(selection == 1)
+        {
+          printColored(languagesGetString(31), 10, 0);
+        }
+        else
+        {
+          print(languagesGetString(31));
+        }
+        print("          ");
+        if(selection == 2)
+        {
+          printColored(languagesGetString(32), 4, 0);
+        }
+        else
+        {
+          print(languagesGetString(32));
+        }
+        
+        string input = getNavigation();
+        
+        if(strEquals(input, "left") && selection != 1)
+        {
+          selection--;
+        }
+        else if(strEquals(input, "right") && selection != 2)
+        {
+          selection++;
+        }
+        else if(strEquals(input, "enter"))
+        {
+          if(selection == 1)  //Yes
+          {
+            setColorcode(currentColor);
+            clear();
+            return selection;
+          }
+          else if(selection == 2)  //No
+          {
+            setColorcode(currentColor);
+            clear();
+            return selection;
+          }
+          else  //In case of an error
+          {
+            kerror();
+          }
+        }
+        else if(strEquals(input, (char)27))  //Quit
+        {
+          setColorcode(currentColor);
+          clear();
+          return preselected;
+        }
+      }
+      else
+      {
+        kerror();
+      }
+    }
+  }
+  else if(navType == 2)
   {
     if(type == 1)  //ok
     {
-      if(selection != 1)
-      {
-        kerror();
-      }
-      
-      setCursorY(21);
       setCursorX(38);
-      printColored(languagesGetString(39), 9, 0);
-      pause();
-      
-      setColorcode(currentColor);
-      clearLine(17, 23);
-      return 1;
-    }
-    else if(type == 2)  //yes,no
-    {
-      if(selection != 1 && selection != 2)
-      {
-        kerror();
-      }
-      
       setCursorY(21);
-      setCursorX(32);
-      if(selection == 1)
+      newInterface(15, 0, 0, 15);
+      printColored(languagesGetString(39), 9, 0);
+      while(1)
       {
-        printColored(languagesGetString(31), 10, 0);
-      }
-      else
-      {
-        print(languagesGetString(31));
-      }
-      print("          ");
-      if(selection == 2)
-      {
-        printColored(languagesGetString(32), 4, 0);
-      }
-      else
-      {
-        print(languagesGetString(32));
-      }
-      
-      string input = getNavigation();
-      
-      if(strEquals(input, "left") && selection != 1)
-      {
-        selection--;
-      }
-      else if(strEquals(input, "right") && selection != 2)
-      {
-        selection++;
-      }
-      else if(strEquals(input, "enter"))
-      {
-        if(selection == 1)  //Yes
+        addButton(1, 38, 21, strlength(languagesGetString(39)), 1, "");
+        selection = runInterface(4, 1);
+        if(selection == 0 || selection == 1)
         {
           setColorcode(currentColor);
-          clearLine(17, 23);
-          return selection;
+          clear();
+          return 1;
         }
-        else if(selection == 2)  //No
-        {
-          setColorcode(currentColor);
-          clearLine(17, 23);
-          return selection;
-        }
-        else  //In case of an error
+        else
         {
           kerror();
         }
       }
-      else if(strEquals(input, (char)27))  //Quit
+    }
+    else if(type == 2)  //yes,no
+    {
+      setCursorX(32);
+      setCursorY(21);
+      newInterface(15, 0, 0, 15);
+      printColored(languagesGetString(31), 10, 0);
+      setCursorX(44);
+      printColored(languagesGetString(32), 4, 0);
+      while(1)
       {
-        setColorcode(currentColor);
-        clearLine(17, 23);
-        return preselected;
+        addButton(1, 32, 21, strlength(languagesGetString(31)), 1, "");
+        addButton(2, 44, 21, strlength(languagesGetString(32)), 1, "");
+        selection = runInterface(4, 1);
+        if(selection == 0)
+        {
+          setColorcode(currentColor);
+          clear();
+          return preselected;
+        }
+        else if(selection == 1)
+        {
+          setColorcode(currentColor);
+          clear();
+          return 1;
+        }
+        else if(selection == 2)
+        {
+          setColorcode(currentColor);
+          clear();
+          return 2;
+        }
+        else
+        {
+          kerror();
+        }
       }
     }
-    else
-    {
-      kerror();
-    }
+  }
+  else
+  {
+    kerror();
   }
 }

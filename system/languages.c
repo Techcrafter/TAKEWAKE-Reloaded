@@ -43,6 +43,11 @@ int languagesGetKbLayout()  //Returns keyboard layout for the selected language
   {
     return 1;
   }
+  else
+  {
+    languagesSetLanguage(0);
+    kfatal();
+  }
 }
 
 string languagesGetString(int stringNumber)
@@ -112,7 +117,7 @@ string language_en_us[] = {  //English (United States)
   "Mouse settings",
   "Do you want to enable mouse support?",
   "Information",
-  "The old interface will be used.",
+  "The terminal will be used instead of the shell.",
   "Set the pointer speed of your mouse below.",  //45
   "Error!",
   "Mouse support needs to be enabled for this action.",
@@ -167,7 +172,7 @@ string language_en_uk[] = {  //English (United Kingdom)
   "Mouse settings",
   "Do you want to enable mouse support?",
   "Information",
-  "The old interface will be used.",
+  "The terminal will be used instead of the shell.",
   "Set the pointer speed of your mouse below.",  //45
   "Error!",
   "Mouse support needs to be enabled for this action.",
@@ -222,7 +227,7 @@ string language_de_de[] = {  //German/Deutsch (Deutschland)
   "Mauseinstellungen",
   "Moechten sie die Maus aktivieren?",
   "Hinweis",
-  "Das alte Interface wird verwendet.",
+  "Das Terminal wird anstelle der Shell verwendet.",
   "Stellen sie unten die Zeigergeschwindigkeit ihrer Maus ein.",  //45
   "Fehler!",
   "Fuer diese Aktion muss die Maus aktiviert sein.",
