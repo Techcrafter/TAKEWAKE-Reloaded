@@ -169,6 +169,7 @@ void shellMainMenu()  //Shell main menu
     print(int_to_str(getCmosMinute()));
     print(":");
     print(int_to_str(getCmosHour()));
+    print("   ");
     wait(1);
     goto shellMainMenu;
   }
