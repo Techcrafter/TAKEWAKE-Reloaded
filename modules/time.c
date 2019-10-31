@@ -74,7 +74,7 @@ void wait(int secondsToWait)  //Waits a specific time in seconds (short waiting 
 {
   if(secondsToWait < 0)
   {
-    kerror();
+    kerror("Negative waiting");
   }
   
   if(secondsToWait != 0)

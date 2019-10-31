@@ -131,9 +131,10 @@ string getVersionYear()  //Return year of the current version
   return versionYear;
 }
 
-void kerror()  //Error
+void kerror(string reason)  //Error
 {
   setColor(0, 15);
+  setAutoScroll(0);
   clear();
   print("\n\n\n\n\n\n\n");
   print("                          ");
@@ -150,15 +151,17 @@ void kerror()  //Error
   setCursorY(0);
   printColored(versionYear, 0, 15);
   printColored(" | The TAKEWAKE Community", 0, 15);
-  setCursorY(18);
-  setColor(15, 15);
+  setCursorY(23);
+  print("\nReason: ");
+  print(reason);
   pause();
   shellMainMenu();  //Reload shellMainMenu-function
 }
 
-void kfatal()  //Fatal error
+void kfatal(string reason)  //Fatal error
 {
   beep();  //Play a beep
+  setAutoScroll(0);
   setColor(15, 4);
   clear();
   print("\n\n\n\n\n\n\n");
@@ -176,6 +179,9 @@ void kfatal()  //Fatal error
   setCursorY(0);
   printColored(versionYear, 15, 0);
   printColored(" | The TAKEWAKE Community", 15, 0);
+  setCursorY(23);
+  print("\nReason: ");
+  print(reason);
   pause();
   kreboot();  //Reboot computer
 }

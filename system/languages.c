@@ -46,7 +46,7 @@ int languagesGetKbLayout()  //Returns keyboard layout for the selected language
   else
   {
     languagesSetLanguage(0);
-    kfatal();
+    kfatal("Invalid language (kbLayout)");
   }
 }
 
@@ -67,7 +67,7 @@ string languagesGetString(int stringNumber)
   else
   {
     languagesSetLanguage(0);
-    kfatal();
+    kfatal("Invalid language");
   }
 }
 

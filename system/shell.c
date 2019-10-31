@@ -156,7 +156,7 @@ void shellMainMenu()  //Shell main menu
     }
     else
     {
-      kerror();
+      kerror("Invalid selection");
     }
     goto shellMainMenu;
   }
@@ -303,13 +303,13 @@ void shellCalculator()  //Shell-calculator
   {
     if(num2 == 0)  //Deny division by zero
     {
-      kerror();
+      kerror("Division by zero");
     }
     int_result = num1 / num2;
   }
   else  //In case of an error
   {
-    kerror();
+    kerror("Invalid operator");
   }
   
   string str_result = int_to_str(int_result);
@@ -1291,7 +1291,7 @@ void shellSettings()  //Shell-settings
   }
   else  //In case of an error
   {
-    kerror();
+    kerror("Invalid selection");
   }
   goto shellSettings;
 }
@@ -1392,7 +1392,7 @@ void shellWhiteBgSupportSettings()  //Settings for white background support
   }
   else
   {
-    kerror();
+    kerror("Invalid selection");
   }
 }
 
@@ -1443,7 +1443,7 @@ void shellSysteminformation()  //Shell-systeminformation
   }
   else
   {
-    kerror();
+    kerror("Invalid selection");
   }
 }
 
@@ -1605,6 +1605,6 @@ void shellSessionMenu()  //Menu for session options
   }
   else
   {
-    kerror();
+    kerror("Invalid selection");
   }
 }

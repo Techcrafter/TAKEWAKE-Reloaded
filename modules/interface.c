@@ -201,9 +201,9 @@ void newInterface(int unselectedTextColor, int unselectedBackgroundColor, int se
 
 void addButton(int id, int posX, int posY, int sizeX, int sizeY, string text)  //Adds a new button to the interface
 {
-  if(id < 1 || id > 9)
+  if(id < 1 || id > 20)
   {
-    kerror();
+    kerror("Invalid button id");
   }
   
   if(id == 1)
@@ -401,7 +401,10 @@ int runInterface(int navType, int ableToQuit)  //Runs the interface with the spe
   
   if(button1 == 0 && ableToQuit == 0)  //Error if there is no button1 and ableToQuit is 0
   {
-    kerror();
+    if(navType != 4 && ableToQuit != 1)
+    {
+      kerror("No selectable objects");
+    }
   }
   
   while(1)
@@ -1229,7 +1232,7 @@ int showInfobox(string title, string text, int type, int preselected, int navTyp
       {
         if(selection != 1)
         {
-          kerror();
+          kerror("Invalid preselection");
         }
         
         setCursorY(21);
@@ -1245,7 +1248,7 @@ int showInfobox(string title, string text, int type, int preselected, int navTyp
       {
         if(selection != 1 && selection != 2)
         {
-          kerror();
+          kerror("Invalid preselection");
         }
         
         setCursorY(21);
@@ -1294,7 +1297,7 @@ int showInfobox(string title, string text, int type, int preselected, int navTyp
           }
           else  //In case of an error
           {
-            kerror();
+            kerror("Invalid selection");
           }
         }
         else if(strEquals(input, (char)27))  //Quit
@@ -1306,7 +1309,7 @@ int showInfobox(string title, string text, int type, int preselected, int navTyp
       }
       else
       {
-        kerror();
+        kerror("Invalid type");
       }
     }
   }
@@ -1321,8 +1324,8 @@ int showInfobox(string title, string text, int type, int preselected, int navTyp
       while(1)
       {
         addButton(1, 38, 21, strlength(languagesGetString(39)), 1, "");
-        selection = runInterface(4, 1);
-        if(selection == 0 || selection == 1)
+        selection = runInterface(4, 0);
+        if(selection == 1)
         {
           setColorcode(currentColor);
           clear();
@@ -1330,7 +1333,7 @@ int showInfobox(string title, string text, int type, int preselected, int navTyp
         }
         else
         {
-          kerror();
+          kerror("Invalid selection");
         }
       }
     }
@@ -1346,14 +1349,8 @@ int showInfobox(string title, string text, int type, int preselected, int navTyp
       {
         addButton(1, 32, 21, strlength(languagesGetString(31)), 1, "");
         addButton(2, 44, 21, strlength(languagesGetString(32)), 1, "");
-        selection = runInterface(4, 1);
-        if(selection == 0)
-        {
-          setColorcode(currentColor);
-          clear();
-          return preselected;
-        }
-        else if(selection == 1)
+        selection = runInterface(4, 0);
+        if(selection == 1)
         {
           setColorcode(currentColor);
           clear();
@@ -1367,14 +1364,14 @@ int showInfobox(string title, string text, int type, int preselected, int navTyp
         }
         else
         {
-          kerror();
+          kerror("Invalid selection");
         }
       }
     }
   }
   else
   {
-    kerror();
+    kerror("Invalid navType");
   }
 }
 
@@ -1382,7 +1379,7 @@ void drawBox(int xPos, int yPos, int xSize, int ySize, int style)  //Draws a box
 {
   if(ySize <= 1 || xSize <= 1)  //Error if too small
   {
-    kerror();
+    kerror("Invalid size");
   }
   ySize -= 2;
   
@@ -1431,7 +1428,7 @@ void drawBox(int xPos, int yPos, int xSize, int ySize, int style)  //Draws a box
   }
   else
   {
-    kerror();
+    kerror("Invalid style");
   }
 }
 
@@ -1462,7 +1459,7 @@ void newWindow(string title, int ableToClose, int style)  //Overwrites screen wi
     }
     else
     {
-      kerror();
+      kerror("Invalid ableToClose value");
     }
     printch((char)179);
     printch((char)195);
@@ -1513,6 +1510,6 @@ void newWindow(string title, int ableToClose, int style)  //Overwrites screen wi
   }
   else
   {
-    kerror();
+    kerror("Incorrect style");
   }
 }
