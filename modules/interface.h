@@ -182,4 +182,8 @@ int runInterface(int navType, int ableToQuit);  //Runs the interface with the sp
 
 int showInfobox(string title, string text, int type, int preselected, int navType);  //Shows an infobox and returns the selection (type1 = ok | type2 = yes,no) (navType1 = keyboard | navType2 = mouse)
 
+void drawBox(int x, int y, int xSize, int ySize, int style);  //Draws a box for a button or something else (style1 = 1 line, style2 = 2 lines)
+
+void newWindow(string title, int ableToClose, int style);  //Overwrites screen with a new window form (style1 = 1 line, style2 = 2 lines)
+
 #endif

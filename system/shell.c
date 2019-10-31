@@ -111,7 +111,7 @@ void shellMainMenu()  //Shell main menu
     addButton(6, 0, 21, 19, 1, languagesGetString(35));
     addButton(7, 0, 22, 19, 1, languagesGetString(50));
     
-    selection = runInterface(4, 1);
+    selection = runInterface(4, 0);
     if(selection == 0 || selection == 1)
     {
       //Nothing, just continue
@@ -1255,51 +1255,45 @@ void shellSettings()  //Shell-settings
   shellSettings:
   
   setColor(15, 0);
-  clear();
-  printColored("                                                                                ", 15, 15);
-  plusCursorX();
-  minusCursorY();
-  printColored(languagesGetString(35), 0, 15);
-  print("\n\n\n\n  ");
-  printColored(languagesGetString(7), 0, 7);
-  print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  ");
-  print(languagesGetString(18));
+  newWindow(languagesGetString(35), 1, 1);
   
   newInterface(15, 0, 0, 15);
-  addButton(1, 2, 6, strlength(languagesGetString(36)), 1, languagesGetString(36));  //LanguageSelector
-  addButton(2, 2, 7, strlength(languagesGetString(37)), 1, languagesGetString(37));  //Systeminformation
-  addButton(3, 2, 8, strlength(languagesGetString(23)), 1, languagesGetString(23));  //White background support
-  addButton(4, 2, 9, strlength(languagesGetString(41)), 1, languagesGetString(41));  //Mouse settings
-  selection = runInterface(1, 1);
+  
+  drawBox(4, 4, strlength(languagesGetString(36))+2, 3, 1);
+  addButton(1, 5, 5, strlength(languagesGetString(36)), 1, languagesGetString(36));  //LanguageSelector
+  drawBox(29, 4, strlength(languagesGetString(37))+2, 3, 1);
+  addButton(2, 30, 5, strlength(languagesGetString(37)), 1, languagesGetString(37));  //Systeminformation
+  drawBox(4, 9, strlength(languagesGetString(23))+2, 3, 1);
+  addButton(3, 5, 10, strlength(languagesGetString(23)), 1, languagesGetString(23));  //White background support
+  drawBox(29, 9, strlength(languagesGetString(41))+2, 3, 1);
+  addButton(4, 30, 10, strlength(languagesGetString(41)), 1, languagesGetString(41));  //Mouse settings
+  selection = runInterface(4, 1);
   
   if(selection == 0)  //Quit
   {
     return;
   }
-  if(selection == 1)  //LanguageSelector
+  else if(selection == 1)  //LanguageSelector
   {
     shellLanguageSelector();
-    goto shellSettings;
   }
   else if(selection == 2)  //Systeminformation
   {
     shellWhiteBgSupportSettings();
-    goto shellSettings;
   }
   else if(selection == 3)  //White background support
   {
     shellSysteminformation();
-    goto shellSettings;
   }
   else if(selection == 4)  //Mouse settings
   {
     shellMouseSettings();
-    goto shellSettings;
   }
   else  //In case of an error
   {
     kerror();
   }
+  goto shellSettings;
 }
 
 void shellLanguageSelector()  //Languageselector
@@ -1405,17 +1399,23 @@ void shellWhiteBgSupportSettings()  //Settings for white background support
 void shellSysteminformation()  //Shell-systeminformation
 {
   setColor(15, 0);
-  clear();
-  printColored("                                                                                ", 15, 15);
-  plusCursorX();
-  minusCursorY();
-  printColored(languagesGetString(23), 0, 15);
-  print("\n\n\n\n  TAKEWAKE Reloaded  Copyright (C) 2019-");
+  newWindow(languagesGetString(23), 1, 1);
+  
+  newInterface(15, 0, 0, 15);
+  
+  setCursorX(2);
+  setCursorY(4);
+  print("TAKEWAKE Reloaded  Copyright (C) 2019-");
   print(getVersionYear());
   print("  The TAKEWAKE Community");
-  print("\n  TAKEWAKE Reloaded is distributed under the GNU General Public License 3.");
-  print("\n  For more informations see <https://www.gnu.org/licenses/>.");
-  print("\n\n  ");
+  setCursorX(2);
+  plusCursorY();
+  print("TAKEWAKE Reloaded is distributed under the GNU General Public License 3.");
+  setCursorX(2);
+  plusCursorY();
+  print("For more informations see <https://www.gnu.org/licenses/>.");
+  setCursorX(2);
+  setCursorY(8);
   print(languagesGetString(24));
   print(getVersion());
   print(" ");
@@ -1423,30 +1423,34 @@ void shellSysteminformation()  //Shell-systeminformation
   print(" ");
   print(getVersionYear());
   print(".");
-  print("\n\n\n  ");
+  setCursorX(2);
+  setCursorY(11);
   printColored(languagesGetString(26), 0, 7);
-  print("\n\n  ");
+  setCursorX(2);
+  setCursorY(13);
   print(languagesGetString(27));
-  print("\n  ");
+  setCursorX(2);
+  plusCursorY();
   print(languagesGetString(28));
-  print("\n\n  ");
+  setCursorX(2);
+  setCursorY(16);
   print(languagesGetString(29));
-  print("\n\n\n  ");
-  print(languagesGetString(18));
-  setColor(0, 0);
-  while(1)
+  
+  selection = runInterface(4, 1);
+  if(selection == 0)  //Quit
   {
-    input = pause();
-    if(strEquals(input, (char)27))
-    {
-      return;
-    }
+    return;
+  }
+  else
+  {
+    kerror();
   }
 }
 
 void shellMouseSettings()  //Mouse settings
 {
   setColor(15, 0);
+  clear();
   selection = showInfobox(languagesGetString(41), languagesGetString(42), 2, 1, getMouseSupport()+1);  //Enable mouse support?
   if(selection == 1)  //Yes
   {
@@ -1465,14 +1469,13 @@ void shellMouseSettings()  //Mouse settings
     return;
   }
   
-  clear();
-  printColored("                                                                                ", 15, 15);
-  plusCursorX();
-  minusCursorY();
-  printColored(languagesGetString(41), 0, 15);
-  print("\n\n\n   ");
+  newWindow(languagesGetString(41), 0, 1);
+  
+  setCursorX(3);
+  setCursorY(4);
   print(languagesGetString(45));
-  print("\n\n   ");
+  setCursorX(3);
+  plusCursorY();
   printch((char)218);
   printMultipleCh((char)196, 13);
   printch((char)191);
@@ -1481,7 +1484,8 @@ void shellMouseSettings()  //Mouse settings
   printch((char)179);
   print("-------------");
   printch((char)179);
-  print("\n   ");
+  setCursorX(3);
+  plusCursorY();
   printch((char)192);
   printMultipleCh((char)196, 13);
   printch((char)217);
@@ -1535,8 +1539,8 @@ void shellMouseSettings()  //Mouse settings
     }
     drawBox(3, 11, 4, 3, 1);
     addButton(5, 4, 12, strlength(languagesGetString(39)), 1, languagesGetString(39));
-    selection = runInterface(4, 1);
-    if(selection == 0 || selection == 5)
+    selection = runInterface(4, 0);
+    if(selection == 5)
     {
       return;
     }
@@ -1586,7 +1590,7 @@ void shellSessionMenu()  //Menu for session options
   addButton(2, 23, 8, 33, 1, languagesGetString(13));
   addButton(3, 23, 10, 33, 1, languagesGetString(51));
   
-  selection = runInterface(4, 1);
+  selection = runInterface(4, 0);
   if(selection == 0 || selection == 3)
   {
     //Nothing, just continue

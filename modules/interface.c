@@ -399,7 +399,7 @@ int runInterface(int navType, int ableToQuit)  //Runs the interface with the spe
     selection = 0;
   }
   
-  if(button1 == 0)  //Error if there is no button1
+  if(button1 == 0 && ableToQuit == 0)  //Error if there is no button1 and ableToQuit is 0
   {
     kerror();
   }
@@ -1086,8 +1086,12 @@ int runInterface(int navType, int ableToQuit)  //Runs the interface with the spe
       {
         cursorMouse();  //Unlock mouse and wait for leftclick
         
-        //Check for any buttons at the position of the cursor
-        if(button1 == 1 && getCursorX() >= button1X && getCursorX() <= button1X + button1SizeX && getCursorY() >= button1Y && getCursorY() <= button1Y + button1SizeY)
+        //Check for any buttons at the position of the cursor or if ableToQuit == 1 even if the ' X ' is pressed
+        if(ableToQuit == 1 && getCursorX() >= 76 && getCursorX() <= 78 && getCursorY() >= 1 && getCursorY() <= 1)
+        {
+          return 0;
+        }
+        else if(button1 == 1 && getCursorX() >= button1X && getCursorX() <= button1X + button1SizeX && getCursorY() >= button1Y && getCursorY() <= button1Y + button1SizeY)
         {
           return 1;
         }
@@ -1367,6 +1371,145 @@ int showInfobox(string title, string text, int type, int preselected, int navTyp
         }
       }
     }
+  }
+  else
+  {
+    kerror();
+  }
+}
+
+void drawBox(int xPos, int yPos, int xSize, int ySize, int style)  //Draws a box for a button or something else (style1 = 1 line, style2 = 2 lines)
+{
+  if(ySize <= 1 || xSize <= 1)  //Error if too small
+  {
+    kerror();
+  }
+  ySize -= 2;
+  
+  setCursorX(xPos);
+  setCursorY(yPos);
+  
+  if(style == 1)
+  {
+    printch((char)218);
+    printMultipleCh((char)196, xSize-2);
+    printch((char)191);
+    while(ySize != 0)
+    {
+      print("\n");
+      setCursorX(xPos);
+      printch((char)179);
+      printMultipleCh((char)32, xSize-2);
+      printch((char)179);
+      ySize--;
+    }
+    print("\n");
+    setCursorX(xPos);
+    printch((char)192);
+    printMultipleCh((char)196, xSize-2);
+    printch((char)217);
+  }
+  else if(style == 2)
+  {
+    printch((char)201);
+    printMultipleCh((char)205, xSize-2);
+    printch((char)187);
+    while(ySize != 0)
+    {
+      print("\n");
+      setCursorX(xPos);
+      printch((char)186);
+      printMultipleCh((char)32, xSize-2);
+      printch((char)186);
+      ySize--;
+    }
+    print("\n");
+    setCursorX(xPos);
+    printch((char)200);
+    printMultipleCh((char)205, xSize-2);
+    printch((char)188);
+  }
+  else
+  {
+    kerror();
+  }
+}
+
+
+void newWindow(string title, int ableToClose, int style)  //Overwrites screen with a new window form (style1 = 1 line, style2 = 2 lines)
+{
+  clear();
+  int i = 0;
+  if(style == 1)
+  {
+    printch((char)218);
+    printMultipleCh((char)196, 74);
+    printch((char)194);
+    printMultipleCh((char)196, 3);
+    printch((char)191);
+    printch((char)179);
+    printch((char)32);
+    print(title);
+    setCursorX(75);
+    printch((char)179);
+    if(ableToClose == 0)  //Prints ' X ' in different colors if the window is able to be closed or not
+    {
+      printColored(" X ", 7, 8);
+    }
+    else if(ableToClose == 1)
+    {
+      printColored(" X ", 15, 4);
+    }
+    else
+    {
+      kerror();
+    }
+    printch((char)179);
+    printch((char)195);
+    printMultipleCh((char)196, 74);
+    printch((char)193);
+    printMultipleCh((char)196, 3);
+    printch((char)180);
+    while(i != 21)
+    {
+      printch((char)179);
+      printMultipleCh((char)32, 78);
+      printch((char)179);
+      i++;
+    }
+    printch((char)192);
+    printMultipleCh((char)196, 78);
+    printch((char)217);
+  }
+  else if(style == 2)
+  {
+    printch((char)201);
+    printMultipleCh((char)205, 74);
+    printch((char)203);
+    printMultipleCh((char)205, 3);
+    printch((char)187);
+    printch((char)186);
+    printch((char)32);
+    print(title);
+    setCursorX(75);
+    printch((char)186);
+    printColored(" X ", 15, 4);
+    printch((char)186);
+    printch((char)204);
+    printMultipleCh((char)205, 74);
+    printch((char)202);
+    printMultipleCh((char)205, 3);
+    printch((char)185);
+    while(i != 21)
+    {
+      printch((char)186);
+      printMultipleCh((char)32, 78);
+      printch((char)186);
+      i++;
+    }
+    printch((char)200);
+    printMultipleCh((char)205, 78);
+    printch((char)188);
   }
   else
   {
