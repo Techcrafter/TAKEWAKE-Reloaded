@@ -135,9 +135,6 @@ void terminalHelp()  //Terminal-help
   print("\n mouse               ");
   printch((char)186);
   print(" Demonstration of mouse functionality.");
-  print("\n quit                ");
-  printch((char)186);
-  print(" Quit the terminal.");
   print("\n quit-session        ");
   printch((char)186);
   print(" Quit the actual session.                                ");
