@@ -126,11 +126,11 @@ void shellMainMenu()  //Shell main menu
       print(getVersion());
       setCursorX(72);
       setCursorY(24);
-      print(int_to_str(getCmosSecond()));
+      print(int_to_str(getCmosHour()));
       print(":");
       print(int_to_str(getCmosMinute()));
       print(":");
-      print(int_to_str(getCmosHour()));
+      print(int_to_str(getCmosSecond()));
       wait(1);
       goto shellMainMenu;
     }
@@ -164,11 +164,11 @@ void shellMainMenu()  //Shell main menu
   {
     setCursorX(72);
     setCursorY(24);
-    print(int_to_str(getCmosSecond()));
+    print(int_to_str(getCmosHour()));
     print(":");
     print(int_to_str(getCmosMinute()));
     print(":");
-    print(int_to_str(getCmosHour()));
+    print(int_to_str(getCmosSecond()));
     print("   ");
     wait(1);
     goto shellMainMenu;
