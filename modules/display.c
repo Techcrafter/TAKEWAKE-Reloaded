@@ -108,7 +108,7 @@ void newLineCheck()  //Checks if new line is needed
   }
 }
 
-void printch(char c)  //Prints a char
+void printCh(char c)  //Prints a char
 {
   string vidmem = (string)0xb8000;
   switch(c)
@@ -157,7 +157,7 @@ void printMultipleCh(char c, int count)
   
   while(i != count)
   {
-    printch(c);
+    printCh(c);
     i++;
   }
 }
@@ -169,7 +169,7 @@ void print(string ch)  //Prints a text
   
   for(i;i<length;i++)
   {
-    printch(ch[i]);
+    printCh(ch[i]);
   }
 }
 

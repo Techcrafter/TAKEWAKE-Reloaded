@@ -53,12 +53,12 @@ string readStr()  //Input of strings (keyboard)
         case 2:
           if(shifted == 0)  //1
           {
-            printch('1');
+            printCh('1');
             buffstr[i] = '1';
           }
           else
           {
-            printch('!');
+            printCh('!');
             buffstr[i] = '!';
           }
           i++;
@@ -66,19 +66,19 @@ string readStr()  //Input of strings (keyboard)
         case 3:
           if(shifted == 0)  //2
           {
-            printch('2');
+            printCh('2');
             buffstr[i] = '2';
           }
           else
           {
             if(layout == 0)
             {
-              printch('@');
+              printCh('@');
               buffstr[i] = '@';
             }
             else if(layout == 1)
             {
-              printch('"');
+              printCh('"');
               buffstr[i] = '"';
             }
           }
@@ -87,19 +87,19 @@ string readStr()  //Input of strings (keyboard)
         case 4:
           if(shifted == 0)  //3
           {
-            printch('3');
+            printCh('3');
             buffstr[i] = '3';
           }
           else
           {
             if(layout == 0)
             {
-              printch('#');
+              printCh('#');
               buffstr[i] = '#';
             }
             else if(layout == 1)
             {
-              printch((char)245);
+              printCh((char)245);
               buffstr[i] = (char)245;
             }
           }
@@ -108,12 +108,12 @@ string readStr()  //Input of strings (keyboard)
         case 5:
           if(shifted == 0)  //4
           {
-            printch('4');
+            printCh('4');
             buffstr[i] = '4';
           }
           else
           {
-            printch('$');
+            printCh('$');
             buffstr[i] = '$';
           }
           i++;
@@ -121,12 +121,12 @@ string readStr()  //Input of strings (keyboard)
         case 6:
           if(shifted == 0)  //5
           {
-            printch('5');
+            printCh('5');
             buffstr[i] = '5';
           }
           else
           {
-            printch('%');
+            printCh('%');
             buffstr[i] = '%';
           }
           i++;
@@ -134,19 +134,19 @@ string readStr()  //Input of strings (keyboard)
         case 7:
           if(shifted == 0)  //6
           {
-            printch('6');
+            printCh('6');
             buffstr[i] = '6';
           }
           else
           {
             if(layout == 0)
             {
-              printch('^');
+              printCh('^');
               buffstr[i] = '^';
             }
             else if(layout == 1)
             {
-              printch('&');
+              printCh('&');
               buffstr[i] = '&';
             }
           }
@@ -155,19 +155,19 @@ string readStr()  //Input of strings (keyboard)
         case 8:
           if(shifted == 0)  //7
           {
-            printch('7');
+            printCh('7');
             buffstr[i] = '7';
           }
           else
           {
             if(layout == 0)
             {
-              printch('&');
+              printCh('&');
               buffstr[i] = '&';
             }
             else if(layout == 1)
             {
-              printch('/');
+              printCh('/');
               buffstr[i] = '/';
             }
           }
@@ -176,19 +176,19 @@ string readStr()  //Input of strings (keyboard)
         case 9:
           if(shifted == 0)  //8
           {
-            printch('8');
+            printCh('8');
             buffstr[i] = '8';
           }
           else
           {
             if(layout == 0)
             {
-              printch('*');
+              printCh('*');
               buffstr[i] = '*';
             }
             else if(layout == 1)
             {
-              printch('(');
+              printCh('(');
               buffstr[i] = '(';
             }
           }
@@ -197,19 +197,19 @@ string readStr()  //Input of strings (keyboard)
         case 10:
           if(shifted == 0)  //9
           {
-            printch('9');
+            printCh('9');
             buffstr[i] = '9';
           }
           else
           {
             if(layout == 0)
             {
-              printch('(');
+              printCh('(');
               buffstr[i] = '(';
             }
             else if(layout == 1)
             {
-              printch(')');
+              printCh(')');
               buffstr[i] = ')';
             }
           }
@@ -218,19 +218,19 @@ string readStr()  //Input of strings (keyboard)
         case 11:
           if(shifted == 0)  //0
           {
-            printch('0');
+            printCh('0');
             buffstr[i] = '0';
           }
           else
           {
             if(layout == 0)
             {
-              printch(')');
+              printCh(')');
               buffstr[i] = ')';
             }
             else if(layout == 1)
             {
-              printch('=');
+              printCh('=');
               buffstr[i] = '=';
             }
           }
@@ -241,12 +241,12 @@ string readStr()  //Input of strings (keyboard)
           {
             if(layout == 0)
             {
-              printch('-');
+              printCh('-');
               buffstr[i] = '-';
             }
             else if(layout == 1)
             {
-              printch((char)225);
+              printCh((char)225);
               buffstr[i] = (char)225;
             }
           }
@@ -254,12 +254,12 @@ string readStr()  //Input of strings (keyboard)
           {
             if(layout == 0)
             {
-              printch('_');
+              printCh('_');
               buffstr[i] = '_';
             }
             else if(layout == 1)
             {
-              printch('?');
+              printCh('?');
               buffstr[i] = '?';
             }
           }
@@ -270,12 +270,12 @@ string readStr()  //Input of strings (keyboard)
           {
             if(layout == 0)
             {
-              printch('=');
+              printCh('=');
               buffstr[i] = '=';
             }
             else if(layout == 1)
             {
-              printch((char)239);
+              printCh((char)239);
               buffstr[i] = (char)239;
             }
           }
@@ -283,12 +283,12 @@ string readStr()  //Input of strings (keyboard)
           {
             if(layout == 0)
             {
-              printch('+');
+              printCh('+');
               buffstr[i] = '+';
             }
             else if(layout == 1)
             {
-              printch('`');
+              printCh('`');
               buffstr[i] = '`';
             }
           }
@@ -309,12 +309,12 @@ string readStr()  //Input of strings (keyboard)
         case 16:
           if(shifted == 0)  //q
           {
-            printch('q');
+            printCh('q');
             buffstr[i] = 'q';
           }
           else
           {
-            printch('Q');
+            printCh('Q');
             buffstr[i] = 'Q';
           }
           i++;
@@ -322,12 +322,12 @@ string readStr()  //Input of strings (keyboard)
         case 17:
           if(shifted == 0)  //w
           {
-            printch('w');
+            printCh('w');
             buffstr[i] = 'w';
           }
           else
           {
-            printch('W');
+            printCh('W');
             buffstr[i] = 'W';
           }
           i++;
@@ -335,12 +335,12 @@ string readStr()  //Input of strings (keyboard)
         case 18:
           if(shifted == 0)  //e
           {
-            printch('e');
+            printCh('e');
             buffstr[i] = 'e';
           }
           else
           {
-            printch('E');
+            printCh('E');
             buffstr[i] = 'E';
           }
           i++;
@@ -348,12 +348,12 @@ string readStr()  //Input of strings (keyboard)
         case 19:
           if(shifted == 0)  //r
           {
-            printch('r');
+            printCh('r');
             buffstr[i] = 'r';
           }
           else
           {
-            printch('R');
+            printCh('R');
             buffstr[i] = 'R';
           }
           i++;
@@ -361,12 +361,12 @@ string readStr()  //Input of strings (keyboard)
         case 20:
           if(shifted == 0)  //t
           {
-            printch('t');
+            printCh('t');
             buffstr[i] = 't';
           }
           else
           {
-            printch('T');
+            printCh('T');
             buffstr[i] = 'T';
           }
           i++;
@@ -376,12 +376,12 @@ string readStr()  //Input of strings (keyboard)
           {
             if(layout == 0)
             {
-              printch('y');
+              printCh('y');
               buffstr[i] = 'y';
             }
             else if(layout == 1)
             {
-              printch('z');
+              printCh('z');
               buffstr[i] = 'z';
             }
           }
@@ -389,12 +389,12 @@ string readStr()  //Input of strings (keyboard)
           {
             if(layout == 0)
             {
-              printch('Y');
+              printCh('Y');
               buffstr[i] = 'Y';
             }
             else if(layout == 1)
             {
-              printch('Z');
+              printCh('Z');
               buffstr[i] = 'Z';
             }
           }
@@ -403,12 +403,12 @@ string readStr()  //Input of strings (keyboard)
         case 22:
           if(shifted == 0)  //u
           {
-            printch('u');
+            printCh('u');
             buffstr[i] = 'u';
           }
           else
           {
-            printch('U');
+            printCh('U');
             buffstr[i] = 'U';
           }
           i++;
@@ -416,12 +416,12 @@ string readStr()  //Input of strings (keyboard)
         case 23:
           if(shifted == 0)  //i
           {
-            printch('i');
+            printCh('i');
             buffstr[i] = 'i';
           }
           else
           {
-            printch('I');
+            printCh('I');
             buffstr[i] = 'I';
           }
           i++;
@@ -429,12 +429,12 @@ string readStr()  //Input of strings (keyboard)
         case 24:
           if(shifted == 0)  //o
           {
-            printch('o');
+            printCh('o');
             buffstr[i] = 'o';
           }
           else
           {
-            printch('O');
+            printCh('O');
             buffstr[i] = 'O';
           }
           i++;
@@ -442,12 +442,12 @@ string readStr()  //Input of strings (keyboard)
         case 25:
           if(shifted == 0)  //p
           {
-            printch('p');
+            printCh('p');
             buffstr[i] = 'p';
           }
           else
           {
-            printch('P');
+            printCh('P');
             buffstr[i] = 'P';
           }
           i++;
@@ -457,12 +457,12 @@ string readStr()  //Input of strings (keyboard)
           {
             if(layout == 0)
             {
-              printch('[');
+              printCh('[');
               buffstr[i] = '[';
             }
             else if(layout == 1)
             {
-              printch((char)129);
+              printCh((char)129);
               buffstr[i] = (char)129;
             }
           }
@@ -470,12 +470,12 @@ string readStr()  //Input of strings (keyboard)
           {
             if(layout == 0)
             {
-              printch('{');
+              printCh('{');
               buffstr[i] = '{';
             }
             else if(layout == 1)
             {
-              printch((char)154);
+              printCh((char)154);
               buffstr[i] = (char)154;
             }
           }
@@ -486,12 +486,12 @@ string readStr()  //Input of strings (keyboard)
           {
             if(layout == 0)
             {
-              printch(']');
+              printCh(']');
               buffstr[i] = ']';
             }
             else if(layout == 1)
             {
-              printch('+');
+              printCh('+');
               buffstr[i] = '+';
             }
           }
@@ -499,19 +499,19 @@ string readStr()  //Input of strings (keyboard)
           {
             if(layout == 0)
             {
-              printch('}');
+              printCh('}');
               buffstr[i] = '}';
             }
             else if(layout == 1)
             {
-              printch('*');
+              printCh('*');
               buffstr[i] = '*';
             }
           }
           i++;
           break;
         case 28:
-        //printch('\n');  //Enter
+        //printCh('\n');  //Enter
         //buffstr[i] = '\n';
         //i++;
           buffstr[i] = '\0';
@@ -523,19 +523,19 @@ string readStr()  //Input of strings (keyboard)
           reading = 0;
           break;
       /*case 29:
-          printch('C');  //Ctrl-left
+          printCh('C');  //Ctrl-left
           buffstr[i] = 'C';
           i++;
           break;*/
         case 30:
           if(shifted == 0)  //a
           {
-            printch('a');
+            printCh('a');
             buffstr[i] = 'a';
           }
           else
           {
-            printch('A');
+            printCh('A');
             buffstr[i] = 'A';
           }
           i++;
@@ -543,12 +543,12 @@ string readStr()  //Input of strings (keyboard)
         case 31:
           if(shifted == 0)  //s
           {
-            printch('s');
+            printCh('s');
             buffstr[i] = 's';
           }
           else
           {
-            printch('S');
+            printCh('S');
             buffstr[i] = 'S';
           }
           i++;
@@ -556,12 +556,12 @@ string readStr()  //Input of strings (keyboard)
         case 32:
           if(shifted == 0)  //d
           {
-            printch('d');
+            printCh('d');
             buffstr[i] = 'd';
           }
           else
           {
-            printch('D');
+            printCh('D');
             buffstr[i] = 'D';
           }
           i++;
@@ -569,12 +569,12 @@ string readStr()  //Input of strings (keyboard)
         case 33:
           if(shifted == 0)  //f
           {
-            printch('f');
+            printCh('f');
             buffstr[i] = 'f';
           }
           else
           {
-            printch('F');
+            printCh('F');
             buffstr[i] = 'F';
           }
           i++;
@@ -582,12 +582,12 @@ string readStr()  //Input of strings (keyboard)
         case 34:
           if(shifted == 0)  //g
           {
-            printch('g');
+            printCh('g');
             buffstr[i] = 'g';
           }
           else
           {
-            printch('G');
+            printCh('G');
             buffstr[i] = 'G';
           }
           i++;
@@ -595,12 +595,12 @@ string readStr()  //Input of strings (keyboard)
         case 35:
           if(shifted == 0)  //h
           {
-            printch('h');
+            printCh('h');
             buffstr[i] = 'h';
           }
           else
           {
-            printch('H');
+            printCh('H');
             buffstr[i] = 'H';
           }
           i++;
@@ -608,12 +608,12 @@ string readStr()  //Input of strings (keyboard)
         case 36:
           if(shifted == 0)  //j
           {
-            printch('j');
+            printCh('j');
             buffstr[i] = 'j';
           }
           else
           {
-            printch('J');
+            printCh('J');
             buffstr[i] = 'J';
           }
           i++;
@@ -621,12 +621,12 @@ string readStr()  //Input of strings (keyboard)
         case 37:
           if(shifted == 0)  //k
           {
-            printch('k');
+            printCh('k');
             buffstr[i] = 'k';
           }
           else
           {
-            printch('K');
+            printCh('K');
             buffstr[i] = 'K';
           }
           i++;
@@ -634,12 +634,12 @@ string readStr()  //Input of strings (keyboard)
         case 38:
           if(shifted == 0)  //l
           {
-            printch('l');
+            printCh('l');
             buffstr[i] = 'l';
           }
           else
           {
-            printch('L');
+            printCh('L');
             buffstr[i] = 'L';
           }
           i++;
@@ -649,12 +649,12 @@ string readStr()  //Input of strings (keyboard)
           {
             if(layout == 0)
             {
-              printch(';');
+              printCh(';');
               buffstr[i] = ';';
             }
             else if(layout == 1)
             {
-              printch((char)148);
+              printCh((char)148);
               buffstr[i] = (char)148;
             }
           }
@@ -662,12 +662,12 @@ string readStr()  //Input of strings (keyboard)
           {
             if(layout == 0)
             {
-              printch(':');
+              printCh(':');
               buffstr[i] = ':';
             }
             else if(layout == 1)
             {
-              printch((char)153);
+              printCh((char)153);
               buffstr[i] = (char)153;
             }
           }
@@ -678,12 +678,12 @@ string readStr()  //Input of strings (keyboard)
           {
             if(layout == 0)
             {
-              printch((char)39);
+              printCh((char)39);
               buffstr[i] = (char)39;
             }
             else if(layout == 1)
             {
-              printch((char)132);
+              printCh((char)132);
               buffstr[i] = (char)132;
             }
           }
@@ -691,12 +691,12 @@ string readStr()  //Input of strings (keyboard)
           {
             if(layout == 0)
             {
-              printch('"');
+              printCh('"');
               buffstr[i] = '"';
             }
             else if(layout == 1)
             {
-              printch((char)142);
+              printCh((char)142);
               buffstr[i] = (char)142;
             }
           }
@@ -707,12 +707,12 @@ string readStr()  //Input of strings (keyboard)
           {
             if(layout == 0)
             {
-              printch('`');
+              printCh('`');
               buffstr[i] = '`';
             }
             else if(layout == 1)
             {
-              printch('^');
+              printCh('^');
               buffstr[i] = '^';
             }
           }
@@ -720,12 +720,12 @@ string readStr()  //Input of strings (keyboard)
           {
             if(layout == 0)
             {
-              printch('~');
+              printCh('~');
               buffstr[i] = '~';
             }
             else if(layout == 1)
             {
-              printch((char)167);
+              printCh((char)167);
               buffstr[i] = (char)167;
             }
           }
@@ -746,12 +746,12 @@ string readStr()  //Input of strings (keyboard)
           {
             if(layout == 0)
             {
-              printch((char)92);
+              printCh((char)92);
               buffstr[i] = (char)92;
             }
             else if(layout == 1)
             {
-              printch('#');
+              printCh('#');
               buffstr[i] = '#';
             }
           }
@@ -759,12 +759,12 @@ string readStr()  //Input of strings (keyboard)
           {
             if(layout == 0)
             {
-              printch('|');
+              printCh('|');
               buffstr[i] = '|';
             }
             else if(layout == 1)
             {
-              printch((char)39);
+              printCh((char)39);
               buffstr[i] = (char)39;
             }
           }
@@ -775,12 +775,12 @@ string readStr()  //Input of strings (keyboard)
           {
             if(layout == 0)
             {
-              printch('z');
+              printCh('z');
               buffstr[i] = 'z';
             }
             else if(layout == 1)
             {
-              printch('y');
+              printCh('y');
               buffstr[i] = 'y';
             }
           }
@@ -788,12 +788,12 @@ string readStr()  //Input of strings (keyboard)
           {
             if(layout == 0)
             {
-              printch('Z');
+              printCh('Z');
               buffstr[i] = 'Z';
             }
             else if(layout == 1)
             {
-              printch('Y');
+              printCh('Y');
               buffstr[i] = 'Y';
             }
           }
@@ -802,12 +802,12 @@ string readStr()  //Input of strings (keyboard)
         case 45:
           if(shifted == 0)  //x
           {
-            printch('x');
+            printCh('x');
             buffstr[i] = 'x';
           }
           else
           {
-            printch('X');
+            printCh('X');
             buffstr[i] = 'X';
           }
           i++;
@@ -815,12 +815,12 @@ string readStr()  //Input of strings (keyboard)
         case 46:
           if(shifted == 0)  //c
           {
-            printch('c');
+            printCh('c');
             buffstr[i] = 'c';
           }
           else
           {
-            printch('C');
+            printCh('C');
             buffstr[i] = 'C';
           }
           i++;
@@ -828,12 +828,12 @@ string readStr()  //Input of strings (keyboard)
         case 47:
           if(shifted == 0)  //v
           {
-            printch('v');
+            printCh('v');
             buffstr[i] = 'v';
           }
           else
           {
-            printch('V');
+            printCh('V');
             buffstr[i] = 'V';
           }
           i++;
@@ -841,12 +841,12 @@ string readStr()  //Input of strings (keyboard)
         case 48:
           if(shifted == 0)  //b
           {
-            printch('b');
+            printCh('b');
             buffstr[i] = 'b';
           }
           else
           {
-            printch('B');
+            printCh('B');
             buffstr[i] = 'B';
           }
           i++;
@@ -854,12 +854,12 @@ string readStr()  //Input of strings (keyboard)
         case 49:
           if(shifted == 0)  //n
           {
-            printch('n');
+            printCh('n');
             buffstr[i] = 'n';
           }
           else
           {
-            printch('N');
+            printCh('N');
             buffstr[i] = 'N';
           }
           i++;
@@ -867,12 +867,12 @@ string readStr()  //Input of strings (keyboard)
         case 50:
           if(shifted == 0)  //m
           {
-            printch('m');
+            printCh('m');
             buffstr[i] = 'm';
           }
           else
           {
-            printch('M');
+            printCh('M');
             buffstr[i] = 'M';
           }
           i++;
@@ -880,19 +880,19 @@ string readStr()  //Input of strings (keyboard)
         case 51:
           if(shifted == 0)  //,
           {
-            printch(',');
+            printCh(',');
             buffstr[i] = ',';
           }
           else
           {
             if(layout == 0)
             {
-              printch('<');
+              printCh('<');
               buffstr[i] = '<';
             }
             else if(layout == 1)
             {
-              printch(';');
+              printCh(';');
               buffstr[i] = ';';
             }
           }
@@ -901,19 +901,19 @@ string readStr()  //Input of strings (keyboard)
         case 52:
           if(shifted == 0)  //.
           {
-            printch('.');
+            printCh('.');
             buffstr[i] = '.';
           }
           else
           {
             if(layout == 0)
             {
-              printch('>');
+              printCh('>');
               buffstr[i] = '>';
             }
             else if(layout == 1)
             {
-              printch(':');
+              printCh(':');
               buffstr[i] = ':';
             }
           }
@@ -924,12 +924,12 @@ string readStr()  //Input of strings (keyboard)
           {
             if(layout == 0)
             {
-              printch('/');
+              printCh('/');
               buffstr[i] = '/';
             }
             else if(layout == 1)
             {
-              printch('-');
+              printCh('-');
               buffstr[i] = '-';
             }
           }
@@ -937,12 +937,12 @@ string readStr()  //Input of strings (keyboard)
           {
             if(layout == 0)
             {
-              printch('?');
+              printCh('?');
               buffstr[i] = '?';
             }
             else if(layout == 1)
             {
-              printch('_');
+              printCh('_');
               buffstr[i] = '_';
             }
           }
@@ -959,17 +959,17 @@ string readStr()  //Input of strings (keyboard)
           }
           break;
         case 55:
-          printch('*');  //Numblock *
+          printCh('*');  //Numblock *
           buffstr[i] = '*';
           i++;
           break;
         /*case 56:
-          printch('A');  //Alt (Gr)
+          printCh('A');  //Alt (Gr)
           buffstr[i] = 'A';
           i++;
           break;*/
         case 57:
-          printch(' ');  //Space
+          printCh(' ');  //Space
           buffstr[i] = ' ';
           i++;
           break;
@@ -984,79 +984,79 @@ string readStr()  //Input of strings (keyboard)
           }
           break;
       /*case 59:
-          printch('F');  //F1
+          printCh('F');  //F1
           buffstr[i] = 'F';
           i++;
           break;*/
       /*case 60:
-          printch('F');  //F2
+          printCh('F');  //F2
           buffstr[i] = 'F';
           i++;
           break;*/
       /*case 61:
-          printch('F');  //F3
+          printCh('F');  //F3
           buffstr[i] = 'F';
           i++;
           break;*/
       /*case 62:
-          printch('F');  //F4
+          printCh('F');  //F4
           buffstr[i] = 'F';
           i++;
           break;*/
       /*case 63:
-          printch('F');  //F5
+          printCh('F');  //F5
           buffstr[i] = 'F';
           i++;
           break;*/
       /*case 64:
-          printch('F');  //F6
+          printCh('F');  //F6
           buffstr[i] = 'F';
           i++;
           break;*/
       /*case 65:
-          printch('F');  //F7
+          printCh('F');  //F7
           buffstr[i] = 'F';
           i++;
           break;*/
       /*case 66:
-          printch('F');  //F8
+          printCh('F');  //F8
           buffstr[i] = 'F';
           i++;
           break;*/
       /*case 67:
-          printch('F');  //F9
+          printCh('F');  //F9
           buffstr[i] = 'F';
           i++;
           break;*/
       /*case 68:
-          printch('F');  //F10
+          printCh('F');  //F10
           buffstr[i] = 'F';
           i++;
           break;*/
       /*case 69:
-          printch('F');  //F11
+          printCh('F');  //F11
           buffstr[i] = 'F';
           i++;
           break;*/
       /*case 70:
-          printch('F');  //F12
+          printCh('F');  //F12
           buffstr[i] = 'F';
           i++;
           break;*/
       /*case 71:
-          printch('P');  //Pos 1
+          printCh('P');  //Pos 1
           buffstr[i] = 'P';
           i++;
           break;*/
       /*case 72:
-          printch('U');  //Up
+          printCh('U');  //Up
           buffstr[i] = 'U';
           i++;
           break;*/
       /*case 73:
           break;  //Page-up*/
         case 74:
-          printch('-');  //Numblock -
+          printCh('-');  //Numblock -
           buffstr[i] = '-';
           i++;
           break;
@@ -1068,7 +1068,7 @@ string readStr()  //Input of strings (keyboard)
           }
           break;
       /*case 76:
-          printch('5');  //Numblock 5
+          printCh('5');  //Numblock 5
           buffstr[i] = '5';
           i++;
           break;*/
@@ -1077,17 +1077,17 @@ string readStr()  //Input of strings (keyboard)
           i++;
           break;
         case 78:
-          printch('+');  //Numblock +
+          printCh('+');  //Numblock +
           buffstr[i] = '+';
           i++;
           break;
       /*case 79:
-          printch('E');  //End
+          printCh('E');  //End
           buffstr[i] = 'E';
           i++;
           break;*/
       /*case 80:
-          printch('D');  //Down
+          printCh('D');  //Down
           buffstr[i] = 'D';
           i++;
           break;*/
@@ -1095,12 +1095,12 @@ string readStr()  //Input of strings (keyboard)
           ScrollUp(1);  //Page-Down
           break;*/
       /*case 82:
-          printch('P');  //Paste
+          printCh('P');  //Paste
           buffstr[i] = 'P';
           i++;
           break;*/
       /*case 83:
-          printch('D');  //Delete
+          printCh('D');  //Delete
           buffstr[i] = 'D';
           i++;
           break;*/
@@ -1126,7 +1126,7 @@ string readStr()  //Input of strings (keyboard)
           }
           break;
         case 28:
-        //printch('\n');  //Enter
+        //printCh('\n');  //Enter
         //buffstr[i] = '\n';
         //i++;
           buffstr[i] = '\0';

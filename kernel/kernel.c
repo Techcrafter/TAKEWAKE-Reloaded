@@ -44,6 +44,7 @@ void kmain()  //Kernelmainfunktion (at start)
   setCursorX(51);
   print(versionYear);
   print(" | The TAKEWAKE Community");
+  drawBox(26, 6, 27, 4, 2);
   setCursorX(31);
   setCursorY(7);
   print("TAKEWAKE Reloaded");
@@ -56,17 +57,10 @@ void kmain()  //Kernelmainfunktion (at start)
   print("Please wait...");
   setCursorX(4);
   setCursorY(20);
-  setColor(15, 15);
-  print("                                                                      ");
-  print(" ");
-  printColored("                                                                               ", 0, 0);
-  print(" \n");
-  setCursorX(4);
-  print("                                                                       ");
-  setCursorX(4);
+  setColor(15, 0);
+  drawBox(4, 20, 72, 3, 1);
+  setCursorX(5);
   minusCursorY();
-  setColor(15, 15);
-  print(" ");
   setColor(10, 10);
   print("                               ");
   hideCursor();

@@ -1186,40 +1186,40 @@ int showInfobox(string title, string text, int type, int preselected, int navTyp
   setColor(15, 0);
   setCursorY(17);
   setCursorX(10);
-  printch((char)218);
+  printCh((char)218);
   printMultipleCh((char)196, 58);
-  printch((char)191);
+  printCh((char)191);
   setCursorX(12);
   print(title);
   
   print("\n          ");
-  printch((char)179);
+  printCh((char)179);
   print("                                                          ");
-  printch((char)179);
+  printCh((char)179);
   print("\n          ");
-  printch((char)179);
+  printCh((char)179);
   print("                                                          ");
   setCursorX(14);
   print(text);
   setCursorX(69);
-  printch((char)179);
+  printCh((char)179);
   print("\n          ");
-  printch((char)179);
+  printCh((char)179);
   print("                                                          ");
-  printch((char)179);
+  printCh((char)179);
   print("\n          ");
-  printch((char)179);
+  printCh((char)179);
   print("                                                          ");
-  printch((char)179);
+  printCh((char)179);
   print("\n          ");
-  printch((char)179);
+  printCh((char)179);
   print("                                                          ");
-  printch((char)179);
+  printCh((char)179);
   print("\n          ");
   
-  printch((char)192);
+  printCh((char)192);
   printMultipleCh((char)196, 58);
-  printch((char)217);
+  printCh((char)217);
   
   int selection;
   if(navType == 1)
@@ -1388,43 +1388,43 @@ void drawBox(int xPos, int yPos, int xSize, int ySize, int style)  //Draws a box
   
   if(style == 1)
   {
-    printch((char)218);
+    printCh((char)218);
     printMultipleCh((char)196, xSize-2);
-    printch((char)191);
+    printCh((char)191);
     while(ySize != 0)
     {
       print("\n");
       setCursorX(xPos);
-      printch((char)179);
+      printCh((char)179);
       printMultipleCh((char)32, xSize-2);
-      printch((char)179);
+      printCh((char)179);
       ySize--;
     }
     print("\n");
     setCursorX(xPos);
-    printch((char)192);
+    printCh((char)192);
     printMultipleCh((char)196, xSize-2);
-    printch((char)217);
+    printCh((char)217);
   }
   else if(style == 2)
   {
-    printch((char)201);
+    printCh((char)201);
     printMultipleCh((char)205, xSize-2);
-    printch((char)187);
+    printCh((char)187);
     while(ySize != 0)
     {
       print("\n");
       setCursorX(xPos);
-      printch((char)186);
+      printCh((char)186);
       printMultipleCh((char)32, xSize-2);
-      printch((char)186);
+      printCh((char)186);
       ySize--;
     }
     print("\n");
     setCursorX(xPos);
-    printch((char)200);
+    printCh((char)200);
     printMultipleCh((char)205, xSize-2);
-    printch((char)188);
+    printCh((char)188);
   }
   else
   {
@@ -1439,16 +1439,16 @@ void newWindow(string title, int ableToClose, int style)  //Overwrites screen wi
   int i = 0;
   if(style == 1)
   {
-    printch((char)218);
+    printCh((char)218);
     printMultipleCh((char)196, 74);
-    printch((char)194);
+    printCh((char)194);
     printMultipleCh((char)196, 3);
-    printch((char)191);
-    printch((char)179);
-    printch((char)32);
+    printCh((char)191);
+    printCh((char)179);
+    printCh((char)32);
     print(title);
     setCursorX(75);
-    printch((char)179);
+    printCh((char)179);
     if(ableToClose == 0)  //Prints ' X ' in different colors if the window is able to be closed or not
     {
       printColored(" X ", 7, 8);
@@ -1461,52 +1461,52 @@ void newWindow(string title, int ableToClose, int style)  //Overwrites screen wi
     {
       kerror("Invalid ableToClose value");
     }
-    printch((char)179);
-    printch((char)195);
+    printCh((char)179);
+    printCh((char)195);
     printMultipleCh((char)196, 74);
-    printch((char)193);
+    printCh((char)193);
     printMultipleCh((char)196, 3);
-    printch((char)180);
+    printCh((char)180);
     while(i != 21)
     {
-      printch((char)179);
+      printCh((char)179);
       printMultipleCh((char)32, 78);
-      printch((char)179);
+      printCh((char)179);
       i++;
     }
-    printch((char)192);
+    printCh((char)192);
     printMultipleCh((char)196, 78);
-    printch((char)217);
+    printCh((char)217);
   }
   else if(style == 2)
   {
-    printch((char)201);
+    printCh((char)201);
     printMultipleCh((char)205, 74);
-    printch((char)203);
+    printCh((char)203);
     printMultipleCh((char)205, 3);
-    printch((char)187);
-    printch((char)186);
-    printch((char)32);
+    printCh((char)187);
+    printCh((char)186);
+    printCh((char)32);
     print(title);
     setCursorX(75);
-    printch((char)186);
+    printCh((char)186);
     printColored(" X ", 15, 4);
-    printch((char)186);
-    printch((char)204);
+    printCh((char)186);
+    printCh((char)204);
     printMultipleCh((char)205, 74);
-    printch((char)202);
+    printCh((char)202);
     printMultipleCh((char)205, 3);
-    printch((char)185);
+    printCh((char)185);
     while(i != 21)
     {
-      printch((char)186);
+      printCh((char)186);
       printMultipleCh((char)32, 78);
-      printch((char)186);
+      printCh((char)186);
       i++;
     }
-    printch((char)200);
+    printCh((char)200);
     printMultipleCh((char)205, 78);
-    printch((char)188);
+    printCh((char)188);
   }
   else
   {
