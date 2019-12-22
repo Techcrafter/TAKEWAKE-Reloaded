@@ -672,7 +672,7 @@ int runInterface(int navType, int ableToQuit)  //Runs the interface with the spe
     
     if(navType == 1 || navType == 2 || navType == 3)  //Keyboard navigation for 1, 2, 3
     {
-      input = getNavigation();
+      input = getNavigation(0);
     }
     
     if(navType == 1 || navType == 3)  //up and down (keyboard)
@@ -1087,7 +1087,7 @@ int runInterface(int navType, int ableToQuit)  //Runs the interface with the spe
       
       while(1)
       {
-        cursorMouse();  //Unlock mouse and wait for leftclick
+        cursorMouse(0);  //Unlock mouse and wait for leftclick
         
         //Check for any buttons at the position of the cursor or if ableToQuit == 1 even if the ' X ' is pressed
         if(ableToQuit == 1 && getCursorX() >= 76 && getCursorX() <= 78 && getCursorY() >= 1 && getCursorY() <= 1)
@@ -1191,31 +1191,36 @@ int showInfobox(string title, string text, int type, int preselected, int navTyp
   printCh((char)191);
   setCursorX(12);
   print(title);
-  
-  print("\n          ");
+  plusCursorY();
+  setCursorX(10);
   printCh((char)179);
   print("                                                          ");
   printCh((char)179);
-  print("\n          ");
+  plusCursorY();
+  setCursorX(10);
   printCh((char)179);
   print("                                                          ");
   setCursorX(14);
   print(text);
   setCursorX(69);
   printCh((char)179);
-  print("\n          ");
+  plusCursorY();
+  setCursorX(10);
   printCh((char)179);
   print("                                                          ");
   printCh((char)179);
-  print("\n          ");
+  plusCursorY();;
+  setCursorX(10);
   printCh((char)179);
   print("                                                          ");
   printCh((char)179);
-  print("\n          ");
+  plusCursorY();
+  setCursorX(10);
   printCh((char)179);
   print("                                                          ");
   printCh((char)179);
-  print("\n          ");
+  plusCursorY();
+  setCursorX(10);
   
   printCh((char)192);
   printMultipleCh((char)196, 58);
@@ -1271,7 +1276,7 @@ int showInfobox(string title, string text, int type, int preselected, int navTyp
           print(languagesGetString(32));
         }
         
-        string input = getNavigation();
+        string input = getNavigation(0);
         
         if(strEquals(input, "left") && selection != 1)
         {

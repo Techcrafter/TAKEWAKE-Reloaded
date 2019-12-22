@@ -124,7 +124,8 @@ string language_en_us[] = {  //English (United States)
   "Need doubleclick",
   "Do you want to configure the mouse now?",
   "Session",  //50
-  "Cancel"
+  "Cancel",
+  "Please wait..."
 };
 
 string language_en_uk[] = {  //English (United Kingdom)
@@ -179,7 +180,8 @@ string language_en_uk[] = {  //English (United Kingdom)
   "Need doubleclick",
   "Do you want to configure the mouse now?",
   "Session",  //50
-  "Cancel"
+  "Cancel",
+  "Please wait..."
 };
 
 string language_de_de[] = {  //German/Deutsch (Deutschland)
@@ -234,5 +236,6 @@ string language_de_de[] = {  //German/Deutsch (Deutschland)
   "Doppelklick benoetigt",
   "Moechten sie die Maus jetzt konfigurieren?",
   "Sitzung",  //50
-  "Abbrechen"
+  "Abbrechen",
+  "Bitte warten..."
 };

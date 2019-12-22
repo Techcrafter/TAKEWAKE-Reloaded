@@ -182,10 +182,37 @@ void kfatal(string reason)  //Fatal error
 
 void kreboot()  //Kernelrebootfunction
 {
-  playToneForSec(300, 0);
-  playToneForSec(200, 0);
   setColor(15, 0);
   clear();
+  setCursorX(51);
+  print(versionYear);
+  print(" | The TAKEWAKE Community");
+  drawBox(26, 6, 27, 4, 2);
+  setCursorX(31);
+  setCursorY(7);
+  print("TAKEWAKE Reloaded");
+  setCursorX(33);
+  setCursorY(8);
+  print("Version ");
+  print(version);
+  setCursorY(18);
+  setCursorX(32);
+  print(languagesGetString(52));
+  setCursorX(4);
+  setCursorY(20);
+  setColor(15, 0);
+  drawBox(4, 20, 72, 3, 1);
+  setCursorX(5);
+  minusCursorY();
+  setColor(10, 10);
+  print("                               ");
+  playToneForSec(300, 0);
+  print("                              ");
+  playToneForSec(200, 0);
+  setColor(15, 0);
+  clearLine(18, 18);
+  setCursorY(18);
+  setCursorX(33);
   print(languagesGetString(34));
   
   outportb(0x64, 0xFE);  //Reboot
@@ -193,21 +220,37 @@ void kreboot()  //Kernelrebootfunction
 
 void kend()  //Kernelendfunction (at end)
 {
-  playToneForSec(300, 0);
-  playToneForSec(200, 0);
-  setColor(0, 15);
+  setColor(15, 0);
   clear();
-  print("\n\n\n\n\n\n\n");
-  print("                          ");
-  printColored("TAKEWAKE Reloaded ver.", 15, 0);
-  printColored(version, 15, 0);
-  print("\n\n                   Designed to make the world a better place.");
-  print("\n\n\n\n\n");
-  print("                    ");
-  print(languagesGetString(5));
   setCursorX(51);
-  setCursorY(0);
   print(versionYear);
   print(" | The TAKEWAKE Community");
+  drawBox(26, 6, 27, 4, 2);
+  setCursorX(31);
+  setCursorY(7);
+  print("TAKEWAKE Reloaded");
+  setCursorX(33);
+  setCursorY(8);
+  print("Version ");
+  print(version);
+  setCursorY(18);
+  setCursorX(32);
+  print(languagesGetString(52));
+  setCursorX(4);
+  setCursorY(20);
+  setColor(15, 0);
+  drawBox(4, 20, 72, 3, 1);
+  setCursorX(5);
+  minusCursorY();
+  setColor(10, 10);
+  print("                               ");
+  playToneForSec(300, 0);
+  print("                              ");
+  playToneForSec(200, 0);
+  setColor(15, 0);
+  clearLine(18, 22);
+  setCursorY(18);
+  setCursorX(20);
+  print(languagesGetString(5));
   asm("hlt");
 }

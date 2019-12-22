@@ -33,9 +33,9 @@ int mouseDoubleclick;
 int mouseCursorX;
 int mouseCursorY;
 
-string readStr();  //Input of strings (keyboard)
+string readStr(int limit);  //Input of strings (keyboard) (0 limit = no limit)
 
-string getNavigation();  //Get Arrow-Key Navigation (keyboard)
+string getNavigation(int cycles);  //Get Arrow-Key Navigation (keyboard) (0 cycles = wait for enter)
 
 string pause();  //Pause until Escapekey or Enter is pressed (keyboard)
 
@@ -43,7 +43,7 @@ void activateMouse();  //Activates the mouse to send data (mouse)
 
 void deactivateMouse();  //Deactivates the mouse to stop sending data (mouse)
 
-void cursorMouse();  //Shows cursor that can be moved by the mouse (mouse)
+void cursorMouse(int cycles);  //Shows cursor that can be moved by the mouse (mouse) (0 cycles = wait for enter)
 
 int getMouseSupport();  //Gets mouse support
 

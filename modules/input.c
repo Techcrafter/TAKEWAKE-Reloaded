@@ -27,9 +27,8 @@ int mouseDoubleclick = 0;
 int mouseCursorX = 39;
 int mouseCursorY = 12;
 
-string readStr()  //Input of strings (keyboard)
+string readStr(int limit)  //Input of strings (keyboard) (0 limit = no limit)
 {
-  char buff;
   string buffstr;
   uint8 i = 0;
   uint8 reading = 1;
@@ -40,7 +39,7 @@ string readStr()  //Input of strings (keyboard)
   
   continueReading:
   
-  while(reading && i < 60)  //Checks for reading and sets a limit to 60
+  while(reading && i < limit)  //Checks for reading and sets a limit to 60
   {
     if(inportb(0x64) & 0x1)
     {
@@ -1108,7 +1107,7 @@ string readStr()  //Input of strings (keyboard)
     }
   }
 
-  while(reading && i == 60)  //Delete and Enter must even work with full limit
+  while(reading && i == limit)  //Delete and Enter must even work with full limit
   {
     if(inportb(0x64) & 0x1)
     {
@@ -1157,10 +1156,21 @@ string readStr()  //Input of strings (keyboard)
   return buffstr;
 }
 
-string getNavigation()  //Get Arrow-Key Navigation (keyboard)
+string getNavigation(int cycles)  //Get Arrow-Key Navigation (keyboard) (0 cycles = wait for enter)
 {
-  while(1)
+  int cycle = 0;
+  
+  if(cycles == 0)
   {
+    cycle = 1;
+  }
+  
+  while(cycle != cycles)
+  {
+    if(cycles != 0)
+    {
+      cycle++;
+    }
     if(inportb(0x64) & 0x1)
     {
       switch(inportb(0x60))
@@ -1227,7 +1237,7 @@ void deactivateMouse()  //Deactivates the mouse to stop sending data (mouse)
   outportb(0x60, 0xF5);  //Tells the mouse to stop sending data
 }
 
-void cursorMouse()  //Shows cursor that can be moved by the mouse (mouse)
+void cursorMouse(int cycles)  //Shows cursor that can be moved by the mouse (mouse) (0 cycles = wait for enter)
 {
   int n1 = 0;
   int n2 = 0;
@@ -1235,6 +1245,12 @@ void cursorMouse()  //Shows cursor that can be moved by the mouse (mouse)
   int n4 = 0;
   int n5a = 0;
   int n5b = 0;
+  int cycle = 0;
+
+  if(cycles == 0)
+  {
+    cycle = 1;
+  }
   
   activateMouse();
   
@@ -1242,8 +1258,12 @@ void cursorMouse()  //Shows cursor that can be moved by the mouse (mouse)
   setCursorY(mouseCursorY);
   showCursor();
   
-  while(1)
+  while(cycle != cycles)
   {
+    if(cycles != 0)
+    {
+      cycle++;
+    }
     if(inportb(0x64) & 0x1)
     {
       uint32 value = inportb(0x60);
@@ -1336,6 +1356,11 @@ void cursorMouse()  //Shows cursor that can be moved by the mouse (mouse)
       }
     }
   }
+  
+  deactivateMouse();
+  hideCursor();
+  mouseCursorX = getCursorX();
+  mouseCursorY = getCursorY();
 }
 
 int getMouseSupport()  //Gets mouse support

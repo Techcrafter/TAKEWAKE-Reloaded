@@ -46,7 +46,7 @@ void terminalMain()  //Terminal-mainfunction
   while(1)
   {
     print("\nTW-Terminal> ");
-    input = readStr();
+    input = readStr(20);
     if(strEquals(input, "ascii"))
     {
       terminalAscii();
@@ -161,7 +161,7 @@ void terminalHelp()  //Terminal-help
 void terminalAscii()  //Displays a specified ascii symbol
 {
   print("\nDEC: ");
-  input = readStr();
+  input = readStr(3);
   if(strEquals(input, (char)27))
   {
     printColored("Aborted!", 4, 0);
@@ -177,7 +177,7 @@ void terminalAscii()  //Displays a specified ascii symbol
 void terminalTestInfobox()  //Displays an infobox with customized type and preselection
 {
   print("\nType: ");
-  input = readStr();
+  input = readStr(1);
   if(strEquals(input, (char)27))
   {
     printColored("Aborted!", 4, 0);
@@ -185,7 +185,7 @@ void terminalTestInfobox()  //Displays an infobox with customized type and prese
   }
   int type = str_to_int(input);
   print("\nPreselected: ");
-  input = readStr();
+  input = readStr(1);
   if(strEquals(input, (char)27))
   {
     printColored("Aborted!", 4, 0);
@@ -193,7 +193,7 @@ void terminalTestInfobox()  //Displays an infobox with customized type and prese
   }
   int preselected = str_to_int(input);
   print("\nNavigation type: ");
-  input = readStr();
+  input = readStr(1);
   if(strEquals(input, (char)27))
   {
     printColored("Aborted!", 4, 0);
@@ -215,7 +215,7 @@ void terminalTestInfobox()  //Displays an infobox with customized type and prese
 void terminalSetLanguage()  //Sets the systemlanguage to an int
 {
   print("\nDEC: ");
-  input = readStr();
+  input = readStr(3);
   if(strEquals(input, (char)27))
   {
     printColored("Aborted!", 4, 0);
@@ -255,7 +255,7 @@ void terminalGetDate()  //Prints the current date from CMOS in DD/MM/YY format
 void terminalPlayTone()  //Plays a tone with a specified frequence and time
 {
   print("\nFrequence (Hz): ");
-  input = readStr();
+  input = readStr(5);
   if(strEquals(input, (char)27))
   {
     printColored("Aborted!", 4, 0);
@@ -263,7 +263,7 @@ void terminalPlayTone()  //Plays a tone with a specified frequence and time
   }
   int freq = str_to_int(input);
   print("\nTime (s): ");
-  input = readStr();
+  input = readStr(2);
   if(strEquals(input, (char)27))
   {
     printColored("Aborted!", 4, 0);
@@ -278,7 +278,7 @@ void terminalPlayTone()  //Plays a tone with a specified frequence and time
 void terminalMouse()  //Demonstration of mouse functionality
 {
   clear();
-  cursorMouse();
+  cursorMouse(0);
   int tempX = getCursorX();
   int tempY = getCursorY();
   clear();

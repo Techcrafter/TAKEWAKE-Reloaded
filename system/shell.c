@@ -250,7 +250,7 @@ void shellCalculator()  //Shell-calculator
   
   setCursorX(6);
   setCursorY(7);
-  string str1 = readStr();
+  string str1 = readStr(30);
   if(strEquals(str1, (char)27))  //Quit
   {
     return;
@@ -276,7 +276,7 @@ void shellCalculator()  //Shell-calculator
   
   setCursorX(6);
   setCursorY(14);
-  string str2 = readStr();
+  string str2 = readStr(30);
   if(strEquals(str2, (char)27))  //Quit
   {
     return;
@@ -410,7 +410,7 @@ void shellTicTacToe()  //Shell-Tic Tac Toe
       print("O");
     }
     
-    input = getNavigation();
+    input = getNavigation(0);
     
     if(strEquals(input, "left") && selection != 1)
     {
@@ -626,7 +626,7 @@ void shellTicTacToe()  //Shell-Tic Tac Toe
         print(" ");
       }
       
-      input = getNavigation();
+      input = getNavigation(0);
       
       if(strEquals(input, "left") && selection != 1)
       {
@@ -1350,7 +1350,7 @@ void shellLanguageSelector()  //Languageselector
     }
     print("]   Deutsch (Deutschland)");
     
-    input = getNavigation();
+    input = getNavigation(0);
     
     if(strEquals(input, "up") && selection != 0)
     {
