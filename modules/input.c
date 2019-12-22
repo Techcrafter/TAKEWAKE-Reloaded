@@ -30,7 +30,7 @@ int mouseCursorY = 12;
 string readStr(int limit)  //Input of strings (keyboard) (0 limit = no limit)
 {
   string buffstr;
-  uint8 i = 0;
+  int i = 0;
   uint8 reading = 1;
   uint8 shifted = 0;
   int layout = languagesGetKbLayout();  //0 = en, 1 = de

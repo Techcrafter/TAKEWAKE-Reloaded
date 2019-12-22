@@ -19,5 +19,5 @@
 
 #Run QEMU to test the OS
 echo Running QEMU...
-qemu-system-i386 -cdrom OUTPUT/TAKEWAKE-Reloaded.iso -d guest_errors -m 2G -soundhw pcspk
+qemu-system-i386 -cdrom OUTPUT/TAKEWAKE-Reloaded.iso -d guest_errors -soundhw pcspk
 echo Done
