@@ -81,9 +81,7 @@ void kmain()  //Kernelmainfunktion (at start)
   print("Press [Enter] to accept and to continue.\n    Press [ESC] to refuse and to quit session.");
   if(strEquals(pause(), (char)27))
   {
-    clear();
-    print("You can turn off the computer now.");
-    asm("hlt");
+    kend();
   }
   //End of license part
   
@@ -107,8 +105,6 @@ void kmain()  //Kernelmainfunktion (at start)
   setCursorY(0);
   print(versionYear);
   print(" | The TAKEWAKE Community");
-  setCursorY(18);
-  setColor(15, 15);
   playToneForSec(200, 0);
   playToneForSec(300, 0);
   wait(1);  //Wait 1 seconds before continue
@@ -205,9 +201,9 @@ void kreboot()  //Kernelrebootfunction
   setCursorX(5);
   minusCursorY();
   setColor(10, 10);
-  print("                               ");
+  print("                        ");
   playToneForSec(300, 0);
-  print("                              ");
+  print("                        ");
   playToneForSec(200, 0);
   setColor(15, 0);
   clearLine(18, 18);
@@ -243,9 +239,9 @@ void kend()  //Kernelendfunction (at end)
   setCursorX(5);
   minusCursorY();
   setColor(10, 10);
-  print("                               ");
+  print("                           ");
   playToneForSec(300, 0);
-  print("                              ");
+  print("                           ");
   playToneForSec(200, 0);
   setColor(15, 0);
   clearLine(18, 22);

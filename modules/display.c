@@ -187,6 +187,10 @@ void setColor(int textColor, int bgColor)  //Sets text and background color
   {
     bgColor = 7;
   }
+  else if(bgColor == 8 && whiteBgSupport == 0)
+  {
+    bgColor = 0;
+  }
   color = (bgColor << 4) | textColor;
 }
 
