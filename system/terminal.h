@@ -25,6 +25,7 @@
 //Including the modules
 #include "../modules/display.h"
 #include "../modules/input.h"
+#include "../modules/random.h"
 #include "../modules/sound.h"
 #include "../modules/string.h"
 #include "../modules/system.h"
@@ -50,5 +51,7 @@ void terminalGetDate();  //Prints the current date from CMOS in DD/MM/YY format
 void terminalPlayTone();  //Plays a tone with a specified frequence for 3 seconds
 
 void terminalMouse();  //Demonstration of mouse functionality
+
+void terminalRandom();  //Generates a random int based on a specified range
 
 #endif

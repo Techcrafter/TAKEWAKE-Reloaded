@@ -24,11 +24,9 @@
 
 string input;
 
-void terminalMain()  //Terminal-mainfunction
+void terminal()  //Terminal-mainfunction
 {
-  terminalMain:
-  
-  
+  terminal:
   
   setColor(15, 0);
   setAutoScroll(1);
@@ -62,7 +60,7 @@ void terminalMain()  //Terminal-mainfunction
     else if(strEquals(input, "help"))
     {
       terminalHelp();
-      goto terminalMain;
+      goto terminal;
     }
     else if(strEquals(input, "infobox"))
     {
@@ -80,6 +78,10 @@ void terminalMain()  //Terminal-mainfunction
     else if(strEquals(input, "quit-session"))
     {
       kend();
+    }
+    else if(strEquals(input, "random"))
+    {
+      terminalRandom();
     }
     else if(strEquals(input, "reboot"))
     {
@@ -137,7 +139,10 @@ void terminalHelp()  //Terminal-help
   print(" Demonstration of mouse functionality.");
   print("\n quit-session        ");
   printCh((char)186);
-  print(" Quit the actual session.                                ");
+  print(" Quit the actual session.");
+  print("\n random              ");
+  printCh((char)186);
+  print(" Generates a random int based on a specified range.");
   print("\n reboot              ");
   printCh((char)186);
   print(" Reboots the computer.");
@@ -286,6 +291,29 @@ void terminalMouse()  //Demonstration of mouse functionality
   print(int_to_str(tempX));
   print("\nY: ");
   print(int_to_str(tempY));
+  
+  return;
+}
+
+void terminalRandom()  //Generates a random int based on a specified range
+{
+  print("\nRange down: ");
+  input = readStr(10);
+  if(strEquals(input, (char)27))
+  {
+    printColored("Aborted!", 4, 0);
+    return;
+  }
+  int rangeDown = str_to_int(input);
+  print("\nRange up: ");
+  input = readStr(10);
+  if(strEquals(input, (char)27))
+  {
+    printColored("Aborted!", 4, 0);
+    return;
+  }
+  print("\nResult: ");
+  print(int_to_str(getRandomInt(rangeDown, str_to_int(input))));
   
   return;
 }

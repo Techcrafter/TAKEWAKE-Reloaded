@@ -85,11 +85,11 @@ void kmain()  //Kernelmainfunktion (at start)
   }
   //End of license part
   
-  shellLanguageSelector();  //Open language selector
+  languageSelector();  //Open language selector
   
-  shellWhiteBgSupportSettings();  //Open white background support settings
+  whiteBgSupportSettings();  //Open white background support settings
   
-  shellMouseSettings();  //Open mouse settings
+  mouseSettings();  //Open mouse settings
   
   //Welcome screen
   setColor(0, 15);
@@ -108,7 +108,7 @@ void kmain()  //Kernelmainfunktion (at start)
   playToneForSec(200, 0);
   playToneForSec(300, 0);
   wait(1);  //Wait 1 seconds before continue
-  shellMainMenu();
+  shell();
 }
 
 string getVersion()  //Return version
@@ -145,7 +145,7 @@ void kerror(string reason)  //Error
   print("\nReason: ");
   print(reason);
   pause();
-  shellMainMenu();  //Reload shellMainMenu-function
+  shell();  //Reload shell-function
 }
 
 void kfatal(string reason)  //Fatal error

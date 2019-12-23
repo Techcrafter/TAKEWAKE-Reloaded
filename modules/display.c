@@ -219,13 +219,20 @@ int getCursorY()  //Returns cursorY
   return cursorY;
 }
 
-void setCursorX(uint8 newCursorX)  //Sets X-cursorposition
+void setCursor(int newCursorX, int newCursorY)  //Sets cursor position
+{
+  cursorX = newCursorX;
+  cursorY = newCursorY;
+  updateCursor();
+}
+
+void setCursorX(int newCursorX)  //Sets X-cursor position
 {
   cursorX = newCursorX;
   updateCursor();
 }
 
-void setCursorY(uint8 newCursorY)  //Sets Y-cursorposition
+void setCursorY(int newCursorY)  //Sets Y-cursor position
 {
   cursorY = newCursorY;
   updateCursor();

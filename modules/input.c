@@ -1222,8 +1222,8 @@ void activateMouse()  //Activates the mouse to send data (mouse)
   if(mouseSupport == 0)
   {
     showInfobox(languagesGetString(46), languagesGetString(47), 1, 1, 1);
-    shellMouseSettings();
-    shellMainMenu();
+    mouseSettings();
+    shell();
   }
   outportb(0x64, 0xA8);  //Activate input by mouse
   outportb(0x64, 0x20);  //Prepare command byte

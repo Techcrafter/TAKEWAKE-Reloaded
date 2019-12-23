@@ -83,7 +83,7 @@ string language_en_us[] = {  //English (United States)
   "Please select a Menuentry:",
   "Calculator",
   "Terminal",
-  "Tic Tac Toe",  //10
+  "User",  //10
   "Systeminformations",
   "Quit session",
   "Reboot system",
@@ -139,7 +139,7 @@ string language_en_uk[] = {  //English (United Kingdom)
   "Please select a Menuentry:",
   "Calculator",
   "Terminal",
-  "Tic Tac Toe",  //10
+  "User",  //10
   "Systeminformations",
   "Quit session",
   "Reboot system",
@@ -195,7 +195,7 @@ string language_de_de[] = {  //German/Deutsch (Deutschland)
   "Bitte waehlen sie einen Menueintrag aus:",
   "Taschenrechner",
   "Terminal",
-  "Tic Tac Toe",  //10
+  "Benutzer",  //10
   "Systeminformationen",
   "Sitzung beenden",
   "System neustarten",

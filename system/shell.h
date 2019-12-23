@@ -17,7 +17,7 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-//Shell and programs (not terminal) (with shell.c)
+//Shell (with shell.c)
 
 #ifndef SHELL_H
 #define SHELL_H
@@ -34,25 +34,15 @@
 
 //Including the systemelements
 #include "languages.h"
+#include "programs.h"
+#include "settings.h"
 #include "terminal.h"
 
 string input;
 int selection;
 
-void shellMainMenu();  //Shell main menu
+void shell();  //Shell main menu
 
-void shellCalculator();  //Shell-calculator
-
-void shellTicTacToe();  //Shell-Tic Tac Toe
-
-void shellLanguageSelector();  //Languageselector
-
-void shellWhiteBgSupportSettings();  //Settings for white background support
-
-void shellSysteminformation();  //Shell-systeminformation
-
-void shellMouseSettings();  //Mouse settings
-
-void shellSessionMenu();  //Menu for session options
+void sessionMenu();  //Menu for session options
 
 #endif

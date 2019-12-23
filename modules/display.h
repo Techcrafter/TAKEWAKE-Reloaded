@@ -64,9 +64,11 @@ int getCursorX();  //Returns cursorX
 
 int getCursorY();  //Returns cursorY
 
-void setCursorX(uint8 newCursorX);  //Sets X-cursorposition
+void setCursor(int newCursorX, int newCursorY);  //Sets cursor position
 
-void setCursorY(uint8 newCursorY);  //Sets Y-cursorposition
+void setCursorX(int newCursorX);  //Sets X-cursor position
+
+void setCursorY(int newCursorY);  //Sets Y-cursor position
 
 void plusCursorX();  //Sets cursorX plus one position
 
