@@ -25,6 +25,7 @@
 //Including the modules
 #include "../modules/display.h"
 #include "../modules/input.h"
+#include "languages.h"
 #include "../modules/random.h"
 #include "../modules/sound.h"
 #include "../modules/string.h"

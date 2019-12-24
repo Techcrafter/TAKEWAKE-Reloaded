@@ -19,7 +19,6 @@
 
 //OS-terminal (with terminal.h)
 
-#include "languages.h"
 #include "terminal.h"
 
 string input;

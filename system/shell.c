@@ -28,11 +28,6 @@ void shell()  //Shell
 {
   shell:
   
-  if(getMouseSupport() == 0)  //Start terminal if mouse support is disabled
-  {
-    terminal();
-  }
-  
   setColor(15, 0);
   clear();
   
@@ -74,7 +69,7 @@ void shell()  //Shell
     print(int_to_str(getCmosYear()));
   }
   
-  selection = runInterface(4, 0, 0);
+  selection = runInterface(5, 0, 0);
   if(selection == 1)  //Start
   {
     setCursorY(8);
@@ -101,23 +96,24 @@ void shell()  //Shell
     addButton(1, 0, 24, 5, 1, "Start");
     addButton(2, 72, 24, 8, 1, "");
     
-    addButton(3, 0, 21, 19, 1, languagesGetString(35));
-    addButton(4, 0, 22, 19, 1, languagesGetString(50));
     setCursorY(19);
     print("\n");
     printMultipleCh((char)196, 19);
     
-    addButton(5, 0, 12, 19, 1, languagesGetString(8));
-    addButton(6, 0, 13, 19, 1, "Tic Tac Toe");
-    addButton(7, 0, 14, 19, 1, languagesGetString(9));
-    addButton(8, 0, 15, 19, 1, "Degrand");
+    addButton(3, 0, 12, 19, 1, languagesGetString(8));  //Calculator
+    addButton(4, 0, 13, 19, 1, "Tic Tac Toe");  //Tic Tac Toe
+    addButton(5, 0, 14, 19, 1, languagesGetString(9));  //Terminal
+    addButton(6, 0, 15, 19, 1, "Degrand");  //Degrand
     
-    selection = runInterface(4, 0, 0);
-    if(selection == 0 || selection == 1)
+    addButton(7, 0, 21, 19, 1, languagesGetString(35));  //Settings
+    addButton(8, 0, 22, 19, 1, languagesGetString(50));  //Session
+    
+    selection = runInterface(5, 0, 0);
+    if(selection == 0 || selection == 1)  //Start
     {
       //Nothing, just continue
     }
-    else if(selection == 2)
+    else if(selection == 2)  //Time
     {
       clearLine(9, 22);
       drawBox(25, 7, 29, 3, 1);
@@ -137,27 +133,27 @@ void shell()  //Shell
     }
     else if(selection == 3)
     {
-      settings();
+      calculator();
     }
     else if(selection == 4)
     {
-      sessionMenu();
+      ticTacToe();
     }
     else if(selection == 5)
     {
-      calculator();
+      terminal();
     }
     else if(selection == 6)
     {
-      ticTacToe();
+      degrand();
     }
     else if(selection == 7)
     {
-      terminal();
+      settings();
     }
     else if(selection == 8)
     {
-      degrand();
+      sessionMenu();
     }
     else
     {
@@ -165,7 +161,7 @@ void shell()  //Shell
     }
     goto shell;
   }
-  else if(selection == 2)
+  else if(selection == 2)  //Time
   {
     setCursorX(72);
     setCursorY(24);
@@ -195,7 +191,7 @@ void sessionMenu()  //Menu for session options
   addButton(2, 23, 8, 33, 1, languagesGetString(13));
   addButton(3, 23, 10, 33, 1, languagesGetString(51));
   
-  selection = runInterface(4, 0, 0);
+  selection = runInterface(5, 0, 0);
   if(selection == 0 || selection == 3)
   {
     //Nothing, just continue

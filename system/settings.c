@@ -41,7 +41,7 @@ void settings()  //Settings
   addButton(3, 5, 10, strLength(languagesGetString(23)), 1, languagesGetString(23));  //White background support
   drawBox(29, 9, strLength(languagesGetString(41))+2, 3, 1);
   addButton(4, 30, 10, strLength(languagesGetString(41)), 1, languagesGetString(41));  //Mouse settings
-  selection = runInterface(4, 1, 0);
+  selection = runInterface(5, 1, 0);
   
   if(selection == 0)  //Quit
   {
@@ -209,7 +209,7 @@ void systeminformation()  //Systeminformation
   setCursorY(16);
   print(languagesGetString(29));
   
-  selection = runInterface(4, 1, 0);
+  selection = runInterface(5, 1, 0);
   if(selection == 0)  //Quit
   {
     return;

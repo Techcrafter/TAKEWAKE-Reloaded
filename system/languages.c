@@ -117,7 +117,7 @@ string language_en_us[] = {  //English (United States)
   "Mouse settings",
   "Do you want to enable mouse support?",
   "Information",
-  "The terminal will be used instead of the shell.",
+  "A few features may be not avaible without mouse.",
   "Set the pointer speed of your mouse below.",  //45
   "Error!",
   "Mouse support needs to be enabled for this action.",
@@ -176,7 +176,7 @@ string language_en_uk[] = {  //English (United Kingdom)
   "Mouse settings",
   "Do you want to enable mouse support?",
   "Information",
-  "The terminal will be used instead of the shell.",
+  "A few features may be not avaible without mouse.",
   "Set the pointer speed of your mouse below.",  //45
   "Error!",
   "Mouse support needs to be enabled for this action.",
@@ -235,7 +235,7 @@ string language_de_de[] = {  //German/Deutsch (Deutschland)
   "Mauseinstellungen",
   "Moechten sie die Maus aktivieren?",
   "Hinweis",
-  "Das Terminal wird anstelle der Shell verwendet.",
+  "Einige Funktionen sind eventuell nicht verfuegbar.",
   "Stellen sie unten die Zeigergeschwindigkeit ihrer Maus ein.",  //45
   "Fehler!",
   "Fuer diese Aktion muss die Maus aktiviert sein.",
