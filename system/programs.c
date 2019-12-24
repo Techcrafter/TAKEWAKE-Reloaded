@@ -1155,23 +1155,58 @@ void degrand()  //Degrand (2D space shooting game)
       }
       i++;
     }
-    playToneForSec(freq, 1);
-    if(freq == 700)
+    if(freq != 1100)
     {
-      freq = 1000;
-    }
-    else
-    {
-      freq += 100;
+      playToneForSec(freq, 1);
+      if(freq == 700)
+      {
+        freq = 1000;
+      }
+      else
+      {
+        freq += 100;
+      }
     }
     
     i = 1;
   }
+  ch = 178;
   
-  newInterface(15, 0, 0, 15);
-  addButton(1, 25, 16, strLength(languagesGetString(53)), 1, languagesGetString(53));
-  addButton(2, 25, 17, strLength(languagesGetString(54)), 1, languagesGetString(54));
-  addButton(3, 25, 18, strLength(languagesGetString(55)), 1, languagesGetString(55));
   drawBox(23, 14, 34, 7, 1);
-  selection = runInterface(5, 1, 0);
+  newInterface(15, 0, 0, 15);
+  addButton(1, 25+(30-strLength(languagesGetString(53)))/2, 16, strLength(languagesGetString(53)), 1, languagesGetString(53));
+  addButton(2, 25+(30-strLength(languagesGetString(54)))/2, 17, strLength(languagesGetString(54)), 1, languagesGetString(54));
+  addButton(3, 25+(30-strLength(languagesGetString(55)))/2, 18, strLength(languagesGetString(55)), 1, languagesGetString(55));
+  selection = runInterface(4, 1, 0);
+  if(selection == 0 || selection == 3)  //Quit
+  {
+    return;
+  }
+  else if(selection == 1)  //Start game
+  {
+    clear();
+    print("Placeholder");
+    wait(1);
+  }
+  else if(selection == 2)  //How to play
+  {
+    newWindow(languagesGetString(54), 1, 1);
+    setCursor(2, 4);
+    newInterface(15, 0, 0, 15);
+    selection = runInterface(4, 1, 0);
+    if(selection == 0)  //Back to main menu
+    {
+      //Do nothing, just continue
+    }
+    else  //Invalid selection
+    {
+      kerror("Invalid selection");
+    }
+  }
+  else  //Invalid selection
+  {
+    kerror("Invalid selection");
+  }
+  
+  goto degrand;
 }

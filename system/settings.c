@@ -177,8 +177,7 @@ void systeminformation()  //Systeminformation
   
   newInterface(15, 0, 0, 15);
   
-  setCursorX(2);
-  setCursorY(4);
+  setCursor(2, 4);
   print("TAKEWAKE Reloaded  Copyright (C) 2019-");
   print(getVersionYear());
   print("  The TAKEWAKE Community");
