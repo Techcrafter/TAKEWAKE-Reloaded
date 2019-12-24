@@ -248,9 +248,9 @@ void terminalGetDate()  //Prints the current date from CMOS in DD/MM/YY format
 {
   print("\nCurrent date (MM/DD/YY):\n");
   print(int_to_str(getCmosMonth()));
-  print(".");
+  print("/");
   print(int_to_str(getCmosDay()));
-  print(".");
+  print("/");
   print(int_to_str(getCmosYear()));
   
   return;
