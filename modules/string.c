@@ -21,7 +21,7 @@
 
 #include "string.h"
 
-uint16 strlength(string ch)  //Returns the length of a string
+uint16 strLength(string ch)  //Returns the length of a string
 {
   uint16 i = 0;
   while(ch[i++]);
@@ -31,8 +31,8 @@ uint16 strlength(string ch)  //Returns the length of a string
 uint8 strEquals(string ch1, string ch2)  //Checks if two strings are the same
 {
   uint8 result = 1;
-  uint8 size = strlength(ch1);
-  if(size != strlength(ch2))
+  uint8 size = strLength(ch1);
+  if(size != strLength(ch2))
   {
     result = 0;
   }

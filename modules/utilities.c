@@ -56,7 +56,7 @@ string int_to_str(int n)  //Converts int to string
 {
   string ch = malloc(50);
   int_to_ascii(n, ch);
-  int len = strlength(ch);
+  int len = strLength(ch);
   int i = 0;
   int j = len -1;
   
@@ -76,7 +76,7 @@ int str_to_int(string ch)  //Converts string to int
 {
   int n = 0;
   int p = 1;
-  int strlen = strlength(ch);
+  int strlen = strLength(ch);
   int i;
   for(i = strlen-1;i>=0;i--)
   {

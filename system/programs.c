@@ -21,6 +21,9 @@
 
 #include "programs.h"
 
+string input;
+int selection;
+
 void calculator()  //Calculator
 {
   calculator:
@@ -109,7 +112,7 @@ void calculator()  //Calculator
   addButton(2, 33, 10, 1, 1, "-");
   addButton(3, 46, 10, 1, 1, "*");
   addButton(4, 59, 10, 1, 1, "/");
-  selection = runInterface(2, 1);
+  selection = runInterface(2, 1, 0);
 
   if(selection == 0)  //Quit
   {
@@ -1096,13 +1099,15 @@ void ticTacToe()  //Tic Tac Toe
   }
 }
 
-void degrand()  //Degrand (space shooting game)
+void degrand()  //Degrand (2D space shooting game)
 {
   setColor(15, 0);
   int i = 1;
   int ch = 175;
   int freq = 500;
   string title = " XXXX  XXXX  XXXX  XXXX    XX   X   X XXXX X   X X    X      X   X  X  X  XX  X X   XX   X XXX  X  XX  XXXX  XXXXXX X X X X   XX   X X    X    X X  X  X    X X  XX X   XXXXX  XXXX  XXXX  X   X X    X X   X XXXX";
+  degrand:
+  
   while(ch != 219)
   {
     clear();
@@ -1128,10 +1133,11 @@ void degrand()  //Degrand (space shooting game)
     {
       ch = 219;
     }
-    else
+    else if(ch < 178)
     {
       ch++;
     }
+    
     while(i < 210)
     {
       if(title[i] == 'X')
@@ -1158,9 +1164,14 @@ void degrand()  //Degrand (space shooting game)
     {
       freq += 100;
     }
+    
     i = 1;
   }
   
+  newInterface(15, 0, 0, 15);
+  addButton(1, 25, 16, strLength(languagesGetString(53)), 1, languagesGetString(53));
+  addButton(2, 25, 17, strLength(languagesGetString(54)), 1, languagesGetString(54));
+  addButton(3, 25, 18, strLength(languagesGetString(55)), 1, languagesGetString(55));
   drawBox(23, 14, 34, 7, 1);
-  pause();
+  selection = runInterface(5, 1, 0);
 }

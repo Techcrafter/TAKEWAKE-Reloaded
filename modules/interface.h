@@ -23,6 +23,7 @@
 #define INTERFACE_H
 
 #include "display.h"
+#include "input.h"
 #include "types.h"
 
 int selection;
@@ -178,7 +179,7 @@ void newInterface(int unselectedTextColor, int unselectedBackgroundColor, int se
 
 void addButton(int id, int posX, int posY, int sizeX, int sizeY, string text);  //Adds a new button to the interface
 
-int runInterface(int navType, int ableToQuit);  //Runs the interface with the specified navigation type (1 = up and down | 2 = left and right | 3 = up, down, left and right)
+int runInterface(int navType, int ableToQuit, int cycles);  //Runs the interface with the specified navigation type (1 = up and down | 2 = left and right | 3 = up, down, left and right | 4 = mouse | 5 = mouse and keyboard) (0 cycles = wait for enter/leftclick)
 
 int showInfobox(string title, string text, int type, int preselected, int navType);  //Shows an infobox and returns the selection (type1 = ok | type2 = yes,no) (navType1 = keyboard | navType2 = mouse)
 

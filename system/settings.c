@@ -21,6 +21,9 @@
 
 #include "settings.h"
 
+string input;
+int selection;
+
 void settings()  //Settings
 {
   settings:
@@ -30,15 +33,15 @@ void settings()  //Settings
   
   newInterface(15, 0, 0, 15);
   
-  drawBox(4, 4, strlength(languagesGetString(36))+2, 3, 1);
-  addButton(1, 5, 5, strlength(languagesGetString(36)), 1, languagesGetString(36));  //LanguageSelector
-  drawBox(29, 4, strlength(languagesGetString(37))+2, 3, 1);
-  addButton(2, 30, 5, strlength(languagesGetString(37)), 1, languagesGetString(37));  //Systeminformation
-  drawBox(4, 9, strlength(languagesGetString(23))+2, 3, 1);
-  addButton(3, 5, 10, strlength(languagesGetString(23)), 1, languagesGetString(23));  //White background support
-  drawBox(29, 9, strlength(languagesGetString(41))+2, 3, 1);
-  addButton(4, 30, 10, strlength(languagesGetString(41)), 1, languagesGetString(41));  //Mouse settings
-  selection = runInterface(4, 1);
+  drawBox(4, 4, strLength(languagesGetString(36))+2, 3, 1);
+  addButton(1, 5, 5, strLength(languagesGetString(36)), 1, languagesGetString(36));  //LanguageSelector
+  drawBox(29, 4, strLength(languagesGetString(37))+2, 3, 1);
+  addButton(2, 30, 5, strLength(languagesGetString(37)), 1, languagesGetString(37));  //Systeminformation
+  drawBox(4, 9, strLength(languagesGetString(23))+2, 3, 1);
+  addButton(3, 5, 10, strLength(languagesGetString(23)), 1, languagesGetString(23));  //White background support
+  drawBox(29, 9, strLength(languagesGetString(41))+2, 3, 1);
+  addButton(4, 30, 10, strLength(languagesGetString(41)), 1, languagesGetString(41));  //Mouse settings
+  selection = runInterface(4, 1, 0);
   
   if(selection == 0)  //Quit
   {
@@ -207,7 +210,7 @@ void systeminformation()  //Systeminformation
   setCursorY(16);
   print(languagesGetString(29));
   
-  selection = runInterface(4, 1);
+  selection = runInterface(4, 1, 0);
   if(selection == 0)  //Quit
   {
     return;
@@ -309,8 +312,8 @@ void mouseSettings()  //Mouse settings
       addButton(4, 3, 9, 3, 1, "[ ]");
     }
     drawBox(3, 11, 4, 3, 1);
-    addButton(5, 4, 12, strlength(languagesGetString(39)), 1, languagesGetString(39));
-    selection = runInterface(4, 0);
+    addButton(5, 4, 12, strLength(languagesGetString(39)), 1, languagesGetString(39));
+    selection = runInterface(4, 0, 0);
     if(selection == 5)
     {
       return;

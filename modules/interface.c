@@ -172,6 +172,8 @@ string button20Text;
 
 void newInterface(int unselectedTextColor, int unselectedBackgroundColor, int selectedTextColor, int selectedBackgroundColor)  //Prepares for a new interface
 {
+  selection = 0;
+  
   unselTxtCl = unselectedTextColor;
   unselBgCl = unselectedBackgroundColor;
   selTxtCl = selectedTextColor;
@@ -388,26 +390,26 @@ void addButton(int id, int posX, int posY, int sizeX, int sizeY, string text)  /
   }
 }
 
-int runInterface(int navType, int ableToQuit)  //Runs the interface with the specified navigation type (1 = up and down (keyboard) | 2 = left and right (keyboard) | 3 = up, down, left and right (keyboard) | 4 = mouse)
+int runInterface(int navType, int ableToQuit, int cycles)  //Runs the interface with the specified navigation type -> 1 = up and down (keyboard) | 2 = left and right (keyboard) | 3 = up, down, left and right (keyboard) | 4 = mouse (0 cycles = wait for key/leftclick)
 {
-  if(navType == 1 || navType == 2 || navType == 3)  //Selection for keyboard navigation only
+  int running = 1;
+  
+  if(navType < 1 || navType > 4)
+  {
+    kerror("Invalid navType");
+  }
+  
+  if(selection == 0 && navType != 4)
   {
     selection = 1;
-  }
-  else
-  {
-    selection = 0;
   }
   
   if(button1 == 0 && ableToQuit == 0)  //Error if there is no button1 and ableToQuit is 0
   {
-    if(navType != 4 && ableToQuit != 1)
-    {
-      kerror("No selectable objects");
-    }
+    kerror("No action avaible (interface)");
   }
   
-  while(1)
+  while(running)
   {
     if(button1 == 1)
     {
@@ -672,7 +674,7 @@ int runInterface(int navType, int ableToQuit)  //Runs the interface with the spe
     
     if(navType == 1 || navType == 2 || navType == 3)  //Keyboard navigation for 1, 2, 3
     {
-      input = getNavigation(0);
+      input = getNavigation(cycles);
     }
     
     if(navType == 1 || navType == 3)  //up and down (keyboard)
@@ -1041,6 +1043,14 @@ int runInterface(int navType, int ableToQuit)  //Runs the interface with the spe
       }
     }
     
+    if(navType == 1 || navType == 2 || navType == 3)
+    {
+      if(cycles != 0)
+      {
+        running = 0;
+      }
+    }
+    
     if(navType == 4)  //Mouse navigation
     {
       //Subtract 1 from the size values
@@ -1085,94 +1095,142 @@ int runInterface(int navType, int ableToQuit)  //Runs the interface with the spe
       button20SizeX--;
       button20SizeY--;
       
-      while(1)
+      while(running)
       {
-        cursorMouse(0);  //Unlock mouse and wait for leftclick
+        int mouseResult = cursorMouse(cycles);  //Unlock mouse and wait for leftclick or end of cycles
         
-        //Check for any buttons at the position of the cursor or if ableToQuit == 1 even if the ' X ' is pressed
-        if(ableToQuit == 1 && getCursorX() >= 76 && getCursorX() <= 78 && getCursorY() >= 1 && getCursorY() <= 1)
+        if(mouseResult != -1)
         {
-          return 0;
+          //Check for any buttons at the position of the cursor or if ableToQuit == 1 even if the ' X ' is pressed
+          if(ableToQuit == 1 && getCursorX() >= 76 && getCursorX() <= 78 && getCursorY() >= 1 && getCursorY() <= 1)
+          {
+            return 0;
+          }
+          else if(button1 == 1 && getCursorX() >= button1X && getCursorX() <= button1X + button1SizeX && getCursorY() >= button1Y && getCursorY() <= button1Y + button1SizeY)
+          {
+            return 1;
+          }
+          else if(button2 == 1 && getCursorX() >= button2X && getCursorX() <= button2X + button2SizeX && getCursorY() >= button2Y && getCursorY() <= button2Y + button2SizeY)
+          {
+            return 2;
+          }
+          else if(button3 == 1 && getCursorX() >= button3X && getCursorX() <= button3X + button3SizeX && getCursorY() >= button3Y && getCursorY() <= button3Y + button3SizeY)
+          {
+            return 3;
+          }
+          else if(button4 == 1 && getCursorX() >= button4X && getCursorX() <= button4X + button4SizeX && getCursorY() >= button4Y && getCursorY() <= button4Y + button4SizeY)
+          {
+            return 4;
+          }
+          else if(button5 == 1 && getCursorX() >= button5X && getCursorX() <= button5X + button5SizeX && getCursorY() >= button5Y && getCursorY() <= button5Y + button5SizeY)
+          {
+            return 5;
+          }
+          else if(button6 == 1 && getCursorX() >= button6X && getCursorX() <= button6X + button6SizeX && getCursorY() >= button6Y && getCursorY() <= button6Y + button6SizeY)
+          {
+            return 6;
+          }
+          else if(button7 == 1 && getCursorX() >= button7X && getCursorX() <= button7X + button7SizeX && getCursorY() >= button7Y && getCursorY() <= button7Y + button7SizeY)
+          {
+            return 7;
+          }
+          else if(button8 == 1 && getCursorX() >= button8X && getCursorX() <= button8X + button8SizeX && getCursorY() >= button8Y && getCursorY() <= button8Y + button8SizeY)
+          {
+            return 8;
+          }
+          else if(button9 == 1 && getCursorX() >= button9X && getCursorX() <= button9X + button9SizeX && getCursorY() >= button9Y && getCursorY() <= button9Y + button9SizeY)
+          {
+            return 9;
+          }
+          else if(button10 == 1 && getCursorX() >= button10X && getCursorX() <= button10X + button10SizeX && getCursorY() >= button10Y && getCursorY() <= button10Y + button10SizeY)
+          {
+            return 10;
+          }
+          else if(button11 == 1 && getCursorX() >= button11X && getCursorX() <= button11X + button11SizeX && getCursorY() >= button11Y && getCursorY() <= button11Y + button11SizeY)
+          {
+            return 11;
+          }
+          else if(button12 == 1 && getCursorX() >= button12X && getCursorX() <= button12X + button12SizeX && getCursorY() >= button12Y && getCursorY() <= button12Y + button12SizeY)
+          {
+            return 12;
+          }
+          else if(button13 == 1 && getCursorX() >= button13X && getCursorX() <= button13X + button13SizeX && getCursorY() >= button13Y && getCursorY() <= button13Y + button13SizeY)
+          {
+            return 13;
+          }
+          else if(button14 == 1 && getCursorX() >= button14X && getCursorX() <= button14X + button14SizeX && getCursorY() >= button14Y && getCursorY() <= button14Y + button14SizeY)
+          {
+            return 14;
+          }
+          else if(button15 == 1 && getCursorX() >= button15X && getCursorX() <= button15X + button15SizeX && getCursorY() >= button15Y && getCursorY() <= button15Y + button15SizeY)
+          {
+            return 15;
+          }
+          else if(button16 == 1 && getCursorX() >= button16X && getCursorX() <= button16X + button16SizeX && getCursorY() >= button16Y && getCursorY() <= button16Y + button16SizeY)
+          {
+            return 16;
+          }
+          else if(button17 == 1 && getCursorX() >= button17X && getCursorX() <= button17X + button17SizeX && getCursorY() >= button17Y && getCursorY() <= button17Y + button17SizeY)
+          {
+            return 17;
+          }
+          else if(button18 == 1 && getCursorX() >= button18X && getCursorX() <= button18X + button18SizeX && getCursorY() >= button18Y && getCursorY() <= button18Y + button18SizeY)
+          {
+            return 18;
+          }
+          else if(button19 == 1 && getCursorX() >= button19X && getCursorX() <= button19X + button19SizeX && getCursorY() >= button19Y && getCursorY() <= button19Y + button19SizeY)
+          {
+            return 19;
+          }
+          else if(button20 == 1 && getCursorX() >= button20X && getCursorX() <= button20X + button20SizeX && getCursorY() >= button20Y && getCursorY() <= button20Y + button20SizeY)
+          {
+            return 20;
+          }
         }
-        else if(button1 == 1 && getCursorX() >= button1X && getCursorX() <= button1X + button1SizeX && getCursorY() >= button1Y && getCursorY() <= button1Y + button1SizeY)
+        if(cycles != 0)
         {
-          return 1;
-        }
-        else if(button2 == 1 && getCursorX() >= button2X && getCursorX() <= button2X + button2SizeX && getCursorY() >= button2Y && getCursorY() <= button2Y + button2SizeY)
-        {
-          return 2;
-        }
-        else if(button3 == 1 && getCursorX() >= button3X && getCursorX() <= button3X + button3SizeX && getCursorY() >= button3Y && getCursorY() <= button3Y + button3SizeY)
-        {
-          return 3;
-        }
-        else if(button4 == 1 && getCursorX() >= button4X && getCursorX() <= button4X + button4SizeX && getCursorY() >= button4Y && getCursorY() <= button4Y + button4SizeY)
-        {
-          return 4;
-        }
-        else if(button5 == 1 && getCursorX() >= button5X && getCursorX() <= button5X + button5SizeX && getCursorY() >= button5Y && getCursorY() <= button5Y + button5SizeY)
-        {
-          return 5;
-        }
-        else if(button6 == 1 && getCursorX() >= button6X && getCursorX() <= button6X + button6SizeX && getCursorY() >= button6Y && getCursorY() <= button6Y + button6SizeY)
-        {
-          return 6;
-        }
-        else if(button7 == 1 && getCursorX() >= button7X && getCursorX() <= button7X + button7SizeX && getCursorY() >= button7Y && getCursorY() <= button7Y + button7SizeY)
-        {
-          return 7;
-        }
-        else if(button8 == 1 && getCursorX() >= button8X && getCursorX() <= button8X + button8SizeX && getCursorY() >= button8Y && getCursorY() <= button8Y + button8SizeY)
-        {
-          return 8;
-        }
-        else if(button9 == 1 && getCursorX() >= button9X && getCursorX() <= button9X + button9SizeX && getCursorY() >= button9Y && getCursorY() <= button9Y + button9SizeY)
-        {
-          return 9;
-        }
-        else if(button10 == 1 && getCursorX() >= button10X && getCursorX() <= button10X + button10SizeX && getCursorY() >= button10Y && getCursorY() <= button10Y + button10SizeY)
-        {
-          return 10;
-        }
-        else if(button11 == 1 && getCursorX() >= button11X && getCursorX() <= button11X + button11SizeX && getCursorY() >= button11Y && getCursorY() <= button11Y + button11SizeY)
-        {
-          return 11;
-        }
-        else if(button12 == 1 && getCursorX() >= button12X && getCursorX() <= button12X + button12SizeX && getCursorY() >= button12Y && getCursorY() <= button12Y + button12SizeY)
-        {
-          return 12;
-        }
-        else if(button13 == 1 && getCursorX() >= button13X && getCursorX() <= button13X + button13SizeX && getCursorY() >= button13Y && getCursorY() <= button13Y + button13SizeY)
-        {
-          return 13;
-        }
-        else if(button14 == 1 && getCursorX() >= button14X && getCursorX() <= button14X + button14SizeX && getCursorY() >= button14Y && getCursorY() <= button14Y + button14SizeY)
-        {
-          return 14;
-        }
-        else if(button15 == 1 && getCursorX() >= button15X && getCursorX() <= button15X + button15SizeX && getCursorY() >= button15Y && getCursorY() <= button15Y + button15SizeY)
-        {
-          return 15;
-        }
-        else if(button16 == 1 && getCursorX() >= button16X && getCursorX() <= button16X + button16SizeX && getCursorY() >= button16Y && getCursorY() <= button16Y + button16SizeY)
-        {
-          return 16;
-        }
-        else if(button17 == 1 && getCursorX() >= button17X && getCursorX() <= button17X + button17SizeX && getCursorY() >= button17Y && getCursorY() <= button17Y + button17SizeY)
-        {
-          return 17;
-        }
-        else if(button18 == 1 && getCursorX() >= button18X && getCursorX() <= button18X + button18SizeX && getCursorY() >= button18Y && getCursorY() <= button18Y + button18SizeY)
-        {
-          return 18;
-        }
-        else if(button19 == 1 && getCursorX() >= button19X && getCursorX() <= button19X + button19SizeX && getCursorY() >= button19Y && getCursorY() <= button19Y + button19SizeY)
-        {
-          return 19;
-        }
-        else if(button20 == 1 && getCursorX() >= button20X && getCursorX() <= button20X + button20SizeX && getCursorY() >= button20Y && getCursorY() <= button20Y + button20SizeY)
-        {
-          return 20;
+          //Add 1 to the size values again
+          button1SizeX++;
+          button1SizeY++;
+          button2SizeX++;
+          button2SizeY++;
+          button3SizeX++;
+          button3SizeY++;
+          button4SizeX++;
+          button4SizeY++;
+          button5SizeX++;
+          button5SizeY++;
+          button6SizeX++;
+          button6SizeY++;
+          button7SizeX++;
+          button7SizeY++;
+          button8SizeX++;
+          button8SizeY++;
+          button9SizeX++;
+          button9SizeY++;
+          button10SizeX++;
+          button10SizeY++;
+          button11SizeX++;
+          button11SizeY++;
+          button12SizeX++;
+          button12SizeY++;
+          button13SizeX++;
+          button13SizeY++;
+          button14SizeX++;
+          button14SizeY++;
+          button15SizeX++;
+          button15SizeY++;
+          button16SizeX++;
+          button16SizeY++;
+          button17SizeX++;
+          button17SizeY++;
+          button18SizeX++;
+          button18SizeY++;
+          button19SizeX++;
+          button19SizeY++;
+          button20SizeX++;
+          button20SizeY++;
+          running = 0;
         }
       }
     }
@@ -1328,8 +1386,8 @@ int showInfobox(string title, string text, int type, int preselected, int navTyp
       printColored(languagesGetString(39), 9, 0);
       while(1)
       {
-        addButton(1, 38, 21, strlength(languagesGetString(39)), 1, "");
-        selection = runInterface(4, 0);
+        addButton(1, 38, 21, strLength(languagesGetString(39)), 1, "");
+        selection = runInterface(4, 0, 0);
         if(selection == 1)
         {
           setColorcode(currentColor);
@@ -1352,9 +1410,9 @@ int showInfobox(string title, string text, int type, int preselected, int navTyp
       printColored(languagesGetString(32), 4, 0);
       while(1)
       {
-        addButton(1, 32, 21, strlength(languagesGetString(31)), 1, "");
-        addButton(2, 44, 21, strlength(languagesGetString(32)), 1, "");
-        selection = runInterface(4, 0);
+        addButton(1, 32, 21, strLength(languagesGetString(31)), 1, "");
+        addButton(2, 44, 21, strLength(languagesGetString(32)), 1, "");
+        selection = runInterface(4, 0, 0);
         if(selection == 1)
         {
           setColorcode(currentColor);

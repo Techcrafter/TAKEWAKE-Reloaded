@@ -125,7 +125,10 @@ string language_en_us[] = {  //English (United States)
   "Do you want to configure the mouse now?",
   "Session",  //50
   "Cancel",
-  "Please wait..."
+  "Please wait...",
+  "Start game",
+  "How to play",
+  "Quit"  //55
 };
 
 string language_en_uk[] = {  //English (United Kingdom)
@@ -181,7 +184,10 @@ string language_en_uk[] = {  //English (United Kingdom)
   "Do you want to configure the mouse now?",
   "Session",  //50
   "Cancel",
-  "Please wait..."
+  "Please wait...",
+  "Start game",
+  "How to play",
+  "Quit"  //55
 };
 
 string language_de_de[] = {  //German/Deutsch (Deutschland)
@@ -237,5 +243,8 @@ string language_de_de[] = {  //German/Deutsch (Deutschland)
   "Moechten sie die Maus jetzt konfigurieren?",
   "Sitzung",  //50
   "Abbrechen",
-  "Bitte warten..."
+  "Bitte warten...",
+  "Spiel starten",
+  "Anleitung",
+  "Verlassen"  //55
 };

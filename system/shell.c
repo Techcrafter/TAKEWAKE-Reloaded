@@ -74,7 +74,7 @@ void shell()  //Shell
     print(int_to_str(getCmosYear()));
   }
   
-  selection = runInterface(4, 0);
+  selection = runInterface(4, 0, 0);
   if(selection == 1)  //Start
   {
     setCursorY(8);
@@ -112,7 +112,7 @@ void shell()  //Shell
     addButton(7, 0, 14, 19, 1, languagesGetString(9));
     addButton(8, 0, 15, 19, 1, "Degrand");
     
-    selection = runInterface(4, 0);
+    selection = runInterface(4, 0, 0);
     if(selection == 0 || selection == 1)
     {
       //Nothing, just continue
@@ -195,7 +195,7 @@ void sessionMenu()  //Menu for session options
   addButton(2, 23, 8, 33, 1, languagesGetString(13));
   addButton(3, 23, 10, 33, 1, languagesGetString(51));
   
-  selection = runInterface(4, 0);
+  selection = runInterface(4, 0, 0);
   if(selection == 0 || selection == 3)
   {
     //Nothing, just continue

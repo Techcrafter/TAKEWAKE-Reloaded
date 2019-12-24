@@ -165,7 +165,7 @@ void printMultipleCh(char c, int count)
 void print(string ch)  //Prints a text
 {
   uint16 i = 0;
-  uint8 length = strlength(ch);  //Saves the stringlength into a variable for calling the function only once
+  uint8 length = strLength(ch);  //Saves the stringlength into a variable for calling the function only once
   
   for(i;i<length;i++)
   {

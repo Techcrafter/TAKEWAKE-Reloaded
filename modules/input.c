@@ -1156,7 +1156,7 @@ string readStr(int limit)  //Input of strings (keyboard) (0 limit = no limit)
   return buffstr;
 }
 
-string getNavigation(int cycles)  //Get Arrow-Key Navigation (keyboard) (0 cycles = wait for enter)
+string getNavigation(int cycles)  //Get Arrow-Key Navigation (keyboard) (0 cycles = wait for key)
 {
   int cycle = 0;
   
@@ -1237,7 +1237,7 @@ void deactivateMouse()  //Deactivates the mouse to stop sending data (mouse)
   outportb(0x60, 0xF5);  //Tells the mouse to stop sending data
 }
 
-void cursorMouse(int cycles)  //Shows cursor that can be moved by the mouse (mouse) (0 cycles = wait for enter)
+int cursorMouse(int cycles)  //Shows cursor that can be moved by the mouse (mouse) (0 cycles = wait for leftclick)
 {
   int n1 = 0;
   int n2 = 0;
@@ -1264,6 +1264,7 @@ void cursorMouse(int cycles)  //Shows cursor that can be moved by the mouse (mou
     {
       cycle++;
     }
+    
     if(inportb(0x64) & 0x1)
     {
       uint32 value = inportb(0x60);
@@ -1361,6 +1362,8 @@ void cursorMouse(int cycles)  //Shows cursor that can be moved by the mouse (mou
   hideCursor();
   mouseCursorX = getCursorX();
   mouseCursorY = getCursorY();
+  
+  return -1;
 }
 
 int getMouseSupport()  //Gets mouse support
