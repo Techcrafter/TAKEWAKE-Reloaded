@@ -1181,6 +1181,9 @@ string getNavigation(int cycles)  //Get Arrow-Key Navigation (keyboard) (0 cycle
         case 28:
           return "enter";  //Enter (returns 'enter')
           break;
+        case 57:
+          return "space";  //Space (returns 'space')
+          break;
         case 72:
           return "up";  //Up (returns 'up')
           break;

@@ -69,7 +69,7 @@ void shell()  //Shell
     print(int_to_str(getCmosYear()));
   }
   
-  selection = runInterface(5, 0, 0);
+  selection = runInterface(7, 0, 0);
   if(selection == 1)  //Start
   {
     setCursorY(8);
@@ -108,7 +108,7 @@ void shell()  //Shell
     addButton(7, 0, 21, 19, 1, languagesGetString(35));  //Settings
     addButton(8, 0, 22, 19, 1, languagesGetString(50));  //Session
     
-    selection = runInterface(5, 0, 0);
+    selection = runInterface(7, 0, 0);
     if(selection == 0 || selection == 1)  //Start
     {
       //Nothing, just continue

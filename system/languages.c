@@ -128,7 +128,12 @@ string language_en_us[] = {  //English (United States)
   "Please wait...",
   "Start game",
   "How to play",
-  "Quit"  //55
+  "Quit",  //55
+  "Your highscore:",
+  "Lifes:",
+  "Score:",
+  "Play again",
+  "Back to menu"  //60
 };
 
 string language_en_uk[] = {  //English (United Kingdom)
@@ -187,7 +192,12 @@ string language_en_uk[] = {  //English (United Kingdom)
   "Please wait...",
   "Start game",
   "How to play",
-  "Quit"  //55
+  "Quit",  //55
+  "Your highscore:",
+  "Lifes:",
+  "Score:",
+  "Play again",
+  "Back to menu"  //60
 };
 
 string language_de_de[] = {  //German/Deutsch (Deutschland)
@@ -246,5 +256,10 @@ string language_de_de[] = {  //German/Deutsch (Deutschland)
   "Bitte warten...",
   "Spiel starten",
   "Anleitung",
-  "Verlassen"  //55
+  "Verlassen",  //55
+  "Ihr Highscore:",
+  "Leben:",
+  "Punkte:",
+  "Erneut spielen",
+  "Zurueck zum Menu"  //60
 };

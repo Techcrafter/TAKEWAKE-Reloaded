@@ -151,7 +151,15 @@ void printCh(char c)  //Prints a char
   updateCursor();
 }
 
-void printMultipleCh(char c, int count)
+void printColoredCh(char c, int textColor, int bgColor)  //Prints colored char
+{
+  int currentColor = color;
+  setColor(textColor, bgColor);
+  printCh(c);
+  setColorcode(currentColor);
+}
+
+void printMultipleCh(char c, int count)  //Prints multiple chars
 {
   int i = 0;
   
@@ -160,6 +168,14 @@ void printMultipleCh(char c, int count)
     printCh(c);
     i++;
   }
+}
+
+void printMultipleColoredCh(char c, int count, int textColor, int bgColor)  //Prints multiple colored chars
+{
+  int currentColor = color;
+  setColor(textColor, bgColor);
+  printMultipleCh(c, count);
+  setColorcode(currentColor);
 }
 
 void print(string ch)  //Prints a text

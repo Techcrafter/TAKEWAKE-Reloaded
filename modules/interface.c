@@ -390,16 +390,38 @@ void addButton(int id, int posX, int posY, int sizeX, int sizeY, string text)  /
   }
 }
 
-int runInterface(int navType, int ableToQuit, int cycles)  //Runs the interface with the specified navigation type -> 1 = up and down (keyboard) | 2 = left and right (keyboard) | 3 = up, down, left and right (keyboard) | 4 = mouse | 5 = decide based on mouse support enabled or disabled (0 cycles = wait for key/leftclick)
+int runInterface(int navType, int ableToQuit, int cycles)  //Runs the interface with the specified navigation type -> 1 = up and down (keyboard) | 2 = left and right (keyboard) | 3 = up, down, left and right (keyboard) | 4 = mouse | 5 = decide (based on mouse support enabled or disabled) (keyboard -> up and down) | 6 = decide (keyboard -> left and right) | 7 = decide (keyboard -> up, down, left and right) (0 cycles = wait for key/leftclick)
 {
   int running = 1;
   
-  if(navType < 1 || navType > 5)
+  if(navType < 1 || navType > 7)
   {
     kerror("Invalid navType (interface)");
   }
   
   if(navType == 5)
+  {
+    if(getMouseSupport() == 0)
+    {
+      navType = 1;
+    }
+    else
+    {
+      navType = 4;
+    }
+  }
+  else if(navType == 6)
+  {
+    if(getMouseSupport() == 0)
+    {
+      navType = 2;
+    }
+    else
+    {
+      navType = 4;
+    }
+  }
+  else if(navType == 7)
   {
     if(getMouseSupport() == 0)
     {

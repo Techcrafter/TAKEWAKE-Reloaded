@@ -48,6 +48,12 @@ void newLineCheck();  //Checks if new line is needed
 
 void printch(char c);  //Prints a char
 
+void printColoredCh(char c, int textColor, int bgColor);  //Prints colored char
+
+void printMultipleCh(char c, int count);  //Prints multiple chars
+
+void printMultipleColoredCh(char c, int count, int textColor, int bgColor);  //Prints multiple colored chars
+
 void print(string ch);  //Prints a text
 
 void printColored(string ch, int textColor, int bgColor);  //Prints colored text

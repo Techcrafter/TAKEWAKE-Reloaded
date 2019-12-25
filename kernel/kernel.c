@@ -36,7 +36,7 @@
 const string version = "0.0.8";  //Version
 const string versionYear = "2019";  //Year of the current version
 
-void kmain()  //Kernelmainfunktion (at start)
+void kmain()  //Kernel-main (at start)
 {
   //Begin of the bootprocess
   setColor(15, 0);
@@ -45,18 +45,14 @@ void kmain()  //Kernelmainfunktion (at start)
   print(versionYear);
   print(" | The TAKEWAKE Community");
   drawBox(26, 6, 27, 4, 2);
-  setCursorX(31);
-  setCursorY(7);
+  setCursor(31, 7);
   print("TAKEWAKE Reloaded");
-  setCursorX(33);
-  setCursorY(8);
+  setCursor(33, 8);
   print("Version ");
   print(version);
-  setCursorY(18);
-  setCursorX(33);
+  setCursor(33, 18);
   print("Please wait...");
-  setCursorX(4);
-  setCursorY(20);
+  setCursor(4, 20);
   setColor(15, 0);
   drawBox(4, 20, 72, 3, 1);
   setCursorX(5);
@@ -76,8 +72,7 @@ void kmain()  //Kernelmainfunktion (at start)
   print("  The TAKEWAKE Community");
   print("\n    TAKEWAKE Reloaded is distributed under the GNU General Public License 3.");
   print("\n    For more informations see <https://www.gnu.org/licenses/>.");
-  setCursorX(4);
-  setCursorY(21);
+  setCursor(4, 21);
   print("Press [Enter] to accept and to continue.\n    Press [ESC] to refuse and to quit session.");
   if(strEquals(pause(), (char)27))
   {
@@ -137,8 +132,7 @@ void kerror(string reason)  //Error
   print(languagesGetString(2));
   print("\n\n                     ");
   print(languagesGetString(0));
-  setCursorX(51);
-  setCursorY(0);
+  setCursor(51, 0);
   printColored(versionYear, 0, 15);
   printColored(" | The TAKEWAKE Community", 0, 15);
   setCursorY(23);
@@ -165,8 +159,7 @@ void kfatal(string reason)  //Fatal error
   print(languagesGetString(2));
   print("\n\n                    ");
   print(languagesGetString(4));
-  setCursorX(51);
-  setCursorY(0);
+  setCursor(51, 0);
   printColored(versionYear, 15, 0);
   printColored(" | The TAKEWAKE Community", 15, 0);
   setCursorY(23);
@@ -184,18 +177,14 @@ void kreboot()  //Kernelrebootfunction
   print(versionYear);
   print(" | The TAKEWAKE Community");
   drawBox(26, 6, 27, 4, 2);
-  setCursorX(31);
-  setCursorY(7);
+  setCursor(31, 7);
   print("TAKEWAKE Reloaded");
-  setCursorX(33);
-  setCursorY(8);
+  setCursor(33, 8);
   print("Version ");
   print(version);
-  setCursorY(18);
-  setCursorX(32);
+  setCursor(32, 18);
   print(languagesGetString(52));
-  setCursorX(4);
-  setCursorY(20);
+  setCursor(4, 20);
   setColor(15, 0);
   drawBox(4, 20, 72, 3, 1);
   setCursorX(5);
@@ -207,8 +196,7 @@ void kreboot()  //Kernelrebootfunction
   playToneForSec(200, 0);
   setColor(15, 0);
   clearLine(18, 18);
-  setCursorY(18);
-  setCursorX(33);
+  setCursor(33, 18);
   print(languagesGetString(34));
   
   outportb(0x64, 0xFE);  //Reboot
@@ -222,18 +210,14 @@ void kend()  //Kernelendfunction (at end)
   print(versionYear);
   print(" | The TAKEWAKE Community");
   drawBox(26, 6, 27, 4, 2);
-  setCursorX(31);
-  setCursorY(7);
+  setCursor(31, 7);
   print("TAKEWAKE Reloaded");
-  setCursorX(33);
-  setCursorY(8);
+  setCursor(33, 8);
   print("Version ");
   print(version);
-  setCursorY(18);
-  setCursorX(32);
+  setCursor(32, 18);
   print(languagesGetString(52));
-  setCursorX(4);
-  setCursorY(20);
+  setCursor(4, 20);
   setColor(15, 0);
   drawBox(4, 20, 72, 3, 1);
   setCursorX(5);
@@ -245,8 +229,7 @@ void kend()  //Kernelendfunction (at end)
   playToneForSec(200, 0);
   setColor(15, 0);
   clearLine(18, 22);
-  setCursorY(18);
-  setCursorX(20);
+  setCursor(20, 18);
   print(languagesGetString(5));
   asm("hlt");
 }
