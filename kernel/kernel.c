@@ -34,7 +34,7 @@
 #include "../system/shell.h"
 
 const string version = "0.0.8";  //Version
-const string versionYear = "2019";  //Year of the current version
+const string versionYear = "2020";  //Year of the current version
 
 void kmain()  //Kernel-main (at start)
 {

@@ -433,7 +433,7 @@ int runInterface(int navType, int ableToQuit, int cycles)  //Runs the interface 
     }
   }
   
-  if(selection == 0 && navType != 4)
+  if(selection == 0 && button1 == 1 && navType != 4)
   {
     selection = 1;
   }
