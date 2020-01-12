@@ -27,6 +27,8 @@ If you just want to run it without rebuilding it, run 'run-only.sh'.
 
 -Friendly interface with mouse and arrow key navigation which is really easy to program
 
+-Generate random numbers
+
 _...and a lot more_
 
 ### How can I help?
