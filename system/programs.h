@@ -39,6 +39,4 @@ void calculator();  //calculator
 
 void ticTacToe();  //Tic Tac Toe
 
-void degrand();  //Degrand (space shooting game)
-
 #endif

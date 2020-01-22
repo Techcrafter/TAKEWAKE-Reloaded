@@ -103,10 +103,9 @@ void shell()  //Shell
     addButton(3, 0, 12, 19, 1, languagesGetString(8));  //Calculator
     addButton(4, 0, 13, 19, 1, "Tic Tac Toe");  //Tic Tac Toe
     addButton(5, 0, 14, 19, 1, languagesGetString(9));  //Terminal
-    addButton(6, 0, 15, 19, 1, "Degrand");  //Degrand
     
-    addButton(7, 0, 21, 19, 1, languagesGetString(35));  //Settings
-    addButton(8, 0, 22, 19, 1, languagesGetString(50));  //Session
+    addButton(6, 0, 21, 19, 1, languagesGetString(35));  //Settings
+    addButton(7, 0, 22, 19, 1, languagesGetString(50));  //Session
     
     selection = runInterface(7, 0, 0);
     if(selection == 0 || selection == 1)  //Start
@@ -145,13 +144,9 @@ void shell()  //Shell
     }
     else if(selection == 6)
     {
-      degrand();
-    }
-    else if(selection == 7)
-    {
       settings();
     }
-    else if(selection == 8)
+    else if(selection == 7)
     {
       sessionMenu();
     }
