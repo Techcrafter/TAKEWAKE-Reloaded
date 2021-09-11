@@ -10,7 +10,7 @@ To start developing just run 'setup.sh' file in terminal on your Linux computer 
 If you're done, just run 'build.sh' in terminal to build the operating system and to test it.
 If you just want to run it without rebuilding it, run 'run-only.sh'.
 
-### What it already have:
+### Supported features:
 -Basics (Display support, ...)
 
 -Keyboard support
@@ -19,7 +19,7 @@ If you just want to run it without rebuilding it, run 'run-only.sh'.
 
 -Sound support for built in speaker
 
--Multiple languages with different keyboard layouts (English (USA), Englisch (UK) and German (DE))
+-Multiple languages with different keyboard layouts (English (USA), English (UK) and German (DE))
 
 -Read date and time from CMOS
 
